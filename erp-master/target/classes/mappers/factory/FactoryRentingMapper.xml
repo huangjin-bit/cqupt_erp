@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.factory.FactoryRentingDao">
+    <resultMap id="FactoryRenting" type="com.cqupt.mislab.erpn.model.entity.factory.FactoryRenting">
+        <id property="factoryId" column="FACTORYID"/>
+        <id property="userUnique" column="USERUNIQUE"/>
+        <result property="factoryType" column="FACTORYTYPE"/>
+        <result property="beginTime" column="BEGINTIME"/>
+        <result property="place" column="PLACE"/>
+        <result property="rentCost" column="RENTCOST"/>
+        <result property="needPeriod" column="NEEDPERIOD"/>
+    </resultMap>
+    <insert id="insertFactoryRenting">
+        insert into factory_renting(USERUNIQUE, FACTORYTYPE, PLACE, BEGINTIME, RENTCOST, NEEDPERIOD)
+        values (#{userUnique}, #{factoryType}, #{place}, #{beginTime}, #{rentCost}, #{needPeriod});
+
+    </insert>
+    <delete id="deleteFactoryRenting">
+        delete
+        from factory_renting
+        where USERUNIQUE = #{userUnique}
+          and FACTORYID = #{factoryId};
+
+    </delete>
+    <select id="listFactoryRentingsByUserUnique" resultMap="FactoryRenting">
+        select FACTORYID, USERUNIQUE, FACTORYTYPE, BEGINTIME, PLACE, RENTCOST, NEEDPERIOD
+        from factory_renting
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="listFactoryRentingsByPlace"
+            resultMap="FactoryRenting" >
+        select FACTORYID, USERUNIQUE, FACTORYTYPE, BEGINTIME, PLACE, RENTCOST, NEEDPERIOD
+        from factory_renting
+        where USERUNIQUE = #{userUnique}
+          and PLACE = #{place};
+    </select>
+</mapper>

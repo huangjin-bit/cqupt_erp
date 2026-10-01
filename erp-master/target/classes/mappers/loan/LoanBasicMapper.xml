@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.loan.LoanBasicDao">
+    <resultMap id="loanBasic" type="com.cqupt.mislab.erpn.model.entity.loan.LoanBasic">
+        <id property="loanTypeName" column="LOANTYPENAME"/>
+        <result property="basicRate" column="BASICRATE"/>
+        <result property="rateMode" column="RATEMODE"/>
+        <result property="permitMode" column="PERMITMODE"/>
+        <result property="maxMultiple" column="MAXMULTIPLE"/>
+        <result property="maxValueMode" column="MAXVALUEMODE"/>
+    </resultMap>
+    <select id="listLoanBasicInfo" resultMap="loanBasic">
+        select *
+        from loanbasic;
+
+    </select>
+    <select id="getBasicRate" resultType="java.lang.Float">
+        select BASICRATE
+        from loanbasic
+        where LOANTYPENAME = #{loanTypeName};
+
+    </select>
+
+</mapper>

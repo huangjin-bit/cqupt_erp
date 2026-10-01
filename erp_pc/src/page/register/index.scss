@@ -1,0 +1,38 @@
+@import 'common/styles/variable.scss';
+
+.register-page-wrapper {
+  width: 100vw;
+  height: 100vh;
+  .middle {
+    margin: 0 auto;
+    margin-bottom: 25px;
+    width: $formWidth;
+    .form-wrapper {
+      display: flex;
+      border: $formBorder;
+      margin-top: -224px;
+      background: white;
+      box-shadow: $formBoxShadow;
+      form {
+        width: 40%;
+        margin: 20px auto;
+        .btn-wrapper {
+          padding-left: 20px;
+          .ant-form-item-control-input-content {
+            display: flex;
+            justify-content: space-between;
+            .login-btn:nth-child(1) {
+              border: 0;
+              width: 45%;
+              background-color: #999;
+            }
+            .login-btn {
+              width: 45%;
+              background-color: $themeColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}

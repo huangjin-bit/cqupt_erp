@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.iso.UndevelopISODao">
+
+    <select id="findAllIsoUndevelop" parameterType="string"
+            resultType="com.cqupt.mislab.erpn.model.entity.iso.ISOUndevelop">
+		select
+		ISONAME,RESEARCHPERIOD,RESEARCHCOST,MAINTAINCOST,USERUNIQUE from undevelopiso
+		where USERUNIQUE=#{userUnique}
+	</select>
+    <select id="findOneIsoUndevelop" parameterType="map"
+            resultType="com.cqupt.mislab.erpn.model.entity.iso.ISOUndevelop">
+		select ISOName,
+		RESEARCHPERIOD,RESEARCHCOST,MAINTAINCOST from undevelopiso where
+		USERUNIQUE=#{userUnique} and ISONAME=#{isoName}
+	</select>
+    <delete id="deleteIsoUndevelop">
+		delete from undevelopiso where USERUNIQUE=#{userUnique} and
+		ISONAME=#{isoName}
+	</delete>
+
+</mapper>

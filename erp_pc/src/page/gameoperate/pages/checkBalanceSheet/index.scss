@@ -1,0 +1,25 @@
+.userprepare-wrapper{
+    padding:0px 15px 0px 10px ;
+    width: 100%;
+    min-width: 1120px;
+    .sheet-top{
+        margin-left: 30px;
+    .select-span{
+        color: #ADADAD;
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    .select-btn{
+        margin-left: 20px;
+    }
+    }
+    .sheet-tr{
+        td{
+            height: 20px;
+        }
+    }
+    .sheet-tr:nth-child(1){
+        background-color: whitesmoke !important;
+        color: rgb(136, 133, 133);
+    }
+}

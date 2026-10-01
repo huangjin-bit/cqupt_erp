@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.product.DevelopingProductDao">
+    <insert id="addDevelopingProduct">
+        insert into developingproduct(userUnique,productName,researchPeriod,researchCost,finishedPeriod,beginTime,status) values(#{userUnique},#{productName},#{researchPeriod},#{researchCost},#{finishedPeriod},#{beginTime},#{status});
+
+    </insert>
+    <update id="updateStopDevelopProduct">
+        update developingproduct set status=0 where userUnique=#{userUnique} and productName=#{productName};
+    </update>
+    <update id="updateRecoveryDevelopProduct">
+        update developingproduct set status=1 where userUnique=#{userUnique} and productName=#{productName};
+
+    </update>
+    <select id="findDevelopingProductsByUserUnique"
+            resultType="com.cqupt.mislab.erpn.model.entity.product.DevelopingProduct">
+        select USERUNIQUE,PRODUCTNAME,RESEARCHPERIOD,RESEARCHCOST,FINISHEDPERIOD,BEGINTIME,STATUS from developingproduct where userUnique=#{userUnique};
+    </select>
+    <select id="findDevelopingProduct"
+            resultType="com.cqupt.mislab.erpn.model.entity.product.DevelopingProduct">
+        select USERUNIQUE,PRODUCTNAME,RESEARCHPERIOD,RESEARCHCOST,FINISHEDPERIOD,BEGINTIME,STATUS from developingproduct where userUnique=#{userUnique} and productName=#{productName};
+    </select>
+
+</mapper>

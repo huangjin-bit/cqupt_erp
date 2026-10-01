@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.teacher.TeacherDao">
+
+    <resultMap type="com.cqupt.mislab.erpn.model.entity.user.RegisterUser" id="RegisterUser">
+        <id column="USERID" property="userId"/>
+        <result column="USERNAME" property="userName"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="MAJOR" property="major"/>
+        <result column="CLASS" property="sClass"/>
+        <result column="SID" property="sId"/>
+        <result column="EMAIL" property="email"/>
+        <result column="TEL" property="tel"/>
+        <result column="STATUS" property="status"/>
+    </resultMap>
+
+    <select id="findAllRegister" resultMap="RegisterUser">
+        select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,STATUS from registeruser
+    </select>
+
+    <resultMap type="com.cqupt.mislab.erpn.model.entity.user.ApprovedUser" id="ApprovedUser">
+        <id column="USERID" property="userId"/>
+        <result column="USERNAME" property="userName"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="MAJOR" property="major"/>
+        <result column="CLASS" property="sClass"/>
+        <result column="SID" property="sId"/>
+        <result column="EMAIL" property="email"/>
+        <result column="tel" property="tel"/>
+        <result column="REM2" property="rem2"/>
+    </resultMap>
+
+    <resultMap id="BasicUser" type="com.cqupt.mislab.erpn.model.entity.user.BasicUser">
+        <id column="USERID" property="userId"/>
+        <result column="USERNAME" property="userName"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="MAJOR" property="major"/>
+        <result column="CLASS" property="sClass"/>
+        <result column="SID" property="sId"/>
+        <result column="EMAIL" property="email"/>
+        <result column="TEL" property="tel"/>
+    </resultMap>
+
+    <select id="findAllApprovedUser"  resultMap="ApprovedUser">
+        select USERID, USERNAME, PASSWORD, MAJOR, CLASS, SID, EMAIL, TEL, REM2 from approveduser
+    </select>
+
+    <delete id="deleteReference">
+        delete from stu_teacher_reference where stuid = #{userId}
+    </delete>
+
+    <insert id="insertReferences" parameterType="java.util.Map" >
+        INSERT INTO stu_teacher_reference
+            (stuid,teacherid)
+        VALUES
+            (#{stuId},#{teacherId});
+    </insert>
+
+    <insert id="batchInsertTeacherReferences" parameterType="map">
+        INSERT INTO stu_teacher_reference (stuid, teacherid)
+        VALUES
+        <foreach collection="users" item="user" separator=",">
+            (#{user.userId}, #{teacherId})
+        </foreach>
+    </insert>
+
+    <select id="judgeAccount" parameterType="string" resultType="com.cqupt.mislab.erpn.model.po.TeacherPo">
+        select * from adminuser where ADMINID = #{param1} and PASSWORD = #{param2}
+    </select>
+
+    <select id="pageFindApprovedUser" resultMap="ApprovedUser" parameterType="int">
+        select USERID, USERNAME, PASSWORD, MAJOR, CLASS, SID, EMAIL, TEL, REM1, REM2 from approveduser order by USERID limit #{start},#{limit}
+    </select>
+
+    <select id="countRecordsApprovedUser" resultType="int">
+        select count(USERID) from approveduser
+    </select>
+
+    <select id="countRecordsRegisterUser" resultType="int">
+        select count(USERID) from registeruser
+    </select>
+
+    <select id="pageFindRegisterUser" parameterType="int" resultMap="RegisterUser">
+        select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,STATUS from registeruser order by USERID limit #{start},#{limit}
+    </select>
+
+    <update id="resetPasswordApproved">
+        update approveduser set PASSWORD = '123456' where USERID = #{userId}
+    </update>
+
+    <update id="resetPasswordRegister">
+        update registeruser set PASSWORD = '123456' where USERID = #{userId}
+    </update>
+
+    <select id="findBasicUser" resultMap="BasicUser" >
+        select USERID, USERNAME, PASSWORD, MAJOR, CLASS, SID, EMAIL
+            from
+            <if test="status == 1">
+                registeruser
+            </if>
+            <if test="status == 0">
+                approveduser
+            </if>
+            where USERID = #{userId}
+    </select>
+
+    <select id="findUsersUnclear" resultMap="BasicUser">
+        select USERID, USERNAME, PASSWORD, MAJOR, CLASS, SID, EMAIL
+            from
+        <if test="status == 1">
+            registeruser
+        </if>
+        <if test="status == 0">
+            approveduser
+        </if>
+            where  SID like "%"#{keyword}"%"
+
+    </select>
+    <select id="findAllApprovedUserByAdminId"
+            resultType="java.lang.String">
+        SELECT str.stuid
+        from
+        stu_teacher_reference str
+        where
+        str.teacherid = #{adminId};
+    </select>
+
+    <select id="findApprovedUsersByGameUsers" resultType="com.cqupt.mislab.erpn.model.entity.user.ApprovedUser">
+        SELECT *
+        FROM approveduser
+        WHERE USERID IN
+        <foreach item="userId" collection="gameUsers" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </select>
+
+    <insert id="importApprovedUser" parameterType="java.util.List">
+        INSERT INTO approveduser (USERID, USERNAME, PASSWORD, MAJOR, CLASS, SID, EMAIL, TEL, TYPEID, GENDER, REM2)
+        VALUES
+        <foreach collection="users" item="user" index="index" separator=",">
+            (#{user.userId}, #{user.userName}, #{user.password}, #{user.major}, #{user.sClass}, #{user.sId}, #{user.email}, #{user.tel},null, #{user.gender}, #{user.rem2})
+        </foreach>
+    </insert>
+
+
+    <select id="countTableRows" resultType="int">
+        select count(*) from ${tableName}
+    </select>
+
+    <delete id="deleteAllTableRows">
+        delete from ${tableName}
+    </delete>
+</mapper>

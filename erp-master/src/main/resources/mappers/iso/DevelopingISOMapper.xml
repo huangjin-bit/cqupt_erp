@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.iso.DevelopingISODao">
+
+    <select id="findAllDevelopingIso" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.iso.ISODeveloping">
+	 select USERUNIQUE,ISONAME,RESEARCHPERIOD,RESEARCHCOST,FINISHEDPERIOD,BEGINTIME,STATUS from developingiso where USERUNIQUE=#{userUnique}
+	</select>
+
+    <select id="findOneDevelopingIso" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.iso.ISODeveloping">
+	 select RESEARCHPERIOD,RESEARCHCOST,BEGINTIME,STATUS from developingiso where USERUNIQUE=#{userUnique} and ISONAME=#{isoName}
+	</select>
+    <update id="updateIsoDevelopingStatus" parameterType="map" >
+	update developingiso set STATUS =#{status} where USERUNIQUE = #{userUnique} and ISONAME =#{isoName}
+	</update>
+
+    <update id="updateIsoDevelopingFinishedPeriod" parameterType="string">
+	update developingiso set FINISHEDPERIOD = FINISHEDPERIOD + 1 where USERUNIQUE = #{userUnique} and ISONAME = #{isoName}
+	</update>
+
+    <delete id="deleteOneIsoDevelopingRecord" parameterType="map">
+	delete from developingiso where USERUNIQUE = #{userUnique} and ISONAME = #{isoName}
+	</delete>
+
+    <insert id="addIsoToDeveloping"  parameterType="com.cqupt.mislab.erpn.model.entity.iso.ISODeveloping" >
+		insert into developingiso (USERUNIQUE,ISONAME,RESEARCHPERIOD,RESEARCHCOST,FINISHEDPERIOD,BEGINTIME,STATUS)
+		values(#{userUnique},#{isoName},#{researchPeriod},#{researchCost},'0',#{beginTime},'1')
+	</insert>
+
+
+</mapper>

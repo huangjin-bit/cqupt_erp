@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.factory.FactoryUsingDao">
+
+    <resultMap id="FactoryUsing" type="com.cqupt.mislab.erpn.model.entity.factory.FactoryUsing">
+        <id property="factoryId" column="FACTORYID"/>
+        <id property="userUnique" column="USERUNIQUE"/>
+        <result property="factoryType" column="FACTORYTYPE"/>
+        <result property="sellPrice" column="SELLPRICE"/>
+        <result property="beginTime" column="BEGINTIME"/>
+        <result property="finishTime" column="FINISHTIME"/>
+        <result property="place" column="PLACE"/>
+    </resultMap>
+    <delete id="deleteFactory">
+        delete  from factory_using where USERUNIQUE=#{userUnique} and FACTORYID=#{factoryId}
+    </delete>
+    <select id="listFactoryUsingsByUserUnique" resultMap="FactoryUsing">
+        select FACTORYID, USERUNIQUE, FACTORYTYPE, SELLPRICE, BEGINTIME, FINISHTIME, PLACE
+        from factory_using
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="listFactoryUsingsByPlace" resultMap="FactoryUsing">
+        select FACTORYID, USERUNIQUE, FACTORYTYPE, SELLPRICE, BEGINTIME, FINISHTIME, PLACE
+        from factory_using
+        where USERUNIQUE = #{userUnique} and PLACE=#{place};
+    </select>
+    <select id="findUsingDetailById" resultMap="FactoryUsing">
+        select  * from  factory_using
+        where USERUNIQUE = #{userUnique} and FACTORYID=#{factoryId};
+    </select>
+
+
+</mapper>

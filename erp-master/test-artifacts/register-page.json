@@ -1,0 +1,147 @@
+{
+  "url": "http://39.98.115.237/#/register",
+  "title": "ERP沙盘虚拟运营系统",
+  "visibleText": "欢迎注册\n用 户 名\n真实姓名\n学  号\n性  别\n男\n女\n专  业\n班  级\n电子邮件\n联系方式\n密  码\n确认密码\n返回\n注 册\nCopyright © 2011 - 2027 重庆优霓维思科技有限公司 版权所有",
+  "fields": [
+    {
+      "index": 0,
+      "tag": "input",
+      "type": "text",
+      "text": "",
+      "placeholder": null,
+      "id": "userId",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 1,
+      "tag": "input",
+      "type": "text",
+      "text": "",
+      "placeholder": null,
+      "id": "userName",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 2,
+      "tag": "input",
+      "type": "text",
+      "text": "",
+      "placeholder": null,
+      "id": "sid",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 3,
+      "tag": "input",
+      "type": "radio",
+      "text": "男",
+      "placeholder": null,
+      "id": null,
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 4,
+      "tag": "input",
+      "type": "radio",
+      "text": "女",
+      "placeholder": null,
+      "id": null,
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 5,
+      "tag": "input",
+      "type": "text",
+      "text": "",
+      "placeholder": null,
+      "id": "major",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 6,
+      "tag": "input",
+      "type": "text",
+      "text": "",
+      "placeholder": null,
+      "id": "sclass",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 7,
+      "tag": "input",
+      "type": "text",
+      "text": "",
+      "placeholder": null,
+      "id": "email",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 8,
+      "tag": "input",
+      "type": "text",
+      "text": "",
+      "placeholder": null,
+      "id": "tel",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 9,
+      "tag": "input",
+      "type": "password",
+      "text": "",
+      "placeholder": null,
+      "id": "password",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 10,
+      "tag": "input",
+      "type": "password",
+      "text": "",
+      "placeholder": null,
+      "id": "confirmPassword",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 11,
+      "tag": "button",
+      "type": "submit",
+      "text": "返回",
+      "placeholder": null,
+      "id": null,
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 12,
+      "tag": "a",
+      "type": null,
+      "text": "返回",
+      "placeholder": null,
+      "id": null,
+      "href": "#/",
+      "disabled": false
+    },
+    {
+      "index": 13,
+      "tag": "button",
+      "type": "submit",
+      "text": "注 册",
+      "placeholder": null,
+      "id": null,
+      "href": null,
+      "disabled": false
+    }
+  ]
+}

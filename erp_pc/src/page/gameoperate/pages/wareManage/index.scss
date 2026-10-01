@@ -1,0 +1,69 @@
+.userprepare-wrapper {
+    padding: 0px 15px 0px 10px;
+    width: 100%;
+    height: 100%;
+    min-width: 1220px;
+    position: relative;
+
+    .ware-img {
+        width: 100%;
+    }
+
+    .ware-p1,
+    .ware-p2,
+    .ware-p3,
+    .ware-p4,
+    .ware-r1,
+    .ware-r2,
+    .ware-r3,
+    .ware-r4 {
+        color: #ffffff;
+        position: absolute;
+        width: 3.5%;
+        height: 4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8vw;
+    }
+
+    .ware-p1 {
+        top: 42.1%;
+        left: 23.4%;
+    }
+
+    .ware-p2 {
+        top: 42.45%;
+        left: 41.8%;
+    }
+
+    .ware-p3 {
+        top: 54.9%;
+        left: 10.8%;
+    }
+
+    .ware-p4 {
+        top: 54.8%;
+        left: 33.1%;
+    }
+
+    .ware-r1 {
+        top: 44.2%;
+        left: 68.1%;
+    }
+
+    .ware-r2 {
+        top: 44.3%;
+        left: 88.1%;
+    }
+
+    .ware-r3 {
+        top: 55.4%;
+        left: 57.1%;
+    }
+
+    .ware-r4 {
+        top: 55.3%;
+        left: 77%;
+    }
+}

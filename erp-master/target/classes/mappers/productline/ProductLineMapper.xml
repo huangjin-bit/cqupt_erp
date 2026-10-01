@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.productline.ProductLineDao">
+<resultMap id="productLine" type="com.cqupt.mislab.erpn.model.entity.productline.ProductLine">
+    <id property="userUnique" column="USERUNIQUE"/>
+    <id property="productLineId" column="PRODUCTLINEID"/>
+    <result property="factoryId" column="FACTORYID"/>
+    <result property="productLineType" column="PRODUCTLINETYPE"/>
+    <result property="status" column="STATUS"/>
+    <result property="finishPeriod" column="FINISHPERIOD"/>
+    <result property="productName" column="PRODUCTNAME"/>
+    <result property="productFinishPeriod" column="PRODUCTFINISHPERIOD"/>
+    <result property="sellPrice" column="SELLPRICE"/>
+</resultMap>
+    <resultMap id="productLineVO" type="com.cqupt.mislab.erpn.model.vo.productline.ProductLineVO">
+        <id property="productLineId" column="PRODUCTLINEID"/>
+        <id property="productLineType" column="PRODUCTLINETYPE"/>
+        <result property="producePeriod" column="PRODUCEPERIOD"/>
+        <result property="delayTime" column="DELAYTIME"/>
+        <result property="depreciation" column="DEPRECIATION"/>
+        <result property="mainCost" column="MAINCOST"/>
+        <result property="changeCost" column="CHANGECOST"/>
+        <result property="setupPeriod" column="SETUPPERIOD"/>
+        <result property="setupPeriodPrice" column="SETUPPERIODPRICE"/>
+        <result property="sellPrice" column="SELLPRICE"/>
+        <result property="productFinishPeriod" column="PRODUCTFINISHPERIOD"/>
+        <result property="productName" column="PRODUCTNAME"/>
+        <result property="finishPeriod" column="FINISHPERIOD"/>
+        <result property="status" column="STATUS"/>
+        <result property="factoryId" column="FACTORYID"/>
+        <result property="changePeriod" column="CHANGEPERIOD"/>
+    </resultMap>
+    <insert id="insertProductLine">
+        insert into productline(USERUNIQUE, FACTORYID, PRODUCTLINETYPE, STATUS, FINISHPERIOD, PRODUCTNAME,
+                                PRODUCTFINISHPERIOD, SELLPRICE)
+        values (#{userUnique}, #{factoryId}, #{productLineType}, '0', '0', #{productName},
+                '0', '0');
+
+    </insert>
+    <update id="updateStatus">
+        update productline
+        set STATUS= #{status}
+        where USERUNIQUE = #{userUnique}
+          and PRODUCTLINEID = #{productLineId};
+    </update>
+    <update id="updateBeginChangeProductStatus">
+        update productline
+        set STATUS=#{status},
+            FINISHPERIOD=0,
+            PRODUCTNAME=#{productName}
+        where USERUNIQUE = #{userUnique}
+          and PRODUCTLINEID = #{productLineId};
+
+    </update>
+    <delete id="deleteProductLine">
+        delete
+        from productline
+        where USERUNIQUE = #{userUnique}
+          and PRODUCTLINEID = #{productLineId};
+
+    </delete>
+    <select id="listProductLineByUserUniqueAndFactoryId"
+            resultMap="productLine">
+        select *
+        from productline
+        where USERUNIQUE = #{userUnique}
+          and FACTORYID = #{factoryId};
+
+
+    </select>
+    <select id="listProductLineVOByUserUniqueAndFactoryId" resultMap="productLineVO">
+        select p.PRODUCTLINEID,
+               p.FACTORYID,
+               p.PRODUCTLINETYPE,
+               p.STATUS,
+               p.PRODUCTNAME,
+               p.PRODUCTFINISHPERIOD,
+               p.FINISHPERIOD,
+               p.SELLPRICE,
+               b.SETUPPERIODPRICE,
+               b.SETUPPERIOD,
+               b.PRODUCEPERIOD,
+               b.CHANGEPERIOD,
+               b.CHANGECOST,
+               b.MAINCOST,
+               b.DEPRECiATION,
+               b.DELAYTIME
+        from productline as p
+                 left join productlinebasic as b on p.PRODUCTLINETYPE = b.PRODUCTLINETYPE
+        where USERUNIQUE = #{userUnique}
+          and FACTORYID = #{factoryId};
+
+
+
+
+    </select>
+    <select id="findProductNameByProductLineId" resultType="java.lang.String">
+        select PRODUCTNAME
+        from productline
+        where USERUNIQUE = #{userUnique}
+          and PRODUCTLINEID = #{productLineId};
+
+    </select>
+    <select id="getProductLineByUserUniqueAndProductLineId"
+            resultMap="productLine">
+        select *
+        from productline
+        where PRODUCTLINEID = #{productLineId}
+          and USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="findSellPriceByProductLineId" resultType="java.lang.Float">
+        select SELLPRICE
+        from productline
+        where PRODUCTLINEID = #{productLineId}
+          and USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="listProductLineBasicVo" resultType="com.cqupt.mislab.erpn.model.entity.productline.ProductLineBasic">
+        select *
+        from productlinebasic
+    </select>
+
+</mapper>

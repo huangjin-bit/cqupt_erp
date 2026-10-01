@@ -1,0 +1,50 @@
+.userprepare-wrapper{
+    padding:0px 15px 0px 10px ;
+    width: 100%;
+    min-width: 1120px;
+    
+    table{
+                    
+        width: 100%;
+        margin-top: 10px;
+        font-size: 16px;
+        thead{
+            color: #ADADAD;
+        }
+        tr{
+            height: 40px;
+            line-height: 40px;
+        }
+        td{
+            width: 10%;
+            text-align: center;
+            border: 1px solid #ADADAD;
+        }
+        tr:nth-child(odd)
+        {
+            background-color: whitesmoke;
+        }
+        tr:nth-child(even)
+        {
+            background-color: white;
+        }
+    }
+    .div-buttom{
+        margin: auto;
+        width: 235px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .order-p{
+            margin-top: 10px;
+            margin-left: -30px;
+            font-size: 18px;
+            span{
+                color: lightskyblue;
+            }
+        }
+        .span-buttom{
+            margin-top: 10px;
+        }
+    }  
+}

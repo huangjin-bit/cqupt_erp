@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.product.DevelopedProductDao">
+
+    <select id="findDevelopProductByUserUnique"
+            resultType="com.cqupt.mislab.erpn.model.entity.product.DevelopedProduct">
+    select USERUNIQUE,PRODUCTNAME,BEGINTIME,ENDTIME from developedproduct where userUnique=#{userUnique}
+    </select>
+
+</mapper>

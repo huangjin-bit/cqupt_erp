@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.loan.LoanOfUserDao">
+    <resultMap id="loanOfUser" type="com.cqupt.mislab.erpn.model.entity.loan.LoanOfUser">
+        <id property="loanId" column="LOANID"/>
+        <id property="userUnique" column="USERUNIQUE"/>
+        <result property="loanTypeName" column="LOANTYPENAME"/>
+        <result property="beginTime" column="BEGINTIME"/>
+        <result property="endTime" column="ENDTIME"/>
+        <result property="status" column="STATUS"/>
+        <result property="money" column="MONEY"/>
+    </resultMap>
+    <insert id="insertLoanOfUser">
+        insert into loanofuser(USERUNIQUE, LOANTYPENAME, BEGINTIME, ENDTIME, STATUS, MONEY)
+        values (#{userUnique}, #{loanTypeName}, #{beginTime}, #{endTime}, 0, #{money});
+    </insert>
+    <update id="updateLoanOfUser">
+        update loanofuser
+        set STATUS=1
+        where USERUNIQUE = #{userUnique}
+          and LOANID = #{loanId};
+
+    </update>
+    <select id="findLoanOfUser" resultMap="loanOfUser">
+        SELECT LOANID ,LOANTYPENAME ,BEGINTIME ,ENDTIME ,MONEY ,STATUS
+        FROM loanofuser
+        <where>
+            USERUNIQUE = #{userUnique}
+            <if test="loanTypeName != null">
+                AND LOANTYPENAME = #{loanTypeName}
+            </if>
+            <if test="status != null">
+                AND STATUS = #{status}
+            </if>
+        </where>
+        ORDER BY LOANID ASC
+    </select>
+    <select id="getLoanOfUser" resultMap="loanOfUser">
+        select *
+        from loanofuser
+        where USERUNIQUE = #{userUnique}
+          and LOANID = #{loanId};
+
+    </select>
+</mapper>

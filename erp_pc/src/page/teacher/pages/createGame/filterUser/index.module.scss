@@ -1,0 +1,13 @@
+.inline-button {
+  button + button {
+    margin-left: 10px;
+  }
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  position: absolute;
+  bottom: 12px;
+  margin-right: 10px;
+}

@@ -1,0 +1,48 @@
+@import 'common/styles/variable.scss';
+
+.userprepare-wrapper {
+  .ant-layout {
+    height: 100vh !important;
+    background: white;
+    .ant-layout-header {
+      padding: 0;
+      height: 50px;
+    }
+    .ant-layout-sider {
+      border: 1px solid #ccc;
+      background: $operateMenuColor;
+      .sidebar-wrapper {
+        .ant-menu {
+          background-color: $operateMenuColor;
+          width: 155px !important;
+          .ant-menu-item {
+            margin: 0 !important;
+            border: 1px solid #ccc;
+            font-family: '微软雅黑';
+          }
+          .ant-menu-item::after {
+            border-right: 4px solid $themeColor;
+          }
+          .ant-menu-item-selected {
+            background-color: white !important;
+            color: black !important;
+          }
+          .ant-menu-item-selected a {
+            background-color: white !important;
+            color: black !important;
+          }
+          .ant-menu-item a:hover,
+          .ant-menu-item-active {
+            color: $themeColor !important;
+          }
+        }
+      }
+    }
+    .ant-layout-content {
+      display: flex;
+      .ant-spin {
+        margin: auto;
+      }
+    }
+  }
+}

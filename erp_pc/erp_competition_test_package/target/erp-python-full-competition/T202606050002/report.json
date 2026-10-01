@@ -1,0 +1,883 @@
+{
+  "baseUrl": "http://39.98.115.237/",
+  "teacher": "wangyong",
+  "runId": "T202606050002",
+  "groupName": "AUTO202606050002",
+  "strategy": "expanded",
+  "notes": [
+    "当前策略是扩展经营流：持续点击研发 P2/P3/P4、开拓区域/国内/亚洲/国际市场、研发 PRODUCT9000/PRODUCT1400 认证。",
+    "广告投放会对页面上可见的 P1/P2/P3/P4 订单行各投 1 万；选单仍通过订货会页面真实点击完成。",
+    "采购策略会购买 R1/R2/R3/R4，为 P2/P3/P4 生产准备原料；生产线转产会在研发完成后尽量通过页面点击触发。",
+    "为了确保测试账号能删除，清理时必须先调用 /erpn/group/quit 删除 gamegroupmember 成员关系，再调用教师删除账号接口。"
+  ],
+  "students": [
+    {
+      "user_id": "测甲260605000201",
+      "name": "测甲",
+      "sid": "260605000201",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测乙260605000202",
+      "name": "测乙",
+      "sid": "260605000202",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测丙260605000203",
+      "name": "测丙",
+      "sid": "260605000203",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    }
+  ],
+  "steps": [
+    {
+      "at": "2026-06-05T15:13:26+0800",
+      "name": "teacher-login",
+      "data": {
+        "url": "http://39.98.115.237/#/teacher/userList",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T15:13:32+0800",
+      "name": "teacher-import-registered-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606050002\\students-users.csv",
+        "users": [
+          "测丙260605000203",
+          "测乙260605000202",
+          "测甲260605000201"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:13:35+0800",
+      "name": "teacher-import-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606050002\\students-for-game.csv"
+      }
+    },
+    {
+      "at": "2026-06-05T15:13:39+0800",
+      "name": "teacher-create-game",
+      "data": {
+        "groupName": "AUTO202606050002",
+        "text": "您好，王永 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n创建比赛/\n批量导入创建\n搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\n\n\t测丙260605000203\t测丙\t123456\t信息管理\t\t260605000203\t\t\n\n\t测乙260605000202\t测乙\t123456\t信息管理\t\t260605000202\t\t\n\n\t测甲260605000201\t测甲\t123456\t信息管理\t\t260605000201\t\t\n创建比赛下载模板批量导入\nstudents-for-game.csv\n\n\n成功"
+      }
+    },
+    {
+      "at": "2026-06-05T15:13:48+0800",
+      "name": "测甲260605000201-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:00+0800",
+      "name": "测乙260605000202-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:14+0800",
+      "name": "测丙260605000203-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:14+0800",
+      "name": "cycle-0-state",
+      "data": [
+        {
+          "account": "测甲260605000201",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测甲260605000201",
+            "years": 1,
+            "currentPeriod": 1,
+            "groupName": "AUTO202606050002",
+            "tax": 0,
+            "cash": 20,
+            "factoryCount": 1,
+            "userUnique": "测甲260605000201178064367278777",
+            "gender": null
+          },
+          "text": "您好， 测甲260605000201\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "测乙260605000202",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测乙260605000202",
+            "years": 1,
+            "currentPeriod": 1,
+            "groupName": "AUTO202606050002",
+            "tax": 0,
+            "cash": 20,
+            "factoryCount": 1,
+            "userUnique": "测乙260605000202178064367278777",
+            "gender": null
+          },
+          "text": "您好， 测乙260605000202\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "测丙260605000203",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测丙260605000203",
+            "years": 1,
+            "currentPeriod": 1,
+            "groupName": "AUTO202606050002",
+            "tax": 0,
+            "cash": 20,
+            "factoryCount": 1,
+            "userUnique": "测丙260605000203178064367278777",
+            "gender": null
+          },
+          "text": "加载中..."
+        }
+      ]
+    },
+    {
+      "at": "2026-06-05T15:14:15+0800",
+      "name": "annual-planning-start",
+      "data": [
+        "测甲260605000201",
+        "测乙260605000202",
+        "测丙260605000203"
+      ]
+    },
+    {
+      "at": "2026-06-05T15:14:17+0800",
+      "name": "测甲260605000201-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:19+0800",
+      "name": "测甲260605000201-put-ad",
+      "data": {
+        "product": "P1",
+        "row": "P1\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:20+0800",
+      "name": "测甲260605000201-put-ad",
+      "data": {
+        "product": "P2",
+        "row": "P2\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:21+0800",
+      "name": "测甲260605000201-put-ad",
+      "data": {
+        "product": "P3",
+        "row": "P3\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:22+0800",
+      "name": "测甲260605000201-put-ad",
+      "data": {
+        "product": "P4",
+        "row": "P4\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:23+0800",
+      "name": "测甲260605000201-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:24+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:26+0800",
+      "name": "测甲260605000201-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:28+0800",
+      "name": "测乙260605000202-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:30+0800",
+      "name": "测乙260605000202-put-ad",
+      "data": {
+        "product": "P1",
+        "row": "P1\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:31+0800",
+      "name": "测乙260605000202-put-ad",
+      "data": {
+        "product": "P2",
+        "row": "P2\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:32+0800",
+      "name": "测乙260605000202-put-ad",
+      "data": {
+        "product": "P3",
+        "row": "P3\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:33+0800",
+      "name": "测乙260605000202-put-ad",
+      "data": {
+        "product": "P4",
+        "row": "P4\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:34+0800",
+      "name": "测乙260605000202-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:35+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:37+0800",
+      "name": "测乙260605000202-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:39+0800",
+      "name": "测丙260605000203-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:41+0800",
+      "name": "测丙260605000203-put-ad",
+      "data": {
+        "product": "P1",
+        "row": "P1\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:42+0800",
+      "name": "测丙260605000203-put-ad",
+      "data": {
+        "product": "P2",
+        "row": "P2\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:43+0800",
+      "name": "测丙260605000203-put-ad",
+      "data": {
+        "product": "P3",
+        "row": "P3\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:44+0800",
+      "name": "测丙260605000203-put-ad",
+      "data": {
+        "product": "P4",
+        "row": "P4\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:45+0800",
+      "name": "测丙260605000203-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:46+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:48+0800",
+      "name": "测丙260605000203-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:50+0800",
+      "name": "测甲260605000201-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:14:54+0800",
+      "name": "测甲260605000201-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:54+0800",
+      "name": "测甲260605000201-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:55+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:57+0800",
+      "name": "测甲260605000201-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:14:58+0800",
+      "name": "测乙260605000202-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:01+0800",
+      "name": "测乙260605000202-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:02+0800",
+      "name": "测乙260605000202-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:03+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:05+0800",
+      "name": "测乙260605000202-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:06+0800",
+      "name": "测丙260605000203-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:09+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:11+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 18
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:12+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:14+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 17
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:15+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:16+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 16
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:17+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:19+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 15
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:20+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:22+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 14
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:23+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:24+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 13
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:25+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:27+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 12
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:28+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:30+0800",
+      "name": "测丙260605000203-choose-order-click",
+      "data": {
+        "before": 11
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:30+0800",
+      "name": "测丙260605000203-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:31+0800",
+      "name": "测丙260605000203-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:32+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:34+0800",
+      "name": "测丙260605000203-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:15:38+0800",
+      "name": "测甲260605000201-loan-plan",
+      "data": {
+        "cash": 16,
+        "plan": {
+          "type": "短期贷款",
+          "money": 59,
+          "term": 4
+        },
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 104,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 64,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:40+0800",
+      "name": "测甲260605000201-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:42+0800",
+      "name": "测甲260605000201-click-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:44+0800",
+      "name": "测甲260605000201-loan-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:46+0800",
+      "name": "测甲260605000201-open-product-research",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/productResearch"
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:49+0800",
+      "name": "测甲260605000201-product-research-click",
+      "data": {
+        "target": "P2",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:50+0800",
+      "name": "测甲260605000201-product-research-click",
+      "data": {
+        "target": "P3",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:51+0800",
+      "name": "测甲260605000201-product-research-click",
+      "data": {
+        "target": "P4",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:54+0800",
+      "name": "测甲260605000201-open-market-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/marketManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:56+0800",
+      "name": "测甲260605000201-market-development-click",
+      "data": {
+        "target": "区域市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:58+0800",
+      "name": "测甲260605000201-market-development-click",
+      "data": {
+        "target": "国内市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:15:59+0800",
+      "name": "测甲260605000201-market-development-click",
+      "data": {
+        "target": "亚洲市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:16:00+0800",
+      "name": "测甲260605000201-market-development-click",
+      "data": {
+        "target": "国际市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:16:02+0800",
+      "name": "测甲260605000201-open-iso-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/authenticationmanagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:16:05+0800",
+      "name": "测甲260605000201-iso-development-click",
+      "data": {
+        "target": "PRODUCT9000质量认证",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:16:05+0800",
+      "name": "测甲260605000201-iso-development-target-not-visible",
+      "data": {
+        "target": "PRODUCT1400环境认证"
+      }
+    },
+    {
+      "at": "2026-06-05T15:16:07+0800",
+      "name": "测甲260605000201-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-06-05T15:16:09+0800",
+      "name": "测甲260605000201-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-06-05T15:16:40+0800",
+      "name": "run-error",
+      "data": {
+        "type": "TimeoutError",
+        "message": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".content-item .item\").first.locator(\"button\").filter(has_text=\"购买\")\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:17:30+0800",
+      "name": "students-quit-group-before-delete",
+      "data": [
+        {
+          "userId": "测甲260605000201",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测乙260605000202",
+          "error": "Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_placeholder(\"请输入用户名\")\n"
+        },
+        {
+          "userId": "测丙260605000203",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        }
+      ]
+    },
+    {
+      "at": "2026-06-05T15:17:30+0800",
+      "name": "teacher-delete-students",
+      "data": {
+        "userIds": [
+          "测甲260605000201",
+          "测乙260605000202",
+          "测丙260605000203"
+        ],
+        "deleteResult": {
+          "status": 1,
+          "message": "失败",
+          "data": "删除失败！"
+        },
+        "remaining": [
+          {
+            "userId": "测丙260605000203",
+            "userName": "测丙",
+            "password": "123456",
+            "major": "信息管理",
+            "email": null,
+            "tel": null,
+            "gender": null,
+            "rem2": "自动化测试学院",
+            "sclass": "自动化测试班",
+            "sid": "260605000203"
+          },
+          {
+            "userId": "测乙260605000202",
+            "userName": "测乙",
+            "password": "123456",
+            "major": "信息管理",
+            "email": null,
+            "tel": null,
+            "gender": null,
+            "rem2": "自动化测试学院",
+            "sclass": "自动化测试班",
+            "sid": "260605000202"
+          }
+        ],
+        "quitGroupResults": [
+          {
+            "userId": "测甲260605000201",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测乙260605000202",
+            "error": "Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_placeholder(\"请输入用户名\")\n"
+          },
+          {
+            "userId": "测丙260605000203",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          }
+        ],
+        "diagnosis": "仍有账号残留。后端 approveduser 被 gamegroupmember.USERID 外键引用；必须先调用 /erpn/group/quit 删除比赛成员行，再调用教师删除接口。如果之前已经先 replay，成员状态会变成 -1，公开接口通常无法再 quit，需要数据库或后端清理接口处理。"
+      }
+    }
+  ],
+  "final": [],
+  "cleanup": {
+    "userIds": [
+      "测甲260605000201",
+      "测乙260605000202",
+      "测丙260605000203"
+    ],
+    "deleteResult": {
+      "status": 1,
+      "message": "失败",
+      "data": "删除失败！"
+    },
+    "remaining": [
+      {
+        "userId": "测丙260605000203",
+        "userName": "测丙",
+        "password": "123456",
+        "major": "信息管理",
+        "email": null,
+        "tel": null,
+        "gender": null,
+        "rem2": "自动化测试学院",
+        "sclass": "自动化测试班",
+        "sid": "260605000203"
+      },
+      {
+        "userId": "测乙260605000202",
+        "userName": "测乙",
+        "password": "123456",
+        "major": "信息管理",
+        "email": null,
+        "tel": null,
+        "gender": null,
+        "rem2": "自动化测试学院",
+        "sclass": "自动化测试班",
+        "sid": "260605000202"
+      }
+    ],
+    "quitGroupResults": [
+      {
+        "userId": "测甲260605000201",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测乙260605000202",
+        "error": "Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_placeholder(\"请输入用户名\")\n"
+      },
+      {
+        "userId": "测丙260605000203",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    ],
+    "diagnosis": "仍有账号残留。后端 approveduser 被 gamegroupmember.USERID 外键引用；必须先调用 /erpn/group/quit 删除比赛成员行，再调用教师删除接口。如果之前已经先 replay，成员状态会变成 -1，公开接口通常无法再 quit，需要数据库或后端清理接口处理。"
+  },
+  "error": {
+    "type": "TimeoutError",
+    "message": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".content-item .item\").first.locator(\"button\").filter(has_text=\"购买\")\n"
+  },
+  "finishedAt": "2026-06-05T15:17:31+0800"
+}

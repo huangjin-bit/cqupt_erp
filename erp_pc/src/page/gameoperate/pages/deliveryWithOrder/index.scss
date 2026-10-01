@@ -1,0 +1,33 @@
+.userprepare-wrapper {
+    padding: 0px 15px 0px 10px;
+    width: 100%;
+    min-width: 1120px;
+
+    .delivery-h3 {
+        text-align: center;
+    }
+
+    delivery-table {
+        width: 100%;
+        text-align: center;
+        left: 0px;
+        top: 0px;
+        font-size: 16px;
+
+        td {
+            border: 1px solid #ADADAD;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        delivery-tr:nth-child(odd) {
+            height: 40px;
+            background-color: whitesmoke;
+        }
+
+        delivery-tr:nth-child(even) {
+            height: 40px;
+            background-color: white;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.productline.ProductLineBasicDao">
+    <resultMap id="productLineBasic" type="com.cqupt.mislab.erpn.model.entity.productline.ProductLineBasic">
+        <id property="productLineType" column="PRODUCTLINETYPE"/>
+        <result property="setupPeriodPrice" column="SETUPPERIODPRICE"/>
+        <result property="setupPeriod" column="SETUPPERIOD"/>
+        <result property="producePeriod" column="PRODUCEPERIOD"/>
+        <result property="changeCost" column="CHANGECOST"/>
+        <result property="producePeriod" column="PRODUCEPERIOD"/>
+        <result property="mainCost" column="MAINCOST"/>
+        <result property="stumpCost" column="STUMPCOST"/>
+        <result property="depreciation" column="DEPRECIATION"/>
+        <result property="delayTime" column="DELAYTIME"/>
+    </resultMap>
+    <select id="listProductLineBasic" resultMap="productLineBasic">
+        select *
+        from productlinebasic;
+
+    </select>
+    <select id="getProductLineBasic" resultMap="productLineBasic">
+        select *
+        from productlinebasic
+        where PRODUCTLINETYPE = #{productLineType};
+
+    </select>
+
+
+
+</mapper>

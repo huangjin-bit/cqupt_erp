@@ -1,0 +1,25 @@
+@import 'common/styles/variable.scss';
+
+.modify-form-wrapper {
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  border: $formBorder;
+  width: 35%;
+  background: white;
+  box-shadow: $formBoxShadow;
+  form {
+    margin: 20px auto;
+    width: 65%;
+    .btn-wrapper {
+      .ant-form-item-control-input-content {
+        display: flex;
+        justify-content: space-between;
+        .login-btn {
+          width: 100%;
+          background-color: $themeColor;
+        }
+      }
+    }
+  }
+}

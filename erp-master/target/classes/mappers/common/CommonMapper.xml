@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.common.CommonDao">
+
+    <select id="findUserUniqueByUserId" parameterType="string" resultType="string">
+        select USERUNIQUE from gamegroupmember where userID=#{userId} AND STATUS>-1
+    </select>
+
+
+    <!--在approveduser中查找-->
+<!--  这里的Userunique会查出来两个相同的数据  -->
+    <select id="findUserNameByUserUniqueAndUserId" parameterType="string" resultType="string">
+        select distinct STUDENTNAME from gamegroupmemberdetail where USERUNIQUE=#{userUnique} and USERID = #{userId}
+    </select>
+
+    <select id="findGameGroupNameByUserUnique" parameterType="string" resultType="string">
+        select GROUPNAME from gamegroupmember where USERUNIQUE = #{userUnique} AND STATUS>-1
+    </select>
+
+    <select id="findGameGroupNameByUserId" parameterType="string" resultType="string">
+        select GROUPNAME from gamegroupmember where USERID = #{userId} AND STATUS>-1
+    </select>
+
+    <update id="updateRegisterUserPassword" parameterType="com.cqupt.mislab.erpn.model.entity.user.RegisterUser">
+        update registeruser set PASSWORD=#{password} where USERID=#{userId}
+    </update>
+
+    <update id="updateApprovedUserPassword" parameterType="com.cqupt.mislab.erpn.model.entity.user.ApprovedUser" >
+        update approveduser set PASSWORD=#{password} where USERID=#{userId}
+    </update>
+
+
+    <select id="findGroupMemberSize" parameterType="string" resultType="int">
+        select usernumbers from gamegroup where groupname=(select groupname from gamegroupmember where userunique=#{userUnique})
+    </select>
+
+    <select id="findCurrentPeriod" parameterType="string" resultType="java.lang.Integer">
+        select CURRENTPERIOD from gamegroupmember where USERUNIQUE=#{userUnique}
+    </select>
+    <select id="findUserIdByUserUnique" resultType="java.lang.String">
+        select USERID from gamegroupmember where USERUNIQUE=#{userUnique}
+    </select>
+    <select id="findUserNameByUserId" resultType="java.lang.String">
+        select USERNAME from approveduser where USERID=#{userId}
+    </select>
+    <select id="findGenderByUserId" resultType="java.lang.String">
+        select GENDER from approveduser where USERID=#{userId}
+    </select>
+    <select id="findPeriodsOfOneYearByUserUnique" resultType="java.lang.Integer">
+        select PERIODSOfONEYEAR
+        from GAMEGROUP
+        where GROUPNAME = (
+            select GROUPNAME
+            from GAMEGROUPMEMBER
+            where USERUNIQUE = #{userUnique}
+        )
+    </select>
+    <select id="findTotalYear" resultType="java.lang.Integer">
+        select YEARS from GAMEGROUP
+        where groupname =(
+            select GROUPNAME from gamegroupmember where USERUNIQUE=#{userUnique}
+        )
+    </select>
+    <select id="runFunctionOracle" resultType="java.lang.Integer">
+        select biz_next_deal(#{userUnique})
+    </select>
+    <select id="findMemberUseruniqueByGroupName" resultType="java.lang.String">
+        select USERUNIQUE from gamegroupmember where GROUPNAME = #{groupName}
+    </select>
+    <select id="findUserNameByUserUnique" resultType="java.lang.String">
+        select  USERID from gamegroupmember where USERUNIQUE=#{userUnique}
+
+    </select>
+
+
+</mapper>

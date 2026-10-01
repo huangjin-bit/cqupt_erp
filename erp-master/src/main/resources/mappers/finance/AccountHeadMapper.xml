@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.finance.account.AccountHeadDao">
+    <resultMap id="accountHead" type="com.cqupt.mislab.erpn.model.entity.finance.account.AccountHead">
+        <id property="userUnique" column="USERUNIQUE"/>
+        <id property="accountId" column="ACCOUNTID"/>
+        <result property="happenTime" column="HAPPENTIME"/>
+        <result property="accountIdDescription" column="ACCOUNTIDDESCRIPTION"/>
+    </resultMap>
+    <insert id="addAccountHead" parameterType="com.cqupt.mislab.erpn.model.entity.finance.account.AccountHead">
+        insert into accounthead(userunique, happentime, accountiddescription)
+        values (#{userUnique},#{happenTime},#{accountIdDescription})
+    </insert>
+
+    <select id="findAccountId" parameterType="string" resultType="int">
+        select max(ACCOUNTID)
+        from accounthead
+        where USERUNIQUE = #{userUnique}
+    </select>
+    <select id="findAccountHeadsByUserUnique" resultMap="accountHead">
+        select *
+        from accounthead
+        where USERUNIQUE = #{userUnique}
+          and (HAPPENTIME between #{minPeriod} and #{maxPeriod})
+    </select>
+</mapper>

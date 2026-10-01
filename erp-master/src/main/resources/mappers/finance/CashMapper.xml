@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.finance.cash.CashDao">
+
+
+    <update id="addCash">
+        update CASHSHEET
+        set CASH = CASH + #{cash}
+        where USERUNIQUE = #{userUnique};
+
+    </update>
+    <update id="reduceCash">
+        update CASHSHEET
+        set CASH = CASH - #{summaryMoneyOfAd}
+        where USERUNIQUE = #{userUnique};
+
+
+    </update>
+
+
+    <select id="findCash" resultType="java.lang.Double">
+        select CASH
+        from CASHSHEET
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+
+
+</mapper>

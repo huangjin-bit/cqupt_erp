@@ -1,0 +1,19 @@
+@import 'common/styles/variable.scss';
+
+.message-card-wrapper {
+  margin: auto;
+  margin-top: 48px;
+  border: $formBorder;
+  width: 417px;
+  height: 167px;
+  .header {
+    height: 35px;
+    background: $themeColor;
+  }
+  .content {
+    margin-top: 48px;
+    text-align: center;
+    font-weight: 500;
+    font-family: '微软雅黑', '宋体', Arial, Helvetica, sans-serif;
+  }
+}

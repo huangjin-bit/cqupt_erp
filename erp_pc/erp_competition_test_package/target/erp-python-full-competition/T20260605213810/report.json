@@ -1,0 +1,222 @@
+{
+  "baseUrl": "http://39.98.115.237/",
+  "teacher": "wangyong",
+  "runId": "T20260605213810",
+  "groupName": "AUTO0605213810",
+  "strategy": "expanded",
+  "notes": [
+    "当前策略是扩展经营流：持续点击研发 P2/P3/P4、开拓区域/国内/亚洲/国际市场、研发 PRODUCT9000/PRODUCT1400 认证。",
+    "广告投放会对页面上可见的 P1/P2/P3/P4 订单行各投 1 万；选单仍通过订货会页面真实点击完成。",
+    "采购策略会购买 R1/R2/R3/R4，为 P2/P3/P4 生产准备原料；生产线转产会在研发完成后尽量通过页面点击触发。",
+    "为了确保测试账号能删除，清理时必须先调用 /erpn/group/quit 删除 gamegroupmember 成员关系，再调用教师删除账号接口。"
+  ],
+  "students": [
+    {
+      "user_id": "测甲060521381001",
+      "name": "测甲",
+      "sid": "060521381001",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测乙060521381002",
+      "name": "测乙",
+      "sid": "060521381002",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测丙060521381003",
+      "name": "测丙",
+      "sid": "060521381003",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    }
+  ],
+  "steps": [
+    {
+      "at": "2026-06-05T21:38:22+0800",
+      "name": "teacher-login",
+      "data": {
+        "url": "http://39.98.115.237/#/teacher/userList",
+        "text": "您好， 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n用户管理/\n用户列表\n用户ID\n综合搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\t操作\n\nNo data\n批量删除下载说明书下载模板批量导入用户\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T21:38:28+0800",
+      "name": "teacher-import-registered-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T20260605213810\\students-users.csv",
+        "users": [
+          "测丙060521381003",
+          "测乙060521381002",
+          "测甲060521381001"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T21:38:31+0800",
+      "name": "teacher-import-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T20260605213810\\students-for-game.csv"
+      }
+    },
+    {
+      "at": "2026-06-05T21:38:36+0800",
+      "name": "teacher-create-game",
+      "data": {
+        "groupName": "AUTO0605213810",
+        "text": "您好，王永 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n创建比赛/\n批量导入创建\n搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\n\n\t测丙060521381003\t测丙\t123456\t信息管理\t\t060521381003\t\t\n\n\t测乙060521381002\t测乙\t123456\t信息管理\t\t060521381002\t\t\n\n\t测甲060521381001\t测甲\t123456\t信息管理\t\t060521381001\t\t\n创建比赛下载模板批量导入\nstudents-for-game.csv\n\n\n成功"
+      }
+    },
+    {
+      "at": "2026-06-05T21:38:45+0800",
+      "name": "测甲060521381001-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T21:38:51+0800",
+      "name": "run-error",
+      "data": {
+        "type": "Error",
+        "message": "Page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at http://39.98.115.237/\nCall log:\n  - navigating to \"http://39.98.115.237/\", waiting until \"load\"\n"
+      }
+    },
+    {
+      "at": "2026-06-05T21:39:18+0800",
+      "name": "students-quit-group-before-delete",
+      "data": [
+        {
+          "userId": "测甲060521381001",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测乙060521381002",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测丙060521381003",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        }
+      ]
+    },
+    {
+      "at": "2026-06-05T21:39:19+0800",
+      "name": "teacher-delete-students",
+      "data": {
+        "userIds": [
+          "测甲060521381001",
+          "测乙060521381002",
+          "测丙060521381003"
+        ],
+        "deleteResult": {
+          "status": 0,
+          "message": "成功",
+          "data": "操作成功"
+        },
+        "remaining": [],
+        "quitGroupResults": [
+          {
+            "userId": "测甲060521381001",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测乙060521381002",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测丙060521381003",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          }
+        ]
+      }
+    }
+  ],
+  "final": [],
+  "cleanup": {
+    "userIds": [
+      "测甲060521381001",
+      "测乙060521381002",
+      "测丙060521381003"
+    ],
+    "deleteResult": {
+      "status": 0,
+      "message": "成功",
+      "data": "操作成功"
+    },
+    "remaining": [],
+    "quitGroupResults": [
+      {
+        "userId": "测甲060521381001",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测乙060521381002",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测丙060521381003",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    ]
+  },
+  "error": {
+    "type": "Error",
+    "message": "Page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at http://39.98.115.237/\nCall log:\n  - navigating to \"http://39.98.115.237/\", waiting until \"load\"\n"
+  },
+  "finishedAt": "2026-06-05T21:39:20+0800"
+}

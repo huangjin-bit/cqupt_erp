@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.group.GroupManageDao">
+    <!--<select id="iniGameByPLSQL" statementType="CALLABLE" parameterType="map" resultType="INTEGER">-->
+        <!--{call inigame(#{groupName,mode=IN,jdbcType=VARCHAR},#{result,mode=OUT,jdbcType=VARCHAR})}-->
+    <!--</select>-->
+
+    <select id="iniGameByPLSQL" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select inigame(#{groupName})
+    </select>
+
+    <!--<select id="iniGameByPLSQL" statementType="CALLABLE" parameterType="map" resultType="int">-->
+        <!--call inigame(#{groupName,mode=IN,jdbcType=VARCHAR})-->
+    <!--</select>-->
+
+    <!--ForwardQuarterService的ForwardStatus方法调用-->
+    <select id="forward_game" parameterType="map" resultType="INTEGER">
+        select biz_next_deal(#{userUnique})
+    </select>
+
+</mapper>
+

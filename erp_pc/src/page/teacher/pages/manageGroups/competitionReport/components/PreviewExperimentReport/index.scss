@@ -1,0 +1,64 @@
+.report-Anchor {
+  position: absolute;
+}
+
+.teacher-report-wrapper {
+  border: 1px solid black;
+  margin: 20px 0;
+  .report-h1,
+  .report-h2,
+  .report-h4,
+  .report-experience {
+    text-align: center;
+  }
+
+  .report-h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .report-h2 {
+    font-size: 19px;
+    margin-top: 80px;
+  }
+
+  .report-h4 {
+    font-size: 19px;
+    margin-top: 20px;
+  }
+
+  .report-experience {
+    margin-top: 80px;
+    font-size: 20px;
+  }
+
+  .context-div {
+    width: 80%;
+    min-height: 400px;
+    padding: 5px;
+    border: 1px solid black;
+    margin: 20px auto;
+    font-size: 16px;
+  }
+
+  table {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  td {
+    width: 16.6%;
+    padding: 3px;
+    border: 1px solid black;
+  }
+}
+.report-otheInfo {
+  text-align: center;
+  height: 100%;
+  .report-otheInfo-spin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

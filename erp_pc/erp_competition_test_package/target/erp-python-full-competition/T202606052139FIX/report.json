@@ -1,0 +1,279 @@
+{
+  "baseUrl": "http://39.98.115.237/",
+  "teacher": "wangyong",
+  "runId": "T202606052139FIX",
+  "groupName": "AUTO2139FIX",
+  "strategy": "expanded",
+  "notes": [
+    "当前策略是扩展经营流：持续点击研发 P2/P3/P4、开拓区域/国内/亚洲/国际市场、研发 PRODUCT9000/PRODUCT1400 认证。",
+    "广告投放会对页面上可见的 P1/P2/P3/P4 订单行各投 1 万；选单仍通过订货会页面真实点击完成。",
+    "采购策略会购买 R1/R2/R3/R4，为 P2/P3/P4 生产准备原料；生产线转产会在研发完成后尽量通过页面点击触发。",
+    "为了确保测试账号能删除，清理时必须先调用 /erpn/group/quit 删除 gamegroupmember 成员关系，再调用教师删除账号接口。"
+  ],
+  "students": [
+    {
+      "user_id": "测甲260605213901",
+      "name": "测甲",
+      "sid": "260605213901",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测乙260605213902",
+      "name": "测乙",
+      "sid": "260605213902",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测丙260605213903",
+      "name": "测丙",
+      "sid": "260605213903",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    }
+  ],
+  "steps": [
+    {
+      "at": "2026-06-05T21:43:33+0800",
+      "name": "teacher-login",
+      "data": {
+        "url": "http://39.98.115.237/#/teacher/userList",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T21:43:38+0800",
+      "name": "teacher-import-registered-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606052139FIX\\students-users.csv",
+        "users": [
+          "测丙260605213903",
+          "测乙260605213902",
+          "测甲260605213901"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T21:43:41+0800",
+      "name": "teacher-import-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606052139FIX\\students-for-game.csv"
+      }
+    },
+    {
+      "at": "2026-06-05T21:43:45+0800",
+      "name": "teacher-create-game",
+      "data": {
+        "groupName": "AUTO2139FIX",
+        "text": "您好，王永 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n创建比赛/\n批量导入创建\n搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\n\n\t测丙260605213903\t测丙\t123456\t信息管理\t\t260605213903\t\t\n\n\t测乙260605213902\t测乙\t123456\t信息管理\t\t260605213902\t\t\n\n\t测甲260605213901\t测甲\t123456\t信息管理\t\t260605213901\t\t\n创建比赛下载模板批量导入\nstudents-for-game.csv\n\n\n成功"
+      }
+    },
+    {
+      "at": "2026-06-05T21:43:54+0800",
+      "name": "测甲260605213901-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T21:44:05+0800",
+      "name": "测乙260605213902-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T21:44:20+0800",
+      "name": "测丙260605213903-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T21:45:12+0800",
+      "name": "students-quit-group-before-delete",
+      "data": [
+        {
+          "userId": "测甲260605213901",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测乙260605213902",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测丙260605213903",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        }
+      ]
+    },
+    {
+      "at": "2026-06-05T21:45:12+0800",
+      "name": "teacher-delete-students",
+      "data": {
+        "userIds": [
+          "测甲260605213901",
+          "测乙260605213902",
+          "测丙260605213903"
+        ],
+        "deleteResult": {
+          "status": 0,
+          "message": "成功",
+          "data": "操作成功"
+        },
+        "remaining": [],
+        "quitGroupResults": [
+          {
+            "userId": "测甲260605213901",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测乙260605213902",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测丙260605213903",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          }
+        ]
+      }
+    }
+  ],
+  "final": [
+    {
+      "account": "测甲260605213901",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测甲260605213901",
+        "years": 1,
+        "currentPeriod": 1,
+        "groupName": "AUTO2139FIX",
+        "tax": 0,
+        "cash": 20,
+        "factoryCount": 1,
+        "userUnique": "测甲260605213901178066707720292",
+        "gender": null
+      },
+      "text": "您好， 测甲260605213901\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606052139FIX\\测甲260605213901-final.png"
+    },
+    {
+      "account": "测乙260605213902",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测乙260605213902",
+        "years": 1,
+        "currentPeriod": 1,
+        "groupName": "AUTO2139FIX",
+        "tax": 0,
+        "cash": 20,
+        "factoryCount": 1,
+        "userUnique": "测乙260605213902178066707720292",
+        "gender": null
+      },
+      "text": "加载中...",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606052139FIX\\测乙260605213902-final.png"
+    },
+    {
+      "account": "测丙260605213903",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测丙260605213903",
+        "years": 1,
+        "currentPeriod": 1,
+        "groupName": "AUTO2139FIX",
+        "tax": 0,
+        "cash": 20,
+        "factoryCount": 1,
+        "userUnique": "测丙260605213903178066707720292",
+        "gender": null
+      },
+      "text": "加载中...",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606052139FIX\\测丙260605213903-final.png"
+    }
+  ],
+  "cleanup": {
+    "userIds": [
+      "测甲260605213901",
+      "测乙260605213902",
+      "测丙260605213903"
+    ],
+    "deleteResult": {
+      "status": 0,
+      "message": "成功",
+      "data": "操作成功"
+    },
+    "remaining": [],
+    "quitGroupResults": [
+      {
+        "userId": "测甲260605213901",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测乙260605213902",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测丙260605213903",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    ]
+  },
+  "error": null,
+  "finishedAt": "2026-06-05T21:45:13+0800"
+}

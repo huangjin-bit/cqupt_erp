@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.report.ExperienceDao">
+    <resultMap id="experience" type="com.cqupt.mislab.erpn.model.entity.report.Experience">
+        <result column="USERUNIQUE" property="userUnique"/>
+        <result column="CONTEXT" property="context"/>
+    </resultMap>
+    <insert id="insertContext">
+        insert into experience(USERUNIQUE, CONTEXT)
+        values (#{userUnique}, #{context});
+    </insert>
+    <update id="modify">
+        update experience
+        set CONTEXT=#{context}
+        where USERUNIQUE = #{userUnique};
+    </update>
+    <select id="selectOneByUserUnique" resultMap="experience">
+        select *
+        from experience
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+
+</mapper>

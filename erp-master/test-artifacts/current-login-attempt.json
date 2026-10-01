@@ -1,0 +1,17 @@
+{
+  "url": "http://39.98.115.237/#/login",
+  "title": "ERP沙盘虚拟运营系统",
+  "visibleText": "欢迎登录\n登录身份选择\n学生\n教师\n登 录\n\n管理员登录 >>\n\n还没有ERP虚拟系统账号？\n\n\n\n\n立即去注册!!\n\nERP移动端下载\n\n竞争\n\n以游戏组为比赛单位\n在竞争中增强实力\n\n全面\n\n全方位展现企业管理\n全面覆盖运作流程\n\n有趣\n\n置身模拟现实的复杂环境\n寓教与乐，新鲜有趣\nCopyright © 2011 - 2027 重庆优霓维思科技有限公司 版权所有\n提示\n该用户尚未注册，只有注册用户才能使用本系统，请进行相应的注册!\nOK",
+  "responses": [
+    {
+      "url": "http://39.98.115.237/erpn/user/getBasic",
+      "status": 200,
+      "body": "{\"status\":-1000,\"message\":\"无session\",\"data\":null}"
+    },
+    {
+      "url": "http://39.98.115.237/erpn/user/login",
+      "status": 200,
+      "body": "{\"status\":-1,\"message\":\"未注册\",\"data\":null}"
+    }
+  ]
+}

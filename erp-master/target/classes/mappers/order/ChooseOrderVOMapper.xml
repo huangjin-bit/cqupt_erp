@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.order.ChooseOrderVODao">
+<!-- 
+	这里是综合了两张表的sql语句判断.尽量少的吧他分开,将更多的逻辑交给sql,
+	
+	先将两张大表融合在一起,将chooseorder 跟allorderofgroup 融合在一起.
+	然后再找到 相应的chooseorder.chooseid 
+	
+	chooseorder.id要满足几个条件
+	1.是根据marketname,productname,groupname 分组之后 每组里面最小 chooservalue 值的chooseid
+	2.同时要小于10000 因为默认大于10000 的都是已经退出了这个市场这个产品的投放.
+	3.是当前的周期.
+	4.限定只是本次投放过得市场才能看到相应的订单.
+	5.限定是本次投放过得产品才能看到相应的订单.
+	6.只能看到能够选择的订单 allorderofgroup中对得status为0的就不能 够在看到了.
+	oh my god! 
+by 何海源
+
+2016.4.22 boom爆炸，过于复杂的sql 导致很难的解开，并且性能都直接下去了。。。因为为了写成一条sql。
+尽量将重复join 的部分拉出来。
+ -->
+ 
+ <!-- 
+<select id="find_choose_order_valueobject" parameterType="map" resultType="com.cqupt.mis.erp.model.vo.ChooseOrderVO">
+		select chooseorder.userUnique,chooseorder.chooseID,chooseorder.chooseValue,
+			allordersofgroup.orderID,allordersofgroup.productName,allordersofgroup.pNumber,
+			allordersofgroup.marketName,allordersofgroup.needTime,allordersofgroup.MoneyTime,
+			allordersofgroup.penalPercent,allordersofgroup.specialRem,allordersofgroup.groupName,
+			allordersofgroup.status,allordersofgroup.period,allordersofgroup.price
+			from chooseorder,allordersofgroup
+			where chooseorder.marketname=allordersofgroup.marketname 
+				and chooseorder.period=allordersofgroup.period 
+				and  chooseorder.productname=allordersofgroup.productname
+				and chooseorder.groupname=allordersofgroup.groupname
+				and allordersofgroup.status = 0
+				and chooseorder.chooseid in (
+					select chooseid from 
+					(
+						SELECT chooseorder.chooseid,chooseorder.marketname,chooseorder.productname,chooseorder.groupname,chooseorder.period
+						FROM chooseorder INNER JOIN (
+							SELECT marketname,productname,groupname,MIN(choosevalue) AS choosevalue FROM chooseorder GROUP BY marketname,productname,groupname 
+						)t ON chooseorder.`MARKETNAME` = t.marketname AND chooseorder.`PRODUCTNAME` = t.productname AND chooseorder.`GROUPNAME` = t.groupname AND chooseorder.CHOOSEVALUE = t.choosevalue
+						
+						WHERE chooseorder.choosevalue<1000 AND period=#{period}
+					)tt
+					where marketname in  
+							<if test="marketName=='all' ">
+								(select distinct marketname from adofuser where userUnique=#{userUnique}  and period=#{period} and money>0)
+							</if>
+							<if test="marketName!='all' and marketName!=null">
+								(#{marketName})
+							</if>
+						and productname in 
+						<if test="productName=='all' ">
+							(select distinct productname from adofuser where userUnique=#{userUnique} and period=#{period} and money>0)
+						</if>
+						<if test="productName!='all' and productName!=null">
+							(#{productName})
+						</if>
+						and groupname=#{groupName}
+				)
+	</select>
+ -->
+ 
+	<!-- <select id="find_choose_order_valueobject" parameterType="map" resultType="com.cqupt.mis.erp.model.vo.ChooseOrderVO">
+
+<![CDATA[
+		SELECT 
+			chooseorder.userUnique,chooseorder.chooseValue,
+			allordersofgroup.orderID,allordersofgroup.productName,allordersofgroup.pNumber,
+			allordersofgroup.marketName,allordersofgroup.needTime,allordersofgroup.MoneyTime,
+			allordersofgroup.penalPercent,allordersofgroup.specialRem,allordersofgroup.groupName,
+			allordersofgroup.status,allordersofgroup.period,allordersofgroup.price
+		FROM allordersofgroup RIGHT JOIN
+		(
+			SELECT chooseorder.*
+			FROM chooseorder INNER JOIN (
+				SELECT GROUPNAME, MARKETNAME, PRODUCTNAME, MIN(CHOOSEVALUE) AS _choosevalue FROM chooseorder 
+				WHERE groupname=#{groupName}
+					AND period =#{period}
+					AND CHOOSEVALUE <1000
+				GROUP BY GROUPNAME,MARKETNAME,PRODUCTNAME 
+			)t ON chooseorder.`MARKETNAME` = t.marketname AND chooseorder.`PRODUCTNAME` = t.productname AND chooseorder.`GROUPNAME` = t.groupname AND chooseorder.CHOOSEVALUE = t._choosevalue
+			WHERE chooseorder.groupname=#{groupName}  AND chooseorder.period =#{period} AND CHOOSEVALUE <1000
+		)chooseorder ON allordersofgroup.`MARKETNAME` = chooseorder.marketname AND allordersofgroup.`PRODUCTNAME` = chooseorder.productname AND allordersofgroup.`GROUPNAME` = chooseorder.groupname
+		WHERE allordersofgroup.groupname=#{groupName} 
+		AND allordersofgroup.period=#{period}
+		AND allordersofgroup.status = 0
+		AND allordersofgroup.marketname in
+]]>
+				<if test="marketName=='all' ">
+					(select distinct marketname from adofuser where userUnique=#{userUnique}  and period=#{period} and money>0)
+				</if>
+				<if test="marketName!='all' and marketName!=null">
+					(#{marketName})
+				</if>
+<![CDATA[
+			and allordersofgroup.productname in 
+]]>
+			<if test="productName=='all' ">
+				(select distinct productname from adofuser where userUnique=#{userUnique} and period=#{period} and money>0)
+			</if>
+			<if test="productName!='all' and productName!=null">
+				(#{productName})
+			</if>
+	</select> -->
+	<resultMap id="MarketProductPairResultMap" type="com.cqupt.mislab.erpn.model.vo.order.MarketProductPair">
+		<id property="marketName" column="MARKETNAME"/>
+		<result property="productName" column="PRODUCTNAME"/>
+	</resultMap>
+
+	<select id="getMarketProductPairs" resultMap="MarketProductPairResultMap">
+		SELECT MARKETNAME, PRODUCTNAME
+		FROM chooseorder
+		WHERE PERIOD = #{period}
+		AND USERUNIQUE = #{userUnique}
+		AND GROUPNAME = #{groupName}
+		AND CHOOSEVALUE >= #{chooseValue}
+	</select>
+
+	<select id="findChooseOrderValueObject" resultType="com.cqupt.mislab.erpn.model.vo.order.ChooseOrderVO">
+		<![CDATA[
+		SELECT   allordersofgroup_.* FROM (	
+			SELECT 
+				chooseorder.userUnique,chooseorder.chooseValue,
+				allordersofgroup.orderID,allordersofgroup.productName,allordersofgroup.pNumber,
+				allordersofgroup.marketName,allordersofgroup.needTime,allordersofgroup.MoneyTime,
+				allordersofgroup.penalPercent,allordersofgroup.specialRem,allordersofgroup.groupName,
+				allordersofgroup.status,allordersofgroup.period,allordersofgroup.price
+				FROM allordersofgroup RIGHT JOIN
+				(
+					SELECT chooseorder.*
+					FROM chooseorder INNER JOIN (
+						SELECT GROUPNAME, MARKETNAME, PRODUCTNAME, MIN(CHOOSEVALUE) AS _choosevalue FROM chooseorder
+						WHERE groupname=#{groupName}
+							AND period =#{period}
+							AND CHOOSEVALUE <1000
+						GROUP BY GROUPNAME,MARKETNAME,PRODUCTNAME
+					)t ON chooseorder.`MARKETNAME` = t.marketname AND chooseorder.`PRODUCTNAME` = t.productname AND chooseorder.`GROUPNAME` = t.groupname AND chooseorder.CHOOSEVALUE = t._choosevalue
+					WHERE chooseorder.groupname=#{groupName}  AND chooseorder.period =#{period} AND chooseorder.CHOOSEVALUE <1000
+				)chooseorder ON allordersofgroup.`MARKETNAME` = chooseorder.marketname AND allordersofgroup.`PRODUCTNAME` = chooseorder.productname AND allordersofgroup.`GROUPNAME` = chooseorder.groupname
+				WHERE allordersofgroup.groupname=#{groupName} 
+				AND allordersofgroup.period=#{period}
+				AND allordersofgroup.status = 0
+		)allordersofgroup_
+	]]>
+
+		<if test="marketName=='all' ">
+			INNER JOIN
+			(
+			SELECT DISTINCT marketname FROM adofuser WHERE userUnique=#{userUnique}  and period=#{period} and money>0
+			)adofuser_marketname
+			ON allordersofgroup_.`MARKETNAME` = adofuser_marketname.`MARKETNAME`
+		</if>
+
+		<if test="productName=='all' ">
+			INNER JOIN
+			(
+			SELECT DISTINCT productname FROM adofuser WHERE userUnique=#{userUnique}  and period=#{period} and money>0
+			)adofuser_productname
+			ON allordersofgroup_.`PRODUCTNAME` = adofuser_productname.productname
+		</if>
+		<![CDATA[
+			WHERE 1=1
+		]]>
+		<if test="marketName!='all' and marketName!=null">
+			AND allordersofgroup_.`MARKETNAME` = #{marketName}
+		</if>
+
+		<if test="productName!='all' and productName!=null">
+			and allordersofgroup_.productName = #{productName}
+		</if>
+
+	</select>
+
+	<!--修复选单问题，2018、12、23 by刘岽、王永
+		问题陈述： 12月21日于实验楼，王永、刘进、刘岽以及极客工作室的部分同学进行测试，玩到第三年第一期（9期）
+				  出现无法选单问题（服务器错误，执行select语句，期待返回一条数据，却返回多条数据）
+		问题原因： 数据库chooseorder表中出现多条重复数据（即 同一周期、同一市场、同一产品、同一userunique、choosevalue相同）。
+				 正常情况下， 同一周期、同一市场、同一产品、只能有一个用户来选订单。
+				 出现该问题就意味着这个信息被复制了多次（至少两次），且不满足代码的逻辑（代码中期待返回的数据仅有一条，即同一周期、同一市场、同一产品、只能有一个用户来选订单)。
+		产生该问题的原因推测：
+				在用户破产或者用户投完广告费之后，代码会检查组内所有人是否完成广告费的投放，如果完成就会更新chooseorder表中的数据，
+				我们推测： 更新chooseorder表中数据的操作被执行了多次（可能是服务器忙的时候所导致更新操作被执行多次）
+				特别强调！！！该原因仅是推测，并未真正找到。
+		问题解决方案： 在筛选出来的结果上加一个distinct()函数，仅仅是一种补救方式
+		解决效果：能够正常的执行选订单的操作，但是数据库中上述的多条重复数据并未删除至只剩一条，
+				在某个用户选完订单的时候，会同时更新这些重复的数据
+				例子：
+				选订单之前的数据状态
+					  A		B		C    #属性名称
+					  u		u		u
+					  u		u		u
+				如果没有加入distinct函数，那么选出来的就是两条数据，加了distinct函数则只有一条数据:u, u, u.符合代码所期待只有一条数据的情况。
+				选择订单成功后，chooseorder中的属性值会被批量更新，如下
+					  A		B		C    #属性名称
+					  u+1	u+1		u+1
+					  u+1	u+1		u+1
+	-->
+	<select id="findChooserOrderUser"  resultType="string">
+		<![CDATA[
+			select distinct (userUnique) from chooseorder
+				where (marketname, productname,choosevalue)
+					in
+						(
+							select marketname,productname,min(choosevalue)
+								from CHOOSEORDER
+								where marketname=#{marketName}
+									and productname=#{productName}
+									and period=#{period}
+									and groupname=#{groupName}
+									group by marketname, productname
+						)
+				and period=#{period}
+				and groupname=#{groupName}
+		]]>
+	</select>
+
+	<select id="findUsersOrder" resultType="string">
+		SELECT USERUNIQUE FROM (	SELECT USERUNIQUE,min(CHOOSEVALUE) FROM chooseorder
+									WHERE GROUPNAME=#{groupName} and PERIOD = #{period} GROUP BY GROUPNAME,MARKETNAME,PRODUCTNAME ) as a
+	</select>
+
+</mapper>
+
+<!--  -->

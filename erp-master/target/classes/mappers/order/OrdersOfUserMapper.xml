@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.order.OrdersOfUserDao">
+
+    <resultMap type="com.cqupt.mislab.erpn.model.entity.order.OrderSequence" id="orderSequenceMap">
+        <result column="USERUNIQUE" property="userUnique"/>
+        <result column="TOTALPRICE" property="money" />
+    </resultMap>
+
+    <select id="findOrdersOfUserByUserUnique" resultType="com.cqupt.mislab.erpn.model.entity.order.OrdersOfUser">
+        select USERUNIQUE,ORDERID,MARKETNAME,NEEDTIME,PRODUCTNAME,PNUMBER,PRICE,MONEYTIME,PENALPERCENT,SPECIALREM,ENDTIME from ordersofuser where USERUNIQUE=#{userUnique}
+    </select>
+
+    <select id="findDeliveredOrdersOfUserByUserUnique" resultType="com.cqupt.mislab.erpn.model.entity.order.OrdersOfUser">
+        select USERUNIQUE,ORDERID,MARKETNAME,NEEDTIME,PRODUCTNAME,PNUMBER,PRICE,MONEYTIME,PENALPERCENT,SPECIALREM,ENDTIME from ordersofuser where USERUNIQUE=#{userUnique} and ENDTIME is not null
+    </select>
+
+    <select id="findNotDeliverOrdersOfUser" resultType="com.cqupt.mislab.erpn.model.entity.order.OrdersOfUser">
+        select USERUNIQUE,ORDERID,MARKETNAME,NEEDTIME,PRODUCTNAME,PNUMBER,PRICE,MONEYTIME,PENALPERCENT,SPECIALREM,ENDTIME from ordersofuser where USERUNIQUE=#{userUnique} and ENDTIME is null
+    </select>
+
+    <select id="findSmallestTime" resultType="int" parameterType="string">
+        select min(NEEDTIME) from ordersofuser where USERUNIQUE = #{userUnique} and ENDTIME is null
+    </select>
+
+    <select id="findOrderDetail" resultType="com.cqupt.mislab.erpn.model.entity.order.OrdersOfUser" parameterType="string">
+        select USERUNIQUE,ORDERID,MARKETNAME,NEEDTIME,PRODUCTNAME,PNUMBER,PRICE,MONEYTIME,PENALPERCENT,SPECIALREM,ENDTIME from ordersofuser where orderid = #{orderID}
+    </select>
+
+    <update id="updateOrderEndTime" parameterType="com.cqupt.mislab.erpn.model.entity.order.OrdersOfUser" >
+        update ordersofuser set ENDTIME=(select CURRENTPERIOD from gamegroupmember where USERUNIQUE=#{userUnique})
+        where ORDERID=#{orderID}
+    </update>
+
+    <select id="findSaleRoom" resultType="float" parameterType="string">
+        select PRICE*PNUMBER from ordersofuser where ORDERID = #{orderID}
+    </select>
+
+    <select id="findOrdersMoney" parameterType="map" resultMap="orderSequenceMap">
+	<![CDATA[
+        select userUnique,sum(price*pNumber) as totalPrice
+        from OrdersOfUser
+        where marketName=#{marketName}
+          and productName=#{productName}
+          and endTime<=needTime
+          and needTime>=#{begin}
+          and needTime<=#{end}
+          and userUnique in (select userUnique from GameGroupMember where status=1 and groupName=#{groupName} )
+        group by userUnique
+        ]]>
+	</select>
+
+    <select id="findUnOrdersMoney" parameterType="map" resultMap="orderSequenceMap">
+	<![CDATA[
+        select userUnique,sum(price*pNumber) as totalPrice
+        from OrdersOfUser
+        where marketName=#{marketName}
+          and productName=#{productName}
+          and endTime>needTime
+          and needTime>=#{begin}
+          and needTime<=#{end}
+          and userUnique in (select userUnique from GameGroupMember where status=1 and groupName=#{groupName} )
+        group by userUnique
+        ]]>
+	</select>
+    <select id="findOrdersMoneyOfUser" resultMap="orderSequenceMap">
+        <![CDATA[
+        select USERUNIQUE,sum(PRICE*PNUMBER) as TOTALPRICE
+        from ordersofuser
+        where MARKETNAME=#{marketName}
+          and PRODUCTNAME=#{productName}
+          and ENDTIME<=NEEDTIME
+          and NEEDTIME>=#{begin}
+          and NEEDTIME<=#{end}
+          and USERUNIQUE in (select USERUNIQUE from gamegroupmember where STATUS=1 and GROUPNAME=#{groupName} )
+        group by USERUNIQUE
+        ]]>
+    </select>
+    <select id="findUnOrdersMoneyOfUser" resultMap="orderSequenceMap">
+         <![CDATA[
+        select USERUNIQUE,sum(PRICE*PNUMBER) as TOTALPRICE
+        from ordersofuser
+        where MARKETNAME=#{marketName}
+          and PRODUCTNAME=#{productName}
+          and ENDTIME>NEEDTIME
+          and NEEDTIME>=#{begin}
+          and NEEDTIME<=#{end}
+          and USERUNIQUE in (select USERUNIQUE from gamegroupmember where STATUS=1 and GROUPNAME=#{groupName} )
+        group by USERUNIQUE
+        ]]>
+
+    </select>
+
+    <insert id="addOrderOfUser" parameterType="com.cqupt.mislab.erpn.model.entity.order.OrdersOfUser">
+        insert into ordersofuser values(#{userUnique}, #{orderID} ,#{productName}, #{price}, #{pNumber}, #{marketName}, #{needTime}, #{moneyTime}, #{penalPercent},
+        <if test="specialRem!=null">
+            #{specialRem},
+        </if>
+        <if test="specialRem==null">
+            null,
+        </if>
+        null)
+    </insert>
+</mapper>

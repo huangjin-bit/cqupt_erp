@@ -1,0 +1,1679 @@
+{
+  "startedAt": "2026-05-29T18:06:51.791Z",
+  "baseUrl": "http://39.98.115.237/",
+  "groupName": "UI78011790",
+  "accounts": [
+    "黄进2024211137",
+    "张雪皎20242109",
+    "王永101311"
+  ],
+  "steps": [
+    {
+      "at": "2026-05-29T18:07:03.532Z",
+      "name": "黄进2024211137-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:03.542Z",
+      "name": "黄进2024211137-entered-existing-game",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:15.327Z",
+      "name": "张雪皎20242109-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:15.343Z",
+      "name": "张雪皎20242109-entered-existing-game",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:29.935Z",
+      "name": "王永101311-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:29.948Z",
+      "name": "王永101311-entered-existing-game",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:30.550Z",
+      "name": "cycle-0-state",
+      "data": [
+        {
+          "account": "黄进2024211137",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "黄进2024211137",
+            "years": 3,
+            "currentPeriod": 1,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 11,
+            "factoryCount": 1,
+            "userUnique": "黄进2024211137178007443989713",
+            "gender": null
+          },
+          "text": "您好， 黄进2024211137\n第3年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "张雪皎20242109",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "张雪皎20242109",
+            "years": 3,
+            "currentPeriod": 1,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 9.65,
+            "factoryCount": 1,
+            "userUnique": "张雪皎20242109178007443989713",
+            "gender": null
+          },
+          "text": "您好， 张雪皎20242109\n第3年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "王永101311",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "王永101311",
+            "years": 3,
+            "currentPeriod": 1,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 101,
+            "factoryCount": 1,
+            "userUnique": "王永101311178007443989713",
+            "gender": null
+          },
+          "text": "加载中..."
+        }
+      ]
+    },
+    {
+      "at": "2026-05-29T18:07:31.270Z",
+      "name": "annual-planning-all-start",
+      "data": [
+        "黄进2024211137",
+        "张雪皎20242109",
+        "王永101311"
+      ]
+    },
+    {
+      "at": "2026-05-29T18:07:34.091Z",
+      "name": "黄进2024211137-open-ad-wait",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:37.119Z",
+      "name": "张雪皎20242109-open-ad-wait",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:40.053Z",
+      "name": "王永101311-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:42.188Z",
+      "name": "王永101311-put-ad-p1",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:43.319Z",
+      "name": "王永101311-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:44.479Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:46.037Z",
+      "name": "王永101311-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:49.203Z",
+      "name": "黄进2024211137-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-05-29T18:07:52.700Z",
+      "name": "黄进2024211137-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:53.333Z",
+      "name": "黄进2024211137-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:54.502Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:56.157Z",
+      "name": "黄进2024211137-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:07:57.816Z",
+      "name": "张雪皎20242109-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:01.860Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:03.406Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:04.576Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:06.117Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:07.312Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:08.854Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:09.987Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:11.539Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:12.689Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:14.224Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:15.449Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:17.048Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:18.185Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:19.743Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:20.908Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:22.463Z",
+      "name": "张雪皎20242109-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:23.256Z",
+      "name": "张雪皎20242109-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:23.891Z",
+      "name": "张雪皎20242109-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:25.071Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:26.713Z",
+      "name": "张雪皎20242109-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:28.421Z",
+      "name": "王永101311-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:32.491Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:34.032Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:35.257Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:36.811Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:38.048Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:39.617Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:40.750Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:42.286Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:43.664Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:45.201Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:46.367Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:47.909Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:49.078Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:50.621Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:51.770Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:53.304Z",
+      "name": "王永101311-choose-order-click",
+      "data": {
+        "before": 4
+      }
+    },
+    {
+      "at": "2026-05-29T18:08:53.936Z",
+      "name": "王永101311-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:54.584Z",
+      "name": "王永101311-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:55.721Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:08:57.353Z",
+      "name": "王永101311-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:09:04.262Z",
+      "name": "黄进2024211137-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:05.831Z",
+      "name": "黄进2024211137-click-高利贷",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:09:05.834Z",
+      "name": "黄进2024211137-loan-modal-not-open",
+      "data": {
+        "type": "高利贷",
+        "money": 100
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:08.278Z",
+      "name": "黄进2024211137-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:10.705Z",
+      "name": "黄进2024211137-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:13.139Z",
+      "name": "黄进2024211137-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:15.766Z",
+      "name": "黄进2024211137-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:17.304Z",
+      "name": "黄进2024211137-click-高利贷",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:09:19.751Z",
+      "name": "黄进2024211137-loan-高利贷-100",
+      "data": {
+        "text": "您好， 黄进2024211137\n第3年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n申请贷款\n贷款管理\n一年内的长期负债\n\n税金管理\n\n时间管理\n\n结束经营\n贷款与融资/\n申请贷款\n现金: 107.95 万元\n\n\n申请贷款成功"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:22.275Z",
+      "name": "张雪皎20242109-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:23.849Z",
+      "name": "张雪皎20242109-click-高利贷",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:09:26.520Z",
+      "name": "张雪皎20242109-loan-高利贷-100",
+      "data": {
+        "text": "您好， 张雪皎20242109\n第3年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n申请贷款\n贷款管理\n一年内的长期负债\n\n税金管理\n\n时间管理\n\n结束经营\n贷款与融资/\n申请贷款\n现金: 100 万元\n\n\n申请贷款成功"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:29.218Z",
+      "name": "张雪皎20242109-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:31.925Z",
+      "name": "张雪皎20242109-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:34.398Z",
+      "name": "张雪皎20242109-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:38.588Z",
+      "name": "王永101311-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:45.576Z",
+      "name": "王永101311-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:52.595Z",
+      "name": "王永101311-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:55.118Z",
+      "name": "黄进2024211137-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:09:56.300Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:09:59.456Z",
+      "name": "黄进2024211137-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "beforeInfo": {
+          "userName": "黄进2024211137",
+          "years": 3,
+          "currentPeriod": 2,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 107.95,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "黄进2024211137",
+          "years": 3,
+          "currentPeriod": 2,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 107.95,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 黄进2024211137\n第3年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n申请贷款\n贷款管理\n一年内的长期负债\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:02.018Z",
+      "name": "张雪皎20242109-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:03.252Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:06.411Z",
+      "name": "张雪皎20242109-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "beforeInfo": {
+          "userName": "张雪皎20242109",
+          "years": 3,
+          "currentPeriod": 1,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 109.65,
+          "factoryCount": 1,
+          "userUnique": "张雪皎20242109178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "张雪皎20242109",
+          "years": 3,
+          "currentPeriod": 1,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 109.65,
+          "factoryCount": 1,
+          "userUnique": "张雪皎20242109178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 张雪皎20242109\n第3年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n购买原料\n查看原料采购单\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:11.246Z",
+      "name": "王永101311-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:14.265Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:15.070Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:15.958Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:16.827Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:19.976Z",
+      "name": "王永101311-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameover/checkJournalEntry",
+        "beforeInfo": {
+          "userName": "王永101311",
+          "years": 3,
+          "currentPeriod": 2,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 92.25,
+          "factoryCount": 1,
+          "userUnique": "王永101311178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "王永101311",
+          "years": 3,
+          "currentPeriod": 2,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": -16.175,
+          "factoryCount": 1,
+          "userUnique": "王永101311178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 王永101311\n第3年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n购买原料\n查看原料采购单\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:20.265Z",
+      "name": "cycle-1-state",
+      "data": [
+        {
+          "account": "黄进2024211137",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "黄进2024211137",
+            "years": 3,
+            "currentPeriod": 4,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 91.85,
+            "factoryCount": 1,
+            "userUnique": "黄进2024211137178007443989713",
+            "gender": null
+          },
+          "text": "您好， 黄进2024211137\n第3年，第3期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "张雪皎20242109",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "张雪皎20242109",
+            "years": 3,
+            "currentPeriod": 2,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 101.55,
+            "factoryCount": 1,
+            "userUnique": "张雪皎20242109178007443989713",
+            "gender": null
+          },
+          "text": "您好， 张雪皎20242109\n第3年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "王永101311",
+          "url": "http://39.98.115.237/#/gameover/checkJournalEntry",
+          "info": {
+            "userName": "王永101311",
+            "years": 3,
+            "currentPeriod": 2,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": -16.175,
+            "factoryCount": 1,
+            "userUnique": "王永101311178007443989713",
+            "gender": null
+          },
+          "text": "加载中...\n用户已破产"
+        }
+      ]
+    },
+    {
+      "at": "2026-05-29T18:10:23.511Z",
+      "name": "黄进2024211137-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:26.160Z",
+      "name": "黄进2024211137-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:28.926Z",
+      "name": "黄进2024211137-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:32.025Z",
+      "name": "张雪皎20242109-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:34.603Z",
+      "name": "张雪皎20242109-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:37.185Z",
+      "name": "张雪皎20242109-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:39.761Z",
+      "name": "黄进2024211137-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:40.923Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:44.064Z",
+      "name": "黄进2024211137-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "beforeInfo": {
+          "userName": "黄进2024211137",
+          "years": 3,
+          "currentPeriod": 4,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 91.85,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "黄进2024211137",
+          "years": 3,
+          "currentPeriod": 4,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 91.85,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 黄进2024211137\n第3年，第3期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n购买原料\n查看原料采购单\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:46.632Z",
+      "name": "张雪皎20242109-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:47.872Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:50.987Z",
+      "name": "张雪皎20242109-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "beforeInfo": {
+          "userName": "张雪皎20242109",
+          "years": 3,
+          "currentPeriod": 3,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 93.2,
+          "factoryCount": 1,
+          "userUnique": "张雪皎20242109178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "张雪皎20242109",
+          "years": 3,
+          "currentPeriod": 3,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 93.2,
+          "factoryCount": 1,
+          "userUnique": "张雪皎20242109178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 张雪皎20242109\n第3年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n购买原料\n查看原料采购单\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:51.388Z",
+      "name": "cycle-2-state",
+      "data": [
+        {
+          "account": "黄进2024211137",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "黄进2024211137",
+            "years": 4,
+            "currentPeriod": 1,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 83.8,
+            "factoryCount": 1,
+            "userUnique": "黄进2024211137178007443989713",
+            "gender": null
+          },
+          "text": "您好， 黄进2024211137\n第4年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n\n推进下一周期"
+        },
+        {
+          "account": "张雪皎20242109",
+          "url": "http://39.98.115.237/#/gameoperate/time",
+          "info": {
+            "userName": "张雪皎20242109",
+            "years": 3,
+            "currentPeriod": 3,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 93.2,
+            "factoryCount": 1,
+            "userUnique": "张雪皎20242109178007443989713",
+            "gender": null
+          },
+          "text": "您好， 张雪皎20242109\n第3年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n购买原料\n查看原料采购单\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n"
+        },
+        {
+          "account": "王永101311",
+          "url": "http://39.98.115.237/#/gameover/checkJournalEntry",
+          "info": {
+            "userName": "王永101311",
+            "years": 3,
+            "currentPeriod": 2,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": -16.175,
+            "factoryCount": 1,
+            "userUnique": "王永101311178007443989713",
+            "gender": null
+          },
+          "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n财务管理/\n查看会计分录\n\n查看会计分录\nCheck Journal Entry\n起始时间:\n1\n年\n1\n期结束时间:\n1\n年\n1\n期查 询\n凭条\t发生时间\t交易概要\t科目\t类型\t金额\n69038\t1\t投广告费\t现金\t贷\t1\n"
+        }
+      ]
+    },
+    {
+      "at": "2026-05-29T18:10:51.727Z",
+      "name": "annual-planning-all-start",
+      "data": [
+        "黄进2024211137"
+      ]
+    },
+    {
+      "at": "2026-05-29T18:10:54.563Z",
+      "name": "黄进2024211137-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:10:56.682Z",
+      "name": "黄进2024211137-put-ad-p1",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:57.768Z",
+      "name": "黄进2024211137-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:10:59.057Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:11:00.649Z",
+      "name": "黄进2024211137-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:11:03.897Z",
+      "name": "黄进2024211137-open-ad-wait",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:07.070Z",
+      "name": "黄进2024211137-open-ad-wait",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:10.158Z",
+      "name": "黄进2024211137-open-ad-wait",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:14.505Z",
+      "name": "黄进2024211137-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:17.335Z",
+      "name": "黄进2024211137-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:21.149Z",
+      "name": "黄进2024211137-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:28.633Z",
+      "name": "张雪皎20242109-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:35.685Z",
+      "name": "张雪皎20242109-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:41.145Z",
+      "name": "张雪皎20242109-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:43.899Z",
+      "name": "张雪皎20242109-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:45.429Z",
+      "name": "张雪皎20242109-click-高利贷",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:11:48.014Z",
+      "name": "张雪皎20242109-loan-高利贷-100",
+      "data": {
+        "text": "您好， 张雪皎20242109\n第3年，第4期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n申请贷款\n贷款管理\n一年内的长期负债\n\n税金管理\n\n时间管理\n\n结束经营\n贷款与融资/\n申请贷款\n现金: 75.18 万元\n\n\n申请贷款成功\n比赛信息\n\n分组：UI74064406\n\n现金：84.6万元\n\n税金：0万元\n\n厂房：1个"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:52.515Z",
+      "name": "黄进2024211137-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:11:55.771Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:11:56.563Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:11:57.325Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:11:58.071Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:01.161Z",
+      "name": "黄进2024211137-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "beforeInfo": {
+          "userName": "黄进2024211137",
+          "years": 4,
+          "currentPeriod": 1,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 82.8,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "黄进2024211137",
+          "years": 4,
+          "currentPeriod": 1,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 82.8,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 黄进2024211137\n第4年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n购买原料\n查看原料采购单\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n\n请完成广告费投放和选订单"
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:01.618Z",
+      "name": "annual-planning-all-start",
+      "data": [
+        "黄进2024211137"
+      ]
+    },
+    {
+      "at": "2026-05-29T18:12:08.796Z",
+      "name": "黄进2024211137-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:14.623Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:15.401Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:16.160Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:16.902Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:18.413Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:20.623Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:21.357Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:22.093Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:22.834Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:24.344Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:26.648Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:27.425Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:28.167Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:28.905Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:30.416Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:32.663Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:33.411Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:34.142Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:34.889Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:36.403Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:38.686Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:39.447Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:40.181Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:40.932Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:42.437Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:44.707Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:45.438Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:46.196Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:46.954Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:48.462Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:50.776Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:51.525Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:52.258Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:52.990Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:54.493Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:12:56.783Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:57.526Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:58.268Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:12:59.028Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:00.531Z",
+      "name": "黄进2024211137-choose-order-click",
+      "data": {
+        "before": 5
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:02.346Z",
+      "name": "黄进2024211137-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:04.300Z",
+      "name": "黄进2024211137-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:05.436Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:06.186Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:06.949Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:07.681Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:09.286Z",
+      "name": "黄进2024211137-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:18.866Z",
+      "name": "黄进2024211137-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:20.047Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:23.256Z",
+      "name": "黄进2024211137-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "beforeInfo": {
+          "userName": "黄进2024211137",
+          "years": 4,
+          "currentPeriod": 1,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 82.8,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "黄进2024211137",
+          "years": 4,
+          "currentPeriod": 1,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 82.8,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 黄进2024211137\n第4年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n各类市场管理\n广告投放 & 订单\n市场预测信息\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:25.660Z",
+      "name": "张雪皎20242109-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time"
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:26.799Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:27.638Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:28.384Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:29.131Z",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-05-29T18:13:32.272Z",
+      "name": "张雪皎20242109-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameover/checkJournalEntry",
+        "beforeInfo": {
+          "userName": "张雪皎20242109",
+          "years": 3,
+          "currentPeriod": 4,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 75.18,
+          "factoryCount": 1,
+          "userUnique": "张雪皎20242109178007443989713",
+          "gender": null
+        },
+        "afterInfo": {
+          "userName": "张雪皎20242109",
+          "years": 3,
+          "currentPeriod": 4,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 75.18,
+          "factoryCount": 1,
+          "userUnique": "张雪皎20242109178007443989713",
+          "gender": null
+        },
+        "moved": false,
+        "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n财务管理/\n查看会计分录\n\n查看会计分录\nCheck Journal Entry\n起始时间:\n1\n年\n1\n期结束时间:\n1\n年\n1\n期查 询\n凭条\t发生时间\t交易概要\t科目\t类型\t金额\n69037\t1\t投广告费\t现金\t贷\t1\n营业费用\t借\t1\n69054\t1\t维护市场\t现金\t贷\t0.25\n营业费用\t借\t0.25\n69055\t1\t厂房维护\t现金\t贷\t0.5\n营业费用\t借\t0.5\n69056\t1\t厂房折旧\t管理费用\t借\t1\n累计折旧\t贷\t1\n69057\t1\t生产线维护费\t现金\t贷\t0.25\n营业费用\t借\t"
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:32.620Z",
+      "name": "cycle-3-state",
+      "data": [
+        {
+          "account": "黄进2024211137",
+          "url": "http://39.98.115.237/#/gameover/checkJournalEntry",
+          "info": {
+            "userName": "黄进2024211137",
+            "years": 4,
+            "currentPeriod": 1,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": -25.25,
+            "factoryCount": 1,
+            "userUnique": "黄进2024211137178007443989713",
+            "gender": null
+          },
+          "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n财务管理/\n查看会计分录\n\n查看会计分录\nCheck Journal Entry\n起始时间:\n1\n年\n1\n期结束时间:\n1\n年\n1\n期查 询\n凭条\t发生时间\t交易概要\t科目\t类型\t金额\n69036\t1\t投广告费\t现金\t贷\t1\n"
+        },
+        {
+          "account": "张雪皎20242109",
+          "url": "http://39.98.115.237/#/gameover/checkJournalEntry",
+          "info": {
+            "userName": "张雪皎20242109",
+            "years": 3,
+            "currentPeriod": 4,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": 75.18,
+            "factoryCount": 1,
+            "userUnique": "张雪皎20242109178007443989713",
+            "gender": null
+          },
+          "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n财务管理/\n查看会计分录\n\n查看会计分录\nCheck Journal Entry\n起始时间:\n1\n年\n1\n期结束时间:\n1\n年\n1\n期查 询\n凭条\t发生时间\t交易概要\t科目\t类型\t金额\n69037\t1\t投广告费\t现金\t贷\t1\n"
+        },
+        {
+          "account": "王永101311",
+          "url": "http://39.98.115.237/#/gameover/checkJournalEntry",
+          "info": {
+            "userName": "王永101311",
+            "years": 3,
+            "currentPeriod": 2,
+            "groupName": "UI74064406",
+            "tax": 0,
+            "cash": -16.175,
+            "factoryCount": 1,
+            "userUnique": "王永101311178007443989713",
+            "gender": null
+          },
+          "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n财务管理/\n查看会计分录\n\n查看会计分录\nCheck Journal Entry\n起始时间:\n1\n年\n1\n期结束时间:\n1\n年\n1\n期查 询\n凭条\t发生时间\t交易概要\t科目\t类型\t金额\n69038\t1\t投广告费\t现金\t贷\t1\n"
+        }
+      ]
+    },
+    {
+      "at": "2026-05-29T18:13:42.151Z",
+      "name": "黄进2024211137-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameover",
+        "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:42.651Z",
+      "name": "黄进2024211137-final-verify",
+      "data": {
+        "account": "黄进2024211137",
+        "info": {
+          "userName": "黄进2024211137",
+          "years": 4,
+          "currentPeriod": 1,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": -25.25,
+          "factoryCount": 1,
+          "userUnique": "黄进2024211137178007443989713",
+          "gender": null
+        },
+        "url": "http://39.98.115.237/#/gameover",
+        "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n",
+        "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-full-match\\黄进2024211137-final.png"
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:52.070Z",
+      "name": "张雪皎20242109-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameover",
+        "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:13:52.357Z",
+      "name": "张雪皎20242109-final-verify",
+      "data": {
+        "account": "张雪皎20242109",
+        "info": {
+          "userName": "张雪皎20242109",
+          "years": 3,
+          "currentPeriod": 4,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": 75.18,
+          "factoryCount": 1,
+          "userUnique": "张雪皎20242109178007443989713",
+          "gender": null
+        },
+        "url": "http://39.98.115.237/#/gameover",
+        "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n",
+        "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-full-match\\张雪皎20242109-final.png"
+      }
+    },
+    {
+      "at": "2026-05-29T18:14:01.949Z",
+      "name": "王永101311-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameover",
+        "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n"
+      }
+    },
+    {
+      "at": "2026-05-29T18:14:02.307Z",
+      "name": "王永101311-final-verify",
+      "data": {
+        "account": "王永101311",
+        "info": {
+          "userName": "王永101311",
+          "years": 3,
+          "currentPeriod": 2,
+          "groupName": "UI74064406",
+          "tax": 0,
+          "cash": -16.175,
+          "factoryCount": 1,
+          "userUnique": "王永101311178007443989713",
+          "gender": null
+        },
+        "url": "http://39.98.115.237/#/gameover",
+        "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n",
+        "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-full-match\\王永101311-final.png"
+      }
+    }
+  ],
+  "final": [
+    {
+      "account": "黄进2024211137",
+      "info": {
+        "userName": "黄进2024211137",
+        "years": 4,
+        "currentPeriod": 1,
+        "groupName": "UI74064406",
+        "tax": 0,
+        "cash": -25.25,
+        "factoryCount": 1,
+        "userUnique": "黄进2024211137178007443989713",
+        "gender": null
+      },
+      "url": "http://39.98.115.237/#/gameover",
+      "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-full-match\\黄进2024211137-final.png"
+    },
+    {
+      "account": "张雪皎20242109",
+      "info": {
+        "userName": "张雪皎20242109",
+        "years": 3,
+        "currentPeriod": 4,
+        "groupName": "UI74064406",
+        "tax": 0,
+        "cash": 75.18,
+        "factoryCount": 1,
+        "userUnique": "张雪皎20242109178007443989713",
+        "gender": null
+      },
+      "url": "http://39.98.115.237/#/gameover",
+      "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-full-match\\张雪皎20242109-final.png"
+    },
+    {
+      "account": "王永101311",
+      "info": {
+        "userName": "王永101311",
+        "years": 3,
+        "currentPeriod": 2,
+        "groupName": "UI74064406",
+        "tax": 0,
+        "cash": -16.175,
+        "factoryCount": 1,
+        "userUnique": "王永101311178007443989713",
+        "gender": null
+      },
+      "url": "http://39.98.115.237/#/gameover",
+      "text": "\n财务管理\n\n实验报告\n\n填写实验心得\n\n小组成员管理\n\n重新开始\n\n退出游戏\n\n",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-full-match\\王永101311-final.png"
+    }
+  ],
+  "finishedAt": "2026-05-29T18:14:02.307Z"
+}

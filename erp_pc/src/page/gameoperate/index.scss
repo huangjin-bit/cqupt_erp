@@ -1,0 +1,168 @@
+@import 'common/styles/variable.scss';
+
+.game-operate-wrapper {
+
+  .ant-layout {
+    background: white;
+    min-height: 100vh !important;
+
+    .ant-layout-header {
+      padding: 0;
+      height: 60px;
+    }
+
+    .ant-layout-sider {
+      background: $gameMeunColor;
+      color: white;
+
+      .ant-menu {
+        background-color: $gameMeunColor;
+
+        .ant-menu-item {
+          margin: 0 !important;
+          font-family: '微软雅黑';
+          color: white;
+          margin: 0 !important;
+          font-family: '微软雅黑';
+
+          a {
+            color: white;
+          }
+        }
+
+        .ant-menu-item-selected {
+          background-color: #52809a !important;
+        }
+
+        .ant-menu-item-selected a {
+          background-color: #52809a !important;
+        }
+
+        .ant-menu-item a:hover,
+        .ant-menu-item-active {
+          background-color: #20466d;
+        }
+
+        .ant-menu-item::after {
+          border-right: 0px;
+        }
+
+        .ant-menu-submenu {
+          color: white !important;
+
+          .ant-menu-item {
+            margin: 0 !important;
+            font-family: '微软雅黑';
+            color: white;
+            font-family: '微软雅黑';
+
+            a {
+              color: white;
+            }
+          }
+
+          .ant-menu-item-selected {
+            background-color: #52809a !important;
+          }
+
+          .ant-menu-item-selected a {
+            background-color: #52809a !important;
+          }
+
+          .ant-menu-item a:hover,
+          .ant-menu-item-active {
+            background-color: #20466d;
+          }
+
+          .ant-menu-item::after {
+            border-right: 0px;
+          }
+
+          .ant-menu-submenu-title {
+            .ant-menu-submenu-arrow {
+              background: -webkit-gradient(linear, left top, right top, from(white), to(white));
+              background: linear-gradient(to right, white, white);
+            }
+          }
+        }
+      }
+
+      .ant-menu-submenu-active {
+        background-color: #20466d;
+        color: white !important;
+      }
+    }
+
+    .ant-layout-content {
+      display: flex;
+      flex-direction: column;
+
+      .nav-header {
+        height: 90px;
+      }
+
+      .ApplyLoan {
+        height: 45px;
+      }
+
+      .content-wrapper {
+        width: 100%;
+      }
+
+      .ant-spin {
+        margin: auto;
+      }
+    }
+  }
+}
+
+// 修改 antd 样式
+.ant-menu-submenu-vertical>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical-left>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical-right>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-inline>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-vertical-left>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-vertical-right>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-inline>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before {
+  background: -webkit-gradient(linear, left top, right top, from(white), to(white));
+  background: linear-gradient(to right, white, white);
+}
+
+.ant-menu-submenu-vertical>.ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-vertical-left>.ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-vertical-right>.ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-inline>.ant-menu-submenu-title .ant-menu-submenu-arrow::before,
+.ant-menu-submenu-vertical>.ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical-left>.ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-vertical-right>.ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-inline>.ant-menu-submenu-title .ant-menu-submenu-arrow::after {
+  position: absolute;
+  width: 6px;
+  height: 1.5px;
+  background-image: -webkit-gradient(linear, left top, right top, from(white), to(white));
+  background-image: linear-gradient(to right, white, white);
+  border-radius: 2px;
+  -webkit-transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  content: '';
+}
+
+.ant-menu-item:hover,
+.ant-menu-item-active,
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-submenu-active,
+.ant-menu-submenu-title:hover {
+  color: white;
+}

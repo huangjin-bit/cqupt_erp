@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.iso.DevelopedISODao">
+
+    <select id="findAllISODeveloped" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.iso.ISODeveloped" >
+		select ISONAME,MAINTAINCOST,BEGINTIME,ENDTIME,LASTSTATUS,STATUS,USERUNIQUE from developediso where USERUNIQUE=#{userUnique}
+	</select>
+    <update id="updateISODevelopedStatus" parameterType="map" >
+		update developediso set STATUS =#{status} where USERUNIQUE = #{userUnique} and ISONAME =#{isoName}
+	</update>
+    <update id="updateIsoDevelopedLaststatus" parameterType="map" >
+		update developediso set LASTSTATUS =#{lastStatus} where USERUNIQUE = #{userUnique} and ISONAME =#{isoName}
+	</update>
+    <insert id="addIsoToDeveloped" parameterType="com.cqupt.mislab.erpn.model.entity.iso.ISODeveloped" >
+	insert into developediso values(#{userUnique},#{isoName},#{maintainCost},#{status},#{lastStatus},#{beginTime},#{endTIime})
+	</insert>
+    <select id="findDevelopedIso" parameterType="map" resultType="int">
+		select count(isoname) from developediso  where userUnique=#{userUnique} and ISOName=#{isoName}
+	</select>
+</mapper>

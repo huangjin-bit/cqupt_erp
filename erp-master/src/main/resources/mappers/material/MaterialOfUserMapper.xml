@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.material.MaterialOfUserDao">
+    <resultMap id="materialOfUser" type="com.cqupt.mislab.erpn.model.entity.material.MaterialOfUser">
+        <id property="userUnique" column="USERUNIQUE"/>
+        <id property="materialName" column="MATERIALNAME"/>
+        <result property="mNumber" column="MNUMBER"/>
+        <result property="wareHouseName" column="WAREHOUSENAME"/>
+    </resultMap>
+
+    <resultMap id="materialVo" type="com.cqupt.mislab.erpn.model.vo.material.MaterialVO">
+        <id property="materialName" column="MATERIALNAME"/>
+        <result property="mNumber" column="MNUMBER"/>
+        <result property="delayTime" column="DELAYTIME"/>
+        <result property="price" column="PRICE"/>
+    </resultMap>
+    <update id="updateMaterialInventory">
+        update materialofuser
+        set MNUMBER=MNUMBER - #{materialNumber}
+        where userUnique = #{userUnique}
+          and materialName = #{materialName};
+
+    </update>
+
+    <select id="listMaterialVO" resultMap="materialVo">
+        select o.MATERIALNAME, o.MNUMBER, m.DELAYTIME, m.PRICE
+        from materialofuser as o
+                 left join materialbasic as m on o.MATERIALNAME = m.MATERIALNAME
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="findInventoryWithMaterialName" resultType="java.lang.Integer">
+        select MNUMBER
+        from materialofuser
+        where USERUNIQUE = #{userUnique}
+          and MATERIALNAME = #{materialName};
+
+    </select>
+    <select id="listMaterialByUserUnique"
+            resultMap="materialOfUser">
+        select MATERIALNAME,MNUMBER from materialofuser where USERUNIQUE=#{userUnique}
+    </select>
+</mapper>

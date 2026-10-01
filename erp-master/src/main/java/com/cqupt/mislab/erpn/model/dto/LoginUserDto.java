@@ -1,0 +1,21 @@
+package com.cqupt.mislab.erpn.model.dto;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @program: com.cqupt.mislab.erpn.model.dto
+ * @description:
+ * @author: keji0
+ * @date: 2020/7/22 14:43
+ */
+@NoArgsConstructor
+@Slf4j
+@ToString
+@Data
+public class LoginUserDto {
+    private String userId;
+    private String password;
+}

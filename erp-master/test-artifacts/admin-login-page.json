@@ -1,0 +1,43 @@
+{
+  "url": "http://39.98.115.237/#/login",
+  "title": "ERP沙盘虚拟运营系统",
+  "visibleText": "管理员登录\n登 录\n\n<< 返回主界面\n\n竞争\n\n以游戏组为比赛单位\n在竞争中增强实力\n\n全面\n\n全方位展现企业管理\n全面覆盖运作流程\n\n有趣\n\n置身模拟现实的复杂环境\n寓教与乐，新鲜有趣\nCopyright © 2011 - 2027 重庆优霓维思科技有限公司 版权所有",
+  "fields": [
+    {
+      "index": 0,
+      "tag": "input",
+      "type": "text",
+      "text": "请输入用户名",
+      "placeholder": "请输入用户名",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 1,
+      "tag": "input",
+      "type": "password",
+      "text": "请输入密码",
+      "placeholder": "请输入密码",
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 2,
+      "tag": "button",
+      "type": "submit",
+      "text": "登 录",
+      "placeholder": null,
+      "href": null,
+      "disabled": false
+    },
+    {
+      "index": 3,
+      "tag": "a",
+      "type": null,
+      "text": "<< 返回主界面",
+      "placeholder": null,
+      "href": null,
+      "disabled": false
+    }
+  ]
+}

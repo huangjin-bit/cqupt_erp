@@ -1,0 +1,42 @@
+.userprepare-wrapper {
+    padding: 0px 15px 0px 10px;
+    width: 100%;
+    min-width: 1120px;
+
+    .div-span {
+        margin-left: 20px;
+        margin-top: 10px;
+        font-size: 17px;
+        color: rgb(173, 172, 172);
+    }
+
+    .select {
+        margin-left: 10px;
+        width: 150px;
+        font-size: 16px;
+    }
+
+    table {
+        width: 100%;
+        text-align: center;
+        left: 0px;
+        top: 0px;
+        font-size: 16px;
+
+        td {
+            border: 1px solid #ADADAD;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        tr:nth-child(odd) {
+            height: 40px;
+            background-color: whitesmoke;
+        }
+
+        tr:nth-child(even) {
+            height: 40px;
+            background-color: white;
+        }
+    }
+}

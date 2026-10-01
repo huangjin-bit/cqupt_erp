@@ -1,0 +1,49 @@
+.userprepare-wrapper{
+    padding:0px 15px 0px 10px ;
+    width: 100%;
+    min-width: 1120px;
+    .contents{
+        width: 100%;
+        .content-item{
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            margin-top: 20px;
+            .item{
+                background-color: lightgray;
+                width: 400px;
+                .top{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-around;
+                    img{
+                        margin-top: 10px;
+                        width: 180px;
+                    }
+                    div{
+                        width: 180px;
+                        font-size: 16px;
+                        margin-top: 30px;
+                    }
+                }
+                .bottom{
+                    font-size: 16px;
+                    margin-left: 50px;
+                    .item-input{
+                        margin-left: 10px;
+                        margin-top: 10px;
+                        width: 200px;
+                    }
+                    .item-button{
+                        margin-left: 120px;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
+                }
+                
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.factory.FactoryMakingDao">
+    <resultMap id="FactoryMaking" type="com.cqupt.mislab.erpn.model.entity.factory.FactoryMaking">
+        <id property="factoryId" column="FACTORYID"/>
+        <id property="userUnique" column="USERUNIQUE"/>
+        <result property="factoryType" column="FACTORYTYPE"/>
+        <result property="beginTime" column="BEGINTIME"/>
+        <result property="place" column="PLACE"/>
+        <result property="finishedPeriod" column="FINISHEDPERIOD"/>
+        <result property="payMode" column="PAYMODE"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+    <insert id="insertFactory">
+        insert into factory_making(USERUNIQUE, FACTORYTYPE, PLACE, STATUS, BEGINTIME, FINISHEDPERIOD, PAYMODE)
+        values (#{userUnique}, #{factoryType}, #{place}, #{status}, #{beginTime}, #{finishedPeriod}, #{payMode});
+
+    </insert>
+    <update id="stopMakingFactory">
+        update factory_making
+        set STATUS='0'
+        where USERUNIQUE = #{userUnique}
+          and FACTORYID = #{factoryId};
+
+
+    </update>
+    <update id="keepMakingFactory">
+        update factory_making
+        set STATUS='1'
+        where USERUNIQUE = #{userUnique}
+          and FACTORYID = #{factoryId};
+    </update>
+
+    <select id="listFactoryMakings" resultMap="FactoryMaking">
+        select FACTORYID,
+               USERUNIQUE,
+               FACTORYTYPE,
+               BEGINTIME,
+               PLACE,
+               FINISHEDPERIOD,
+               PAYMODE,
+               STATUS
+        from factory_making
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="listFactoryMakingsByPlace" resultMap="FactoryMaking">
+
+        select FACTORYID,
+               USERUNIQUE,
+               FACTORYTYPE,
+               BEGINTIME,
+               PLACE,
+               FINISHEDPERIOD,
+               PAYMODE,
+               STATUS
+        from factory_making
+        where USERUNIQUE = #{userUnique};
+    </select>
+
+
+
+</mapper>

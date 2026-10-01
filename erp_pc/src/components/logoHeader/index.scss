@@ -1,0 +1,19 @@
+@import 'common/styles/variable.scss';
+
+.logo-header-wrapper {
+  z-index: -1;
+  width: 100vw;
+  height: 343px;
+  background: $themeColor;
+  .middle-title {
+    margin: auto;
+    width: $formWidth;
+    height: 120px;
+    text-align: center;
+    line-height: 180px;
+    font-family: $themeFontFamliy;
+    font-size: 26px;
+    color: #fff;
+    background: url('../../assets/images/banner_bg.jpg') no-repeat left top;
+  }
+}

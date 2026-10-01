@@ -1,0 +1,17 @@
+@import 'common/styles/variable.scss';
+
+.cr-wrapper {
+  width: 100%;
+  height: 25px;
+  font-family: $themeFontFamliy;
+  font-size: 12px;
+  line-height: 25px;
+  text-align: center;
+  color: white;
+  background: $themeColor;
+}
+.cr-footer {
+  margin: 25px auto 7px auto;
+  height: 6px;
+  background: $themeColor;
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.order.ChooseOrderDao">
+    <insert id="addChooseOrder">
+        insert into chooseorder(PERIOD,MARKETNAME,PRODUCTNAME,USERUNIQUE,CHOOSEVALUE,GROUPNAME)
+        values(#{period},#{marketName},#{productName},#{userUnique},#{chooseValue},#{groupName})
+    </insert>
+
+    <update id="updateChooseOrderValue" >
+        update chooseorder set CHOOSEVALUE=CHOOSEVALUE+#{chooseValue} where USERUNIQUE=#{userUnique} and PERIOD=#{period} and MARKETNAME like #{marketName} and PRODUCTNAME like #{productName}
+    </update>
+
+    <select id="findChooseOrderByUserUnique"  resultType="com.cqupt.mislab.erpn.model.entity.order.ChooseOrder">
+		<![CDATA[
+        select CHOOSEID,PERIOD,MARKETNAME,PRODUCTNAME,USERUNIQUE,CHOOSEVALUE,GROUPNAME from chooseorder
+        where USERUNIQUE=#{userUnique}
+          and PERIOD=(select CURRENTPERIOD from gamegroupmember where USERUNIQUE=#{userUnique})
+          and CHOOSEVALUE<#{orderIncrement}
+        ]]>
+	</select>
+
+    <update id="updateChooseOrderValueByOrderId">
+        update allordersofgroup set STATUS=STATUS + #{isChosen} where ORDERID = #{orderId}
+    </update>
+
+    <update id="updateAllChooseOrderByUserUnique">
+        update  chooseorder
+        set CHOOSEVALUE=CHOOSEVALUE+#{chooseValue}
+        where USERUNIQUE=#{userUnique}
+          and PERIOD=(select CURRENTPERIOD from gamegroupmember where USERUNIQUE=#{userUnique})
+    </update>
+
+    <select id="countChooseOrdersByGroupNameAndPeriod" resultType="java.lang.Integer">
+        select count(*) from chooseorder where GROUPNAME=#{groupName} and PERIOD=#{period}
+    </select>
+
+    <select id="countChooseOrderByNaturalKey" resultType="java.lang.Integer">
+        select count(*) from chooseorder
+        where USERUNIQUE=#{userUnique}
+          and PERIOD=#{period}
+          and MARKETNAME=#{marketName}
+          and PRODUCTNAME=#{productName}
+          and GROUPNAME=#{groupName}
+    </select>
+
+    <delete id="deleteInvalidAdvertisementChooseOrders">
+        delete from chooseorder
+        where PERIOD=#{period}
+          and MARKETNAME=#{marketName}
+          and PRODUCTNAME=#{productName}
+          and GROUPNAME=#{groupName}
+          and not exists (
+              select 1
+              from adofuser
+              where adofuser.USERUNIQUE = chooseorder.USERUNIQUE
+                and adofuser.PERIOD = chooseorder.PERIOD
+                and adofuser.MARKETNAME = chooseorder.MARKETNAME
+                and adofuser.PRODUCTNAME = chooseorder.PRODUCTNAME
+                and adofuser.MONEY > 0
+          )
+    </delete>
+
+</mapper>

@@ -1,0 +1,77 @@
+{
+  "startedAt": "2026-05-29T16:52:31.663Z",
+  "baseUrl": "http://39.98.115.237/",
+  "accounts": [
+    "黄进2024211137",
+    "张雪皎20242109",
+    "王永101311"
+  ],
+  "steps": [
+    {
+      "at": "2026-05-29T16:52:41.796Z",
+      "name": "黄进2024211137-login-clicked",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    },
+    {
+      "at": "2026-05-29T16:52:44.561Z",
+      "name": "黄进2024211137-after-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "您好， 黄进2024211137\n第6年，第4期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n",
+        "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-click-runner\\黄进2024211137-after-login.png"
+      }
+    },
+    {
+      "at": "2026-05-29T16:52:54.302Z",
+      "name": "张雪皎20242109-login-clicked",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    },
+    {
+      "at": "2026-05-29T16:52:56.987Z",
+      "name": "张雪皎20242109-after-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "您好， 张雪皎20242109\n第6年，第4期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n",
+        "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-click-runner\\张雪皎20242109-after-login.png"
+      }
+    },
+    {
+      "at": "2026-05-29T16:53:09.595Z",
+      "name": "王永101311-login-clicked",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    },
+    {
+      "at": "2026-05-29T16:53:16.789Z",
+      "name": "王永101311-after-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "您好， 王永101311\n第6年，第4期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n",
+        "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-click-runner\\王永101311-after-login.png"
+      }
+    }
+  ],
+  "final": [
+    {
+      "account": "黄进2024211137",
+      "status": "比赛完毕",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-click-runner\\黄进2024211137-after-login.png"
+    },
+    {
+      "account": "张雪皎20242109",
+      "status": "比赛完毕",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-click-runner\\张雪皎20242109-after-login.png"
+    },
+    {
+      "account": "王永101311",
+      "status": "比赛完毕",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-ui-click-runner\\王永101311-after-login.png"
+    }
+  ],
+  "finishedAt": "2026-05-29T16:53:16.847Z"
+}

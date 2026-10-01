@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.group.GroupManageDao">
+    <resultMap id="gamegroups"
+               type="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupInfo">
+        <result property="groupName" column="GROUPNAME" />
+        <result property="groupCreatorId" column="GROUPCREATERID" />
+        <result property="teacherId" column="TEACHERID"/>
+        <result property="userNumbers" column="USERNUMBERS" />
+        <result property="joinNumber" column="JOINNUMBER" />
+        <result property="periodsOfOneYear" column="PERIODSOFONEYEAR"/>
+        <result property="remandNumber" column="REMANDNUMBER" />
+        <result property="currentPeriod" column="CURRENTPERIOD" />
+        <result property="periodsOfOneYear" column="PERIODSOFONEYEAR"/>
+        <!--以下属性是表示每场比赛当中各阶段所含有的人数比例-->
+        <result property="excellent" column="EXCELLENT"/>
+        <result property="good" column="GOOD"/>
+        <result property="mean" column="MEAN"/>
+        <result property="passed" column="PASSED"/>
+        <result property="failed" column="FAILED"/>
+        <result property="maxScore" column="MAXSCORE"/>
+        <result property="minScore" column="MINSCORE"/>
+    </resultMap>
+    <resultMap id="gameGroupMember" type="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo">
+        <id property="userId" column="USERID"/>
+        <result property="groupName" column="GROUPNAME"/>
+        <result property="userUnique" column="USERUNIQUE"/>
+        <result property="status" column="STATUS"/>
+        <result property="currentPeriod" column="CURRENTPERIOD"/>
+    </resultMap>
+
+    <select id="findGameGroupByUserVague" parameterType="string" resultMap="gamegroups">
+        select
+            GAMEGROUP.GROUPNAME,GAMEGROUP.PERIODSOFONEYEAR,GAMEGROUP.GROUPCREATERID,USERNUMBERS,count(*) as JOINNUMBER,
+            USERNUMBERS-count(*) as REMANDNUMBER,GAMEGROUP.CURRENTPERIOD,MAXSCORE,MINSCORE
+        from
+            GAMEGROUPMEMBER,GAMEGROUP
+        where
+            GAMEGROUP.GROUPNAME like concat(concat('%',#{vagueName}),'%') and GAMEGROUPMEMBER.GROUPNAME=GAMEGROUP.GROUPNAME and GAMEGROUP.TEACHERID=#{adminID} and GAMEGROUP.GROUPCREATERID is not NULL
+        group by
+            GAMEGROUP.GROUPNAME,GAMEGROUP.GROUPCREATERID,USERNUMBERS,GAMEGROUP.CURRENTPERIOD
+        having USERNUMBERS-count(*)>=0
+    </select>
+
+    <select id="findGameGroupByTeacherVague" parameterType="string" resultMap="gamegroups">
+        select
+            GAMEGROUP.GROUPNAME,GAMEGROUP.PERIODSOFONEYEAR,GAMEGROUP.GROUPCREATERID,USERNUMBERS,count(*) as JOINNUMBER,
+            USERNUMBERS-count(*) as REMANDNUMBER,GAMEGROUP.CURRENTPERIOD,MAXSCORE,MINSCORE
+        from
+            GAMEGROUPMEMBER,GAMEGROUP
+        where
+            GAMEGROUP.GROUPNAME like concat(concat('%',#{vagueName}),'%') and GAMEGROUPMEMBER.GROUPNAME=GAMEGROUP.GROUPNAME and GAMEGROUP.TEACHERID=#{adminID} and GAMEGROUP.GROUPCREATERID is NULL
+        group by
+            GAMEGROUP.GROUPNAME,GAMEGROUP.GROUPCREATERID,USERNUMBERS,GAMEGROUP.CURRENTPERIOD
+        having USERNUMBERS-count(*)>=0
+    </select>
+
+    <!--查找某个老师的学生创建的比赛 姚秋鸿2019.0602添加-->
+    <select id="findGameGroupByUser" parameterType="string" resultMap="gamegroups"  >
+        select
+            GAMEGROUP.GROUPNAME,GAMEGROUP.PERIODSOFONEYEAR,GAMEGROUP.GROUPCREATERID,USERNUMBERS,count(*) as JOINNUMBER,
+            USERNUMBERS-count(*)as REMANDNUMBER,GAMEGROUP.CURRENTPERIOD,MAXSCORE,MINSCORE
+        from
+            GAMEGROUPMEMBER,GAMEGROUP
+        where
+            GAMEGROUPMEMBER.GROUPNAME=GAMEGROUP.GROUPNAME and GAMEGROUP.TEACHERID=#{adminID} and GAMEGROUP.GROUPCREATERID is not NULL
+        group by
+            GAMEGROUP.GROUPNAME,GAMEGROUP.GROUPCREATERID,USERNUMBERS,GAMEGROUP.CURRENTPERIOD
+        having USERNUMBERS-count(*)>=0
+    </select>
+    <select id="findGameGroupInfoByTeacher" parameterType="string" resultMap="gamegroups" >
+        select
+            GAMEGROUP.GROUPNAME,GAMEGROUP.PERIODSOFONEYEAR,GAMEGROUP.GROUPCREATERID,USERNUMBERS,count(*) as JOINNUMBER,
+            USERNUMBERS-count(*) as REMANDNUMBER,GAMEGROUP.CURRENTPERIOD,MAXSCORE,MINSCORE
+        from
+            GAMEGROUPMEMBER,GAMEGROUP
+        where
+            GAMEGROUPMEMBER.GROUPNAME=GAMEGROUP.GROUPNAME and GAMEGROUP.TEACHERID=#{adminID} and GAMEGROUP.GROUPCREATERID is  NULL
+        group by
+            GAMEGROUP.GROUPNAME,GAMEGROUP.GROUPCREATERID,USERNUMBERS,GAMEGROUP.CURRENTPERIOD
+        having USERNUMBERS-count(*)>=0
+    </select>
+    <resultMap type="com.cqupt.mislab.erpn.model.vo.advertisement.AdOfStatusVO" id="AdOfStatusVOResult">
+        <result column="FINISHADFLAG" property="finishAdFlag"/>
+        <result column="FINISHORDERFLAG" property="finishOrderFlag"/>
+        <result column="CHOOSEORDERFLAG" property="chooseOrderFlag"/>
+    </resultMap>
+    <select id="findAdOfStatusByUseruniqueAndPeriod" parameterType="string" resultMap="AdOfStatusVOResult">
+        select  a.finishadflag, a.chooseorderflag, a.finishorderflag
+        from (adstatusofuser a )
+        where
+            a.userunique=#{userUnique}
+          and a.period=#{period}
+    </select>
+    <delete id="deleteGameGroupByGroupName" parameterType="String">
+        delete from gamegroup where GROUPNAME=#{groupName}
+    </delete>
+
+    <delete id="deleteGroupMembersByGroupName" parameterType="String" >
+        delete from gamegroupmember where GROUPNAME=#{groupName}
+    </delete>
+    <!-- 创建分组插入的年，周期，等手动写了，如果出问题，可以看老erp-->
+     <insert id="addGroup" parameterType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupInfo">
+        insert into
+            gamegroup(GROUPNAME,GROUPCREATERID,TEACHERID,USERNUMBERS,YEARS,PERIODSOFONEYEAR,CURRENTPERIOD,AUTOPERIODFRESH,AUTOYEARFRESH,ENABLEAUTOPERIODFRESH,ENABLEAUTOYEARFRESH)
+        values(#{groupName},#{groupCreatorId},#{teacherId},#{userNumbers},'6','4','0','0','0','1','1')
+    </insert>
+
+    <insert id="addGroupMember" parameterType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo">
+        insert into gamegroupmember(GROUPNAME,USERID,USERUNIQUE,CURRENTPERIOD) values (#{groupName},#{userId},null,'0')
+    </insert>
+
+    <delete id="deleteGroupMember" parameterType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo">
+        delete from gamegroupmember where GROUPNAME=#{groupName} and USERID=#{userId}
+    </delete>
+
+    <select id="getTeacherList" resultType="com.cqupt.mislab.erpn.model.po.TeacherPo">
+        select ADMINID, ADMINNAME, POSITION, EMAIL, TEL, REM1, ROLE
+        from adminuser
+    </select>
+
+    <select id="getTeacherIdList" resultType="string">
+        select ADMINID
+        from adminuser
+    </select>
+
+    <select id="getGroupList" resultMap="gamegroups">
+        select
+            gamegroup.GROUPNAME,gamegroup.GROUPCREATERID,USERNUMBERS,count(*) as
+            JOINNUMBER,USERNUMBERS-count(*) as
+            REMANDNUMBER,gamegroup.CURRENTPERIOD,MAXSCORE,MINSCORE from gamegroupmember,gamegroup
+        where gamegroupmember.GROUPNAME=gamegroup.GROUPNAME group by
+        gamegroup.GROUPNAME,gamegroup.GROUPCREATERID,USERNUMBERS,gamegroup.CURRENTPERIOD
+        having USERNUMBERS-count(*)>0 and gamegroup.CURRENTPERIOD=0
+    </select>
+
+    <select id="findGroupByGroupName" resultMap="gamegroups" parameterType="string">
+        select
+            GROUPNAME,GROUPCREATERID,TEACHERID,USERNUMBERS,YEARS,PERIODSOFONEYEAR,CURRENTPERIOD,AUTOPERIODFRESH,AUTOYEARFRESH,ENABLEAUTOPERIODFRESH,ENABLEAUTOYEARFRESH
+        from gamegroup where GROUPNAME=#{groupName}
+    </select>
+
+    <select id="findGroupNameByUserId" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo">
+        select GROUPNAME,USERID from gamegroupmember where USERID=#{userId} AND STATUS>-1
+    </select>
+
+    <select id="findYearsByGroupName" resultType="int"
+            parameterType="string">
+        select YEARS from GAMEGROUP where GROUPNAME=#{groupName}
+    </select>
+
+    <update id="updateGroupCurrentPeriod" parameterType="map">
+        update
+            gamegroup set CURRENTPERIOD=#{currentPeriod} where
+            GROUPNAME=#{groupName}
+    </update>
+
+
+
+    <select id="findGameGroupMemberListByStatus"
+            resultType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo" >
+        select USERUNIQUE,GROUPNAME,USERID,CURRENTPERIOD from gamegroupmember where GROUPNAME in (select groupname from
+        gamegroupmember where USERUNIQUE=#{userUnique}) and STATUS=#{userStatus}
+    </select>
+
+
+    <!--<select id="findGamegroups" resultMap="gamegroups">-->
+        <!--SELECT G.GROUPNAME,-->
+               <!--A.USERNAME, G.GROUPCREATERID, G.USERNUMBERS, G.YEARS,-->
+               <!--G.PERIODSOFONEYEAR, G.CURRENTPERIOD FROM GAMEGROUP G, APPROVEDUSER A-->
+        <!--WHERE G.GROUPCREATERID = A.USERID-->
+    <!--</select>-->
+
+    <select id="findUserNameByUserId" resultType="java.lang.String">
+        select STUDENTNAME from gamegroupmemberdetail where USERID=#{userId}
+    </select>
+
+    <select id="findGameGroupInfoByUserUnique" resultType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupInfo">
+        select GROUPNAME,
+               GROUPCREATERID,
+               TEACHERID,
+               USERNUMBERS,
+               YEARS,
+               PERIODSOFONEYEAR,
+               CURRENTPERIOD,
+               AUTOPERIODFRESH,
+               AUTOYEARFRESH,
+               ENABLEAUTOPERIODFRESH,
+               ENABLEAUTOYEARFRESH,
+               EXCELLENT,
+               PASSED,
+               MAXSCORE,
+               MINSCORE
+        from GAMEGROUP
+        where GROUPNAME in (select GROUPNAME
+                            from gamegroupmember
+                            where USERUNIQUE = #{userUnique});
+
+    </select>
+
+    <update id="updateBankruptcyUserStatus" >
+        update gamegroupmember set STATUS = #{status} where USERUNIQUE = #{userUnique}
+    </update>
+
+    <select id="findStatusByUserUnique" resultType="java.lang.Integer">
+        select STATUS from gamegroupmember where USERUNIQUE=#{userUnique}
+    </select>
+
+    <select id="findGameGroupYearAndCurrentPeriod"
+            parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupInfo">
+        select gamegroupmember.CURRENTPERIOD,PERIODSOFONEYEAR,YEARS
+        from
+        gamegroupmember,gamegroup where
+        gamegroupmember.GROUPNAME=gamegroup.GROUPNAME and USERUNIQUE=#{userUnique}
+    </select>
+
+
+    <select id="findGameGroupVo" resultType="com.cqupt.mislab.erpn.model.vo.gamegroup.GameGroupVo">
+        select YEARS*PERIODSOFONEYEAR AS totalPeriodOfGroup, gamegroupmember.CURRENTPERIOD
+        from gamegroupmember,gamegroup
+        where USERUNIQUE=#{userUnique} and gamegroup.GROUPNAME=#{groupName} and
+            gamegroup.GROUPNAME=gamegroupmember.GROUPNAME
+    </select>
+
+    <update id="updateIncreaseUserCurrentPeriod" parameterType="string">
+        update gamegroupmember
+        set CURRENTPERIOD=CURRENTPERIOD + 1
+        where USERUNIQUE = #{userUnique};
+    </update>
+
+    <update id="updateSetUserCurrentPeriod">
+        update gamegroupmember
+        set CURRENTPERIOD = #{period}
+        where USERUNIQUE = #{userUnique}
+    </update>
+
+    <select id="findLeastCurrentPeriodByGroupName" resultType="int" parameterType="string">
+        select min(CURRENTPERIOD)
+        from gamegroupmember
+        where GROUPNAME = #{groupName}
+        group by GROUPNAME;
+
+    </select>
+
+    <select id="findCurrentPeriodByGroupName" resultType="int"
+            parameterType="string">
+        select CURRENTPERIOD
+        from gamegroup
+        where GROUPNAME = #{groupName};
+    </select>
+
+    <update id="updateUserStatusToFinishGame" parameterType="string">
+        update gamegroupmember set STATUS=2 where USERUNIQUE=#{userUnique}
+    </update>
+
+    <select id="selectGradeInfoByGameName" resultMap="gamegroups" parameterType="java.lang.String">
+        SELECT GROUPNAME,PERIODSOFONEYEAR,YEARS,EXCELLENT,GOOD,MEAN,PASSED,FAILED
+        from gamegroup
+        WHERE
+            GROUPNAME = #{groupName};
+    </select>
+
+    <select id="selectGameInfoByGameName" resultMap="gamegroups">
+        SELECT *
+        FROM gamegroup
+        WHERE GROUPNAME = #{gameName};
+    </select>
+
+    <select id="findGroupMemberByGameGroup" resultMap="gameGroupMember">
+        select *
+        from gamegroupmember
+        where GROUPNAME = #{gameGroup};
+
+    </select>
+
+    <select id="findGroupMemberByUserUnique" resultType="java.lang.String">
+        select USERNAME
+        from approveduser
+        where USERID = (select USERID from gamegroupmember where USERUNIQUE = #{userUnique});
+
+
+
+    </select>
+
+</mapper>

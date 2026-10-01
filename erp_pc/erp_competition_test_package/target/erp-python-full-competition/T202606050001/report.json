@@ -1,0 +1,2193 @@
+{
+  "baseUrl": "http://39.98.115.237/",
+  "teacher": "wangyong",
+  "runId": "T202606050001",
+  "groupName": "AUTO202606050001",
+  "strategy": "expanded",
+  "notes": [
+    "当前策略是扩展经营流：持续点击研发 P2/P3/P4、开拓区域/国内/亚洲/国际市场、研发 PRODUCT9000/PRODUCT1400 认证。",
+    "广告投放会对页面上可见的 P1/P2/P3/P4 订单行各投 1 万；选单仍通过订货会页面真实点击完成。",
+    "采购策略会购买 R1/R2/R3/R4，为 P2/P3/P4 生产准备原料；生产线转产会在研发完成后尽量通过页面点击触发。",
+    "为了确保测试账号能删除，清理时必须先调用 /erpn/group/quit 删除 gamegroupmember 成员关系，再调用教师删除账号接口。"
+  ],
+  "students": [
+    {
+      "user_id": "测甲260605000101",
+      "name": "测甲",
+      "sid": "260605000101",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测乙260605000102",
+      "name": "测乙",
+      "sid": "260605000102",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测丙260605000103",
+      "name": "测丙",
+      "sid": "260605000103",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    }
+  ],
+  "steps": [
+    {
+      "at": "2026-06-05T15:04:13+0800",
+      "name": "teacher-login",
+      "data": {
+        "url": "http://39.98.115.237/#/teacher/userList",
+        "text": "您好， 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n用户管理/\n用户列表\n用户ID\n综合搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\t操作\n\nNo data\n批量删除下载说明书下载模板批量导入用户\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:04:19+0800",
+      "name": "teacher-import-registered-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606050001\\students-users.csv",
+        "users": [
+          "测丙260605000103",
+          "测乙260605000102",
+          "测甲260605000101"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:04:22+0800",
+      "name": "teacher-import-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606050001\\students-for-game.csv"
+      }
+    },
+    {
+      "at": "2026-06-05T15:04:26+0800",
+      "name": "teacher-create-game",
+      "data": {
+        "groupName": "AUTO202606050001",
+        "text": "您好，王永 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n创建比赛/\n批量导入创建\n搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\n\n\t测丙260605000103\t测丙\t123456\t信息管理\t\t260605000103\t\t\n\n\t测乙260605000102\t测乙\t123456\t信息管理\t\t260605000102\t\t\n\n\t测甲260605000101\t测甲\t123456\t信息管理\t\t260605000101\t\t\n创建比赛下载模板批量导入\nstudents-for-game.csv\n\n\n成功"
+      }
+    },
+    {
+      "at": "2026-06-05T15:04:36+0800",
+      "name": "测甲260605000101-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T15:04:48+0800",
+      "name": "测乙260605000102-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:03+0800",
+      "name": "测丙260605000103-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:05+0800",
+      "name": "cycle-0-state",
+      "data": [
+        {
+          "account": "测甲260605000101",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测甲260605000101",
+            "years": 1,
+            "currentPeriod": 1,
+            "groupName": "AUTO202606050001",
+            "tax": 0,
+            "cash": 20,
+            "factoryCount": 1,
+            "userUnique": "测甲260605000101178064311941518",
+            "gender": null
+          },
+          "text": "您好， 测甲260605000101\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "测乙260605000102",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测乙260605000102",
+            "years": 1,
+            "currentPeriod": 1,
+            "groupName": "AUTO202606050001",
+            "tax": 0,
+            "cash": 20,
+            "factoryCount": 1,
+            "userUnique": "测乙260605000102178064311941518",
+            "gender": null
+          },
+          "text": "您好， 测乙260605000102\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "测丙260605000103",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测丙260605000103",
+            "years": 1,
+            "currentPeriod": 1,
+            "groupName": "AUTO202606050001",
+            "tax": 0,
+            "cash": 20,
+            "factoryCount": 1,
+            "userUnique": "测丙260605000103178064311941518",
+            "gender": null
+          },
+          "text": "加载中..."
+        }
+      ]
+    },
+    {
+      "at": "2026-06-05T15:05:05+0800",
+      "name": "annual-planning-start",
+      "data": [
+        "测甲260605000101",
+        "测乙260605000102",
+        "测丙260605000103"
+      ]
+    },
+    {
+      "at": "2026-06-05T15:05:08+0800",
+      "name": "测甲260605000101-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:10+0800",
+      "name": "测甲260605000101-put-ad",
+      "data": {
+        "product": "P1",
+        "row": "P1\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:11+0800",
+      "name": "测甲260605000101-put-ad",
+      "data": {
+        "product": "P2",
+        "row": "P2\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:12+0800",
+      "name": "测甲260605000101-put-ad",
+      "data": {
+        "product": "P3",
+        "row": "P3\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:13+0800",
+      "name": "测甲260605000101-put-ad",
+      "data": {
+        "product": "P4",
+        "row": "P4\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:15+0800",
+      "name": "测甲260605000101-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:16+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:17+0800",
+      "name": "测甲260605000101-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:20+0800",
+      "name": "测乙260605000102-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:22+0800",
+      "name": "测乙260605000102-put-ad",
+      "data": {
+        "product": "P1",
+        "row": "P1\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:23+0800",
+      "name": "测乙260605000102-put-ad",
+      "data": {
+        "product": "P2",
+        "row": "P2\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:24+0800",
+      "name": "测乙260605000102-put-ad",
+      "data": {
+        "product": "P3",
+        "row": "P3\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:25+0800",
+      "name": "测乙260605000102-put-ad",
+      "data": {
+        "product": "P4",
+        "row": "P4\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:26+0800",
+      "name": "测乙260605000102-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:27+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:29+0800",
+      "name": "测乙260605000102-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:32+0800",
+      "name": "测丙260605000103-open-ad",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:34+0800",
+      "name": "测丙260605000103-put-ad",
+      "data": {
+        "product": "P1",
+        "row": "P1\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:35+0800",
+      "name": "测丙260605000103-put-ad",
+      "data": {
+        "product": "P2",
+        "row": "P2\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:36+0800",
+      "name": "测丙260605000103-put-ad",
+      "data": {
+        "product": "P3",
+        "row": "P3\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:37+0800",
+      "name": "测丙260605000103-put-ad",
+      "data": {
+        "product": "P4",
+        "row": "P4\t\t提 交"
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:38+0800",
+      "name": "测丙260605000103-ad-next",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:39+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:40+0800",
+      "name": "测丙260605000103-ad-confirmed",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:43+0800",
+      "name": "测甲260605000101-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:47+0800",
+      "name": "测甲260605000101-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:47+0800",
+      "name": "测甲260605000101-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:48+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:50+0800",
+      "name": "测甲260605000101-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:51+0800",
+      "name": "测乙260605000102-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:05:54+0800",
+      "name": "测乙260605000102-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:55+0800",
+      "name": "测乙260605000102-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:56+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:58+0800",
+      "name": "测乙260605000102-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:05:59+0800",
+      "name": "测丙260605000103-open-order-hall",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/advertisement",
+        "alreadyThere": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:03+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:04+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 15
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:05+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:07+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 14
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:08+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:10+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 13
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:11+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:12+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 12
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:14+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:15+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 11
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:16+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:18+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 10
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:19+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:21+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 9
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:22+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:24+0800",
+      "name": "测丙260605000103-choose-order-click",
+      "data": {
+        "before": 8
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:24+0800",
+      "name": "测丙260605000103-open-finish-order",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:25+0800",
+      "name": "测丙260605000103-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:26+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:28+0800",
+      "name": "测丙260605000103-confirm-finish-all-orders",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:06:32+0800",
+      "name": "测甲260605000101-loan-plan",
+      "data": {
+        "cash": 16,
+        "plan": {
+          "type": "短期贷款",
+          "money": 59,
+          "term": 4
+        },
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 104,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 64,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:34+0800",
+      "name": "测甲260605000101-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:36+0800",
+      "name": "测甲260605000101-click-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:38+0800",
+      "name": "测甲260605000101-loan-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:40+0800",
+      "name": "测甲260605000101-open-product-research",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/productResearch"
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:43+0800",
+      "name": "测甲260605000101-product-research-click",
+      "data": {
+        "target": "P2",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:44+0800",
+      "name": "测甲260605000101-product-research-click",
+      "data": {
+        "target": "P3",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:45+0800",
+      "name": "测甲260605000101-product-research-click",
+      "data": {
+        "target": "P4",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:48+0800",
+      "name": "测甲260605000101-open-market-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/marketManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:50+0800",
+      "name": "测甲260605000101-market-development-click",
+      "data": {
+        "target": "区域市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:51+0800",
+      "name": "测甲260605000101-market-development-click",
+      "data": {
+        "target": "国内市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:53+0800",
+      "name": "测甲260605000101-market-development-click",
+      "data": {
+        "target": "亚洲市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:54+0800",
+      "name": "测甲260605000101-market-development-click",
+      "data": {
+        "target": "国际市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:56+0800",
+      "name": "测甲260605000101-open-iso-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/authenticationmanagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:59+0800",
+      "name": "测甲260605000101-iso-development-click",
+      "data": {
+        "target": "PRODUCT9000质量认证",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:06:59+0800",
+      "name": "测甲260605000101-iso-development-target-not-visible",
+      "data": {
+        "target": "PRODUCT1400环境认证"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:01+0800",
+      "name": "测甲260605000101-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:03+0800",
+      "name": "测甲260605000101-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:07+0800",
+      "name": "测甲260605000101-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:07+0800",
+      "name": "测甲260605000101-loan-plan",
+      "data": {
+        "cash": 75,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 45,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 64,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:07+0800",
+      "name": "测乙260605000102-loan-plan",
+      "data": {
+        "cash": 16,
+        "plan": {
+          "type": "短期贷款",
+          "money": 59,
+          "term": 4
+        },
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 104,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 64,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:09+0800",
+      "name": "测乙260605000102-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:11+0800",
+      "name": "测乙260605000102-click-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:13+0800",
+      "name": "测乙260605000102-loan-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:15+0800",
+      "name": "测乙260605000102-open-product-research",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/productResearch"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:18+0800",
+      "name": "测乙260605000102-product-research-click",
+      "data": {
+        "target": "P2",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:19+0800",
+      "name": "测乙260605000102-product-research-click",
+      "data": {
+        "target": "P3",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:21+0800",
+      "name": "测乙260605000102-product-research-click",
+      "data": {
+        "target": "P4",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:23+0800",
+      "name": "测乙260605000102-open-market-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/marketManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:26+0800",
+      "name": "测乙260605000102-market-development-click",
+      "data": {
+        "target": "区域市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:27+0800",
+      "name": "测乙260605000102-market-development-click",
+      "data": {
+        "target": "国内市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:28+0800",
+      "name": "测乙260605000102-market-development-click",
+      "data": {
+        "target": "亚洲市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:30+0800",
+      "name": "测乙260605000102-market-development-click",
+      "data": {
+        "target": "国际市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:32+0800",
+      "name": "测乙260605000102-open-iso-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/authenticationmanagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:35+0800",
+      "name": "测乙260605000102-iso-development-click",
+      "data": {
+        "target": "PRODUCT9000质量认证",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:35+0800",
+      "name": "测乙260605000102-iso-development-target-not-visible",
+      "data": {
+        "target": "PRODUCT1400环境认证"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:37+0800",
+      "name": "测乙260605000102-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:39+0800",
+      "name": "测乙260605000102-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:43+0800",
+      "name": "测乙260605000102-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:43+0800",
+      "name": "测乙260605000102-loan-plan",
+      "data": {
+        "cash": 75,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 45,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 64,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:43+0800",
+      "name": "测丙260605000103-loan-plan",
+      "data": {
+        "cash": 16,
+        "plan": {
+          "type": "短期贷款",
+          "money": 59,
+          "term": 4
+        },
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 104,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 64,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:45+0800",
+      "name": "测丙260605000103-open-loan",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/applyLoan"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:47+0800",
+      "name": "测丙260605000103-click-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:49+0800",
+      "name": "测丙260605000103-loan-短期贷款",
+      "data": {
+        "money": 59,
+        "term": 4
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:51+0800",
+      "name": "测丙260605000103-open-product-research",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/productResearch"
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:54+0800",
+      "name": "测丙260605000103-product-research-click",
+      "data": {
+        "target": "P2",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:55+0800",
+      "name": "测丙260605000103-product-research-click",
+      "data": {
+        "target": "P3",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:56+0800",
+      "name": "测丙260605000103-product-research-click",
+      "data": {
+        "target": "P4",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:07:58+0800",
+      "name": "测丙260605000103-open-market-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/marketManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:01+0800",
+      "name": "测丙260605000103-market-development-click",
+      "data": {
+        "target": "区域市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:02+0800",
+      "name": "测丙260605000103-market-development-click",
+      "data": {
+        "target": "国内市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:04+0800",
+      "name": "测丙260605000103-market-development-click",
+      "data": {
+        "target": "亚洲市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:05+0800",
+      "name": "测丙260605000103-market-development-click",
+      "data": {
+        "target": "国际市场",
+        "actions": [
+          "开始开拓",
+          "继续开拓"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:07+0800",
+      "name": "测丙260605000103-open-iso-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/authenticationmanagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:10+0800",
+      "name": "测丙260605000103-iso-development-click",
+      "data": {
+        "target": "PRODUCT9000质量认证",
+        "actions": [
+          "开始研发",
+          "继续研发"
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:10+0800",
+      "name": "测丙260605000103-iso-development-target-not-visible",
+      "data": {
+        "target": "PRODUCT1400环境认证"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:12+0800",
+      "name": "测丙260605000103-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:14+0800",
+      "name": "测丙260605000103-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:17+0800",
+      "name": "测丙260605000103-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:17+0800",
+      "name": "测丙260605000103-loan-plan",
+      "data": {
+        "cash": 75,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 45,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 64,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 1,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:20+0800",
+      "name": "测甲260605000101-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "recoveredByRoute": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:21+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:08:25+0800",
+      "name": "测甲260605000101-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "before": {
+          "userName": "测甲260605000101",
+          "years": 1,
+          "currentPeriod": 1,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 75,
+          "factoryCount": 1,
+          "userUnique": "测甲260605000101178064311941518",
+          "gender": null
+        },
+        "after": {
+          "userName": "测甲260605000101",
+          "years": 1,
+          "currentPeriod": 1,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 75,
+          "factoryCount": 1,
+          "userUnique": "测甲260605000101178064311941518",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 测甲260605000101\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n厂房管理\n产品原料构成说明\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:28+0800",
+      "name": "测乙260605000102-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "recoveredByRoute": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:29+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:08:32+0800",
+      "name": "测乙260605000102-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "before": {
+          "userName": "测乙260605000102",
+          "years": 1,
+          "currentPeriod": 1,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 75,
+          "factoryCount": 1,
+          "userUnique": "测乙260605000102178064311941518",
+          "gender": null
+        },
+        "after": {
+          "userName": "测乙260605000102",
+          "years": 1,
+          "currentPeriod": 1,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 75,
+          "factoryCount": 1,
+          "userUnique": "测乙260605000102178064311941518",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 测乙260605000102\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n厂房管理\n产品原料构成说明\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:35+0800",
+      "name": "测丙260605000103-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "recoveredByRoute": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:36+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:08:40+0800",
+      "name": "测丙260605000103-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "before": {
+          "userName": "测丙260605000103",
+          "years": 1,
+          "currentPeriod": 1,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 75,
+          "factoryCount": 1,
+          "userUnique": "测丙260605000103178064311941518",
+          "gender": null
+        },
+        "after": {
+          "userName": "测丙260605000103",
+          "years": 1,
+          "currentPeriod": 1,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 75,
+          "factoryCount": 1,
+          "userUnique": "测丙260605000103178064311941518",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 测丙260605000103\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n厂房管理\n产品原料构成说明\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:40+0800",
+      "name": "cycle-1-state",
+      "data": [
+        {
+          "account": "测甲260605000101",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测甲260605000101",
+            "years": 1,
+            "currentPeriod": 2,
+            "groupName": "AUTO202606050001",
+            "tax": 0,
+            "cash": 63.25,
+            "factoryCount": 1,
+            "userUnique": "测甲260605000101178064311941518",
+            "gender": null
+          },
+          "text": "您好， 测甲260605000101\n第1年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "测乙260605000102",
+          "url": "http://39.98.115.237/#/gameoperate/main",
+          "info": {
+            "userName": "测乙260605000102",
+            "years": 1,
+            "currentPeriod": 2,
+            "groupName": "AUTO202606050001",
+            "tax": 0,
+            "cash": 63.25,
+            "factoryCount": 1,
+            "userUnique": "测乙260605000102178064311941518",
+            "gender": null
+          },
+          "text": "您好， 测乙260605000102\n第1年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n"
+        },
+        {
+          "account": "测丙260605000103",
+          "url": "http://39.98.115.237/#/gameoperate/time",
+          "info": {
+            "userName": "测丙260605000103",
+            "years": 1,
+            "currentPeriod": 1,
+            "groupName": "AUTO202606050001",
+            "tax": 0,
+            "cash": 75,
+            "factoryCount": 1,
+            "userUnique": "测丙260605000103178064311941518",
+            "gender": null
+          },
+          "text": "您好， 测丙260605000103\n第1年，第1期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n厂房管理\n产品原料构成说明\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+        }
+      ]
+    },
+    {
+      "at": "2026-06-05T15:08:41+0800",
+      "name": "测甲260605000101-loan-plan",
+      "data": {
+        "cash": 63.25,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 9,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 28,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:43+0800",
+      "name": "测甲260605000101-open-product-research",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/productResearch"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:46+0800",
+      "name": "测甲260605000101-open-market-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/marketManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:50+0800",
+      "name": "测甲260605000101-open-iso-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/authenticationmanagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:51+0800",
+      "name": "测甲260605000101-iso-development-target-not-visible",
+      "data": {
+        "target": "PRODUCT1400环境认证"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:53+0800",
+      "name": "测甲260605000101-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:55+0800",
+      "name": "测甲260605000101-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:58+0800",
+      "name": "测甲260605000101-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:59+0800",
+      "name": "测甲260605000101-loan-plan",
+      "data": {
+        "cash": 63.25,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 9,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 28,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:08:59+0800",
+      "name": "测乙260605000102-loan-plan",
+      "data": {
+        "cash": 63.25,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 9,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 28,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:01+0800",
+      "name": "测乙260605000102-open-product-research",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/productResearch"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:04+0800",
+      "name": "测乙260605000102-open-market-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/marketManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:08+0800",
+      "name": "测乙260605000102-open-iso-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/authenticationmanagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:09+0800",
+      "name": "测乙260605000102-iso-development-target-not-visible",
+      "data": {
+        "target": "PRODUCT1400环境认证"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:11+0800",
+      "name": "测乙260605000102-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:13+0800",
+      "name": "测乙260605000102-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:16+0800",
+      "name": "测乙260605000102-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:17+0800",
+      "name": "测乙260605000102-loan-plan",
+      "data": {
+        "cash": 63.25,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 9,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 28,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:17+0800",
+      "name": "测丙260605000103-loan-plan",
+      "data": {
+        "cash": 63.25,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 9,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 28,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:19+0800",
+      "name": "测丙260605000103-open-product-research",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/productResearch"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:22+0800",
+      "name": "测丙260605000103-open-market-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/marketManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:26+0800",
+      "name": "测丙260605000103-open-iso-development",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/authenticationmanagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:27+0800",
+      "name": "测丙260605000103-iso-development-target-not-visible",
+      "data": {
+        "target": "PRODUCT1400环境认证"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:29+0800",
+      "name": "测丙260605000103-open-delivery",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/deliveryWithOrder"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:31+0800",
+      "name": "测丙260605000103-open-material",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/materialPurchase"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:34+0800",
+      "name": "测丙260605000103-open-workshop",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/workshopManagement"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:35+0800",
+      "name": "测丙260605000103-loan-plan",
+      "data": {
+        "cash": 63.25,
+        "plan": null,
+        "loanInfo": [
+          {
+            "loanTypeName": "短期贷款",
+            "basicRate": 0.05,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 9,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "长期贷款",
+            "basicRate": 0.1,
+            "permitMode": 1,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 1,
+            "maxOfLoan": 28,
+            "permitYear": 5,
+            "permitPeriod": null,
+            "totalYear": 6
+          },
+          {
+            "loanTypeName": "高利贷",
+            "basicRate": 0.2,
+            "permitMode": 0,
+            "beginYear": 0,
+            "currentYear": 1,
+            "maxValueMode": 0,
+            "maxOfLoan": null,
+            "permitYear": null,
+            "permitPeriod": 4,
+            "totalYear": 6
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:37+0800",
+      "name": "测甲260605000101-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "recoveredByRoute": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:38+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:09:42+0800",
+      "name": "测甲260605000101-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "before": {
+          "userName": "测甲260605000101",
+          "years": 1,
+          "currentPeriod": 2,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 63.25,
+          "factoryCount": 1,
+          "userUnique": "测甲260605000101178064311941518",
+          "gender": null
+        },
+        "after": {
+          "userName": "测甲260605000101",
+          "years": 1,
+          "currentPeriod": 2,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 63.25,
+          "factoryCount": 1,
+          "userUnique": "测甲260605000101178064311941518",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 测甲260605000101\n第1年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n厂房管理\n产品原料构成说明\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:45+0800",
+      "name": "测乙260605000102-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "recoveredByRoute": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:46+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:09:49+0800",
+      "name": "测乙260605000102-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "before": {
+          "userName": "测乙260605000102",
+          "years": 1,
+          "currentPeriod": 2,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 63.25,
+          "factoryCount": 1,
+          "userUnique": "测乙260605000102178064311941518",
+          "gender": null
+        },
+        "after": {
+          "userName": "测乙260605000102",
+          "years": 1,
+          "currentPeriod": 2,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 63.25,
+          "factoryCount": 1,
+          "userUnique": "测乙260605000102178064311941518",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 测乙260605000102\n第1年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n厂房管理\n产品原料构成说明\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:52+0800",
+      "name": "测丙260605000103-open-time",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "recoveredByRoute": true
+      }
+    },
+    {
+      "at": "2026-06-05T15:09:54+0800",
+      "name": "confirm-dialog",
+      "data": {}
+    },
+    {
+      "at": "2026-06-05T15:09:57+0800",
+      "name": "测丙260605000103-advance-click",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/time",
+        "before": {
+          "userName": "测丙260605000103",
+          "years": 1,
+          "currentPeriod": 2,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 63.25,
+          "factoryCount": 1,
+          "userUnique": "测丙260605000103178064311941518",
+          "gender": null
+        },
+        "after": {
+          "userName": "测丙260605000103",
+          "years": 1,
+          "currentPeriod": 2,
+          "groupName": "AUTO202606050001",
+          "tax": 0,
+          "cash": 63.25,
+          "factoryCount": 1,
+          "userUnique": "测丙260605000103178064311941518",
+          "gender": null
+        },
+        "moved": false,
+        "text": "您好， 测丙260605000103\n第1年，第2期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n厂房管理\n产品原料构成说明\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n主页/\n时间管理\n\n时间管理\nTime Manage\n\n"
+      }
+    },
+    {
+      "at": "2026-06-05T15:11:13+0800",
+      "name": "students-quit-group-before-delete",
+      "data": [
+        {
+          "userId": "测甲260605000101",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测乙260605000102",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测丙260605000103",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        }
+      ]
+    },
+    {
+      "at": "2026-06-05T15:11:14+0800",
+      "name": "teacher-delete-students",
+      "data": {
+        "userIds": [
+          "测甲260605000101",
+          "测乙260605000102",
+          "测丙260605000103"
+        ],
+        "deleteResult": {
+          "status": 0,
+          "message": "成功",
+          "data": "操作成功"
+        },
+        "remaining": [],
+        "quitGroupResults": [
+          {
+            "userId": "测甲260605000101",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测乙260605000102",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测丙260605000103",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          }
+        ]
+      }
+    }
+  ],
+  "final": [
+    {
+      "account": "测甲260605000101",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测甲260605000101",
+        "years": 1,
+        "currentPeriod": 3,
+        "groupName": "AUTO202606050001",
+        "tax": 0,
+        "cash": 66.5,
+        "factoryCount": 1,
+        "userUnique": "测甲260605000101178064311941518",
+        "gender": null
+      },
+      "text": "加载中...",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606050001\\测甲260605000101-final.png"
+    },
+    {
+      "account": "测乙260605000102",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测乙260605000102",
+        "years": 1,
+        "currentPeriod": 3,
+        "groupName": "AUTO202606050001",
+        "tax": 0,
+        "cash": 66.5,
+        "factoryCount": 1,
+        "userUnique": "测乙260605000102178064311941518",
+        "gender": null
+      },
+      "text": "加载中...",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606050001\\测乙260605000102-final.png"
+    },
+    {
+      "account": "测丙260605000103",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测丙260605000103",
+        "years": 1,
+        "currentPeriod": 3,
+        "groupName": "AUTO202606050001",
+        "tax": 0,
+        "cash": 66.5,
+        "factoryCount": 1,
+        "userUnique": "测丙260605000103178064311941518",
+        "gender": null
+      },
+      "text": "您好， 测丙260605000103\n第1年，第3期\n\n主页\n\n年度规划会议\n\n市场管理\n\n生产管理\n\n销售管理\n\n采购管理\n\n库存管理\n\n产品研发&认证\n\n财务管理\n\n贷款与融资\n\n税金管理\n\n时间管理\n\n结束经营\n\n",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\erp_competition_test_package\\target\\erp-python-full-competition\\T202606050001\\测丙260605000103-final.png"
+    }
+  ],
+  "cleanup": {
+    "userIds": [
+      "测甲260605000101",
+      "测乙260605000102",
+      "测丙260605000103"
+    ],
+    "deleteResult": {
+      "status": 0,
+      "message": "成功",
+      "data": "操作成功"
+    },
+    "remaining": [],
+    "quitGroupResults": [
+      {
+        "userId": "测甲260605000101",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测乙260605000102",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测丙260605000103",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    ]
+  },
+  "error": null,
+  "finishedAt": "2026-06-05T15:11:14+0800"
+}

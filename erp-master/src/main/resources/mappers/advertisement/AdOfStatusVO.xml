@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.advertisement.AdOfStatusVODao">
+    <resultMap type="com.cqupt.mislab.erpn.model.vo.advertisement.AdOfStatusVO" id="AdOfStatusVOResult">
+        <result column="FINISHADFLAG" property="finishAdFlag" />
+        <result column="FINISHORDERFLAG" property="finishOrderFlag" />
+        <result column="CHOOSEORDERFLAG" property="chooseOrderFlag" />
+    </resultMap>
+    <select id="findAdOfStatusByUseruniqueAndPeriod" parameterType="string" resultMap="AdOfStatusVOResult">
+        select  a.finishadflag, a.chooseorderflag, a.finishorderflag
+        from (adstatusofuser a )
+        where
+            a.userunique=#{userUnique}
+          and a.period=#{period}
+    </select>
+</mapper>

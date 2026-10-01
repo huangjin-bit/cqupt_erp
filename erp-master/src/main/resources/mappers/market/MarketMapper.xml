@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.market.MarketDao">
+    <resultMap id="DevelopedMarket" type="com.cqupt.mislab.erpn.model.entity.market.DevelopedMarket">
+        <id column="USERUNIQUE" property="userUnique"/>
+        <id column="MARKETNAME" property="marketName"/>
+        <result column="MAINTAINCOST" property="maintainCost"/>
+        <result column="STATUS" property="status"/>
+        <result column="LASTSTATUS" property="lastStatus"/>
+        <result column="BEGINTIME" property="beginTime"/>
+        <result column="ENDTIME" property="endTime"/>
+    </resultMap>
+
+    <resultMap id="DevelopingMarket" type="com.cqupt.mislab.erpn.model.entity.market.DevelopingMarket">
+        <id column="USERUNIQUE" property="userUnique"/>
+        <id column="MARKETNAME" property="marketName"/>
+        <result column="RESEARCHPERIOD" property="researchPeriod"/>
+        <result column="RESEARCHCOST" property="researchCost"/>
+        <result column="FINISHEDPERIOD" property="finishedPeriod"/>
+        <result column="BEGINTIME" property="beginTime"/>
+        <result column="STATUS" property="status"/>
+    </resultMap>
+
+    <resultMap id="UndevelopMarket" type="com.cqupt.mislab.erpn.model.entity.market.UndevelopMarket">
+        <id column="USERUNIQUE" property="userUnique"/>
+        <id column="MARKETNAME" property="marketName"/>
+        <result column="RESEARCHPERIOD" property="researchPeriod"/>
+        <result column="RESEARCHCOST" property="researchCost"/>
+        <result column="MAINTAINCOST" property="maintainCost"/>
+    </resultMap>
+
+    <parameterMap id="UserAndMarket" type="com.cqupt.mislab.erpn.model.entity.market.UserAndMarket">
+        <parameter property="userUnique" javaType="string"/>
+        <parameter property="marketName" javaType="string"/>
+    </parameterMap>
+
+    <!--通过UserUnique查询所有的DevelopedMarket-->
+    <select id="getDevelopedMarketListByUserUnique" parameterType="string" resultMap="DevelopedMarket">
+        select * from developedmarket where USERUNIQUE=#{userUnique}
+    </select>
+
+
+
+
+    <!--通过UserUnique查询所有的DevelopingMarket-->
+    <select id="getDevelopingMarketListByUserUnique" parameterType="string" resultMap="DevelopingMarket">
+        select * from developingmarket where USERUNIQUE=#{userUnique}
+    </select>
+
+    <!--通过UserUnique查询所有的UndevelopMarket-->
+    <select id="getUndevelopMarketListByUserUnique" parameterType="string" resultMap="UndevelopMarket">
+        select * from undevelopmarket where USERUNIQUE=#{userUnique}
+    </select>
+
+<!--    获取一个DevelopedMarket的status属性(是否进行了维护)-->
+    <select id="getDevelopedMarketStatus" parameterType="string" resultType="int">
+        select STATUS from developedmarket where USERUNIQUE=#{userUnique} AND MARKETNAME=#{marketName}
+    </select>
+
+    <!--    获取一个DevelopingMarket的status属性(是否进行了开拓)-->
+    <select id="getDevelopingMarketStatus" parameterType="string" resultType="int">
+        select STATUS from developingmarket where USERUNIQUE=#{userUnique} AND MARKETNAME=#{marketName}
+    </select>
+
+    <!--  设置一个DevelopingMarket的status属性为0(暂停开拓)  -->
+    <update id="setDevelopingMarketStatusZero" parameterType="string">
+        update developingmarket set STATUS=0 where USERUNIQUE=#{userUnique} AND MARKETNAME=#{marketName}
+    </update>
+
+    <!--  设置一个DevelopedMarket的status属性为0(暂停维持)  -->
+    <update id="setDevelopedMarketStatusZero" parameterType="string">
+        update developedmarket set STATUS=0 where USERUNIQUE=#{userUnique} AND MARKETNAME=#{marketName}
+    </update>
+
+    <!--  设置一个DevelopedMarket的status属性为1(正在维持)  -->
+    <update id="setDevelopedMarketStatusOne" parameterType="string">
+        update developedmarket set STATUS=1 where USERUNIQUE=#{userUnique} AND MARKETNAME=#{marketName}
+    </update>
+
+    <!--  设置一个DevelopingMarket的status属性为1(正在开拓)  -->
+    <update id="setDevelopingMarketStatusOne" parameterType="string">
+        update developingmarket set STATUS=1 where USERUNIQUE=#{userUnique} AND MARKETNAME=#{marketName}
+    </update>
+
+<!--    增加一个DevelopingMarket-->
+    <insert id="addDevelopingMarket" parameterType="com.cqupt.mislab.erpn.model.entity.market.DevelopingMarket">
+        insert into developingmarket(USERUNIQUE,MARKETNAME,RESEARCHPERIOD,RESEARCHCOST,FINISHEDPERIOD,BEGINTIME,STATUS)
+        values (#{userUnique},#{marketName},#{researchPeriod},#{researchCost},#{finishedPeriod},#{beginTime},#{status})
+    </insert>
+
+<!--    删除一个UnDevelopingMarket-->
+    <delete id="deleteUnDevelopingMarket" parameterType="string">
+        delete from undevelopmarket where USERUNIQUE=#{userUnique} and MARKETNAME=#{marketName}
+    </delete>
+
+<!--    查找一个UndevelopMarket实体-->
+    <select id="getUndevelopMarket" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.market.UndevelopMarket">
+        select * from undevelopmarket where USERUNIQUE=#{userUnique} and MARKETNAME=#{marketName}
+    </select>
+
+    <select id="findMarketName"  resultType="string">
+        select MARKETNAME from MARKETBASIC
+    </select>
+    <select id="getMarketsByUserUnique" resultType="com.cqupt.mislab.erpn.model.entity.market.DevelopedMarket">
+
+        select MARKETNAME from developedmarket where USERUNIQUE=#{userUnique}
+    </select>
+
+    <select id="findDevelopedMarket" resultType="java.lang.Integer" parameterType="string">
+        select count(marketName) from developedmarket where USERUNIQUE=#{userUnique} and MARKETNAME=#{marketName}
+    </select>
+
+
+</mapper>

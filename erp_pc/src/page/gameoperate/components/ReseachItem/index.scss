@@ -1,0 +1,40 @@
+.product-item {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background-color: #f2f2f1;
+    padding-left: 10px;
+    height: 95px;
+    align-items: center;
+    margin: 10px 0;
+
+    img {
+        max-height: 90px;
+    }
+
+    .product-detail {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .product-item-msg {
+        font-size: 15px;
+        display: flex;
+        padding: 0 15px;
+        flex-direction: column;
+        text-align: center;
+
+        .msg-title {
+            color: #999;
+            padding: 0 0 5px 0;
+        }
+
+    }
+
+
+    span {
+        display: inline-block;
+    }
+}

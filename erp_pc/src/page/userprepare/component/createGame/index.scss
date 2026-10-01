@@ -1,0 +1,22 @@
+@import 'common/styles/variable.scss';
+.create-game-wrapper {
+  border: $formBorder;
+  margin: auto;
+  margin-top: 100px;
+  height: 300px;
+  width: 400px;
+  padding: 25px;
+  background: white;
+  box-shadow: $formBoxShadow;
+  .form {
+    .ant-input-number {
+      width: 100%;
+    }
+
+    .login-btn {
+      width: 100%;
+      border: 0;
+      background-color: $themeColor;
+    }
+  }
+}

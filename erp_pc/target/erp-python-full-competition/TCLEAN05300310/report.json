@@ -1,0 +1,272 @@
+{
+  "baseUrl": "http://39.98.115.237/",
+  "teacher": "wangyong",
+  "runId": "TCLEAN05300310",
+  "groupName": "AUTOCLEAN05300310",
+  "students": [
+    {
+      "user_id": "测甲0530031001",
+      "name": "测甲",
+      "sid": "0530031001",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测乙0530031002",
+      "name": "测乙",
+      "sid": "0530031002",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测丙0530031003",
+      "name": "测丙",
+      "sid": "0530031003",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    }
+  ],
+  "steps": [
+    {
+      "at": "2026-05-30T10:37:47+0800",
+      "name": "teacher-login",
+      "data": {
+        "url": "http://39.98.115.237/#/teacher/userList",
+        "text": "您好， 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n用户管理/\n用户列表\n用户ID\n综合搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\t操作\n\nNo data\n批量删除下载说明书下载模板批量导入用户\n\n"
+      }
+    },
+    {
+      "at": "2026-05-30T10:37:53+0800",
+      "name": "teacher-import-registered-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-python-full-competition\\TCLEAN05300310\\students-users.csv",
+        "users": [
+          "测丙0530031003",
+          "测乙0530031002",
+          "测甲0530031001"
+        ]
+      }
+    },
+    {
+      "at": "2026-05-30T10:37:56+0800",
+      "name": "teacher-import-students",
+      "data": {
+        "csv": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-python-full-competition\\TCLEAN05300310\\students-for-game.csv"
+      }
+    },
+    {
+      "at": "2026-05-30T10:38:00+0800",
+      "name": "teacher-create-game",
+      "data": {
+        "groupName": "AUTOCLEAN05300310",
+        "text": "您好，王永 老师\n\n用户管理\n\n创建比赛\n\n管理比赛\n\n企业评价\n\n查看历史数据\n\n历史报告\n创建比赛/\n批量导入创建\n搜索\n\t用户ID\t用户名\t密码\t专业\t班级\t学号\t邮箱\t电话\n\n\t测丙0530031003\t测丙\t123456\t信息管理\t\t0530031003\t\t\n\n\t测乙0530031002\t测乙\t123456\t信息管理\t\t0530031002\t\t\n\n\t测甲0530031001\t测甲\t123456\t信息管理\t\t0530031001\t\t\n创建比赛下载模板批量导入\nstudents-for-game.csv\n\n\n成功"
+      }
+    },
+    {
+      "at": "2026-05-30T10:38:09+0800",
+      "name": "测甲0530031001-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-30T10:38:23+0800",
+      "name": "测乙0530031002-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-30T10:38:35+0800",
+      "name": "测丙0530031003-login",
+      "data": {
+        "url": "http://39.98.115.237/#/gameoperate/main",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-30T10:39:27+0800",
+      "name": "students-quit-group-before-delete",
+      "data": [
+        {
+          "userId": "测甲0530031001",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测乙0530031002",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        },
+        {
+          "userId": "测丙0530031003",
+          "result": {
+            "status": 0,
+            "message": "成功",
+            "data": "SUCCESS"
+          },
+          "url": "http://39.98.115.237/#/gameoperate/main"
+        }
+      ]
+    },
+    {
+      "at": "2026-05-30T10:39:47+0800",
+      "name": "teacher-delete-students",
+      "data": {
+        "userIds": [
+          "测甲0530031001",
+          "测乙0530031002",
+          "测丙0530031003"
+        ],
+        "deleteResult": {
+          "status": 0,
+          "message": "成功",
+          "data": "操作成功"
+        },
+        "remaining": [],
+        "quitGroupResults": [
+          {
+            "userId": "测甲0530031001",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测乙0530031002",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          },
+          {
+            "userId": "测丙0530031003",
+            "result": {
+              "status": 0,
+              "message": "成功",
+              "data": "SUCCESS"
+            },
+            "url": "http://39.98.115.237/#/gameoperate/main"
+          }
+        ]
+      }
+    }
+  ],
+  "final": [
+    {
+      "account": "测甲0530031001",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测甲0530031001",
+        "years": 1,
+        "currentPeriod": 1,
+        "groupName": "AUTOCLEAN05300310",
+        "tax": 0,
+        "cash": 20,
+        "factoryCount": 1,
+        "userUnique": "测甲0530031001178010872698414",
+        "gender": null
+      },
+      "text": "加载中...",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-python-full-competition\\TCLEAN05300310\\测甲0530031001-final.png"
+    },
+    {
+      "account": "测乙0530031002",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测乙0530031002",
+        "years": 1,
+        "currentPeriod": 1,
+        "groupName": "AUTOCLEAN05300310",
+        "tax": 0,
+        "cash": 20,
+        "factoryCount": 1,
+        "userUnique": "测乙0530031002178010872698414",
+        "gender": null
+      },
+      "text": "加载中...",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-python-full-competition\\TCLEAN05300310\\测乙0530031002-final.png"
+    },
+    {
+      "account": "测丙0530031003",
+      "url": "http://39.98.115.237/#/gameoperate/main",
+      "info": {
+        "userName": "测丙0530031003",
+        "years": 1,
+        "currentPeriod": 1,
+        "groupName": "AUTOCLEAN05300310",
+        "tax": 0,
+        "cash": 20,
+        "factoryCount": 1,
+        "userUnique": "测丙0530031003178010872698414",
+        "gender": null
+      },
+      "text": "加载中...",
+      "screenshot": "C:\\Users\\huangjin54\\Downloads\\erp-master\\erp_pc\\target\\erp-python-full-competition\\TCLEAN05300310\\测丙0530031003-final.png"
+    }
+  ],
+  "cleanup": {
+    "userIds": [
+      "测甲0530031001",
+      "测乙0530031002",
+      "测丙0530031003"
+    ],
+    "deleteResult": {
+      "status": 0,
+      "message": "成功",
+      "data": "操作成功"
+    },
+    "remaining": [],
+    "quitGroupResults": [
+      {
+        "userId": "测甲0530031001",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测乙0530031002",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      },
+      {
+        "userId": "测丙0530031003",
+        "result": {
+          "status": 0,
+          "message": "成功",
+          "data": "SUCCESS"
+        },
+        "url": "http://39.98.115.237/#/gameoperate/main"
+      }
+    ]
+  },
+  "error": null,
+  "finishedAt": "2026-05-30T10:39:48+0800"
+}

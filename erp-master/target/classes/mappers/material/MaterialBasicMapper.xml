@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.material.MaterialBasicDao">
+    <resultMap id="materialBasic" type="com.cqupt.mislab.erpn.model.entity.material.MaterialBasic">
+        <id property="materialName" column="MATERIALNAME"/>
+        <result property="price" column="PRICE"/>
+        <result property="delayTime" column="DELAYTIME"/>
+    </resultMap>
+    <select id="listMaterialBasic" resultMap="materialBasic">
+        select *
+        from materialbasic;
+    </select>
+    <select id="getMaterialBasicByName" resultMap="materialBasic">
+        select *
+        from materialbasic
+        where MATERIALNAME = #{materialName};
+
+    </select>
+</mapper>

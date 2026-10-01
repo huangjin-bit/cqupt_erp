@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.finance.will.WillReceiveDao">
+    <resultMap id="willReceive" type="com.cqupt.mislab.erpn.model.entity.finance.will.WillReceive">
+        <id column="USERUNIQUE" property="userUnique"/>
+        <id column="WILLRECEIVEID" property="willReceiveId"/>
+        <result column="MONEY" property="money"/>
+        <result column="BEGINTIME" property="beginTime"/>
+        <result column="ENDTIME" property="endTime"/>
+        <result column="WILLRECEIVEDESCRIPTION" property="willReceiveDescription"/>
+        <result column="NOTE" property="note"/>
+    </resultMap>
+    <insert id="insertWillReceive">
+        insert into willreceive (USERUNIQUE, MONEY, BEGINTIME, ENDTIME, WILLRECEIVEDESCRIPTION, NOTE)
+        values (#{userUnique}, #{money}, #{beginTime}, #{endTime}, #{willReceiveDescription}, #{note});
+
+    </insert>
+    <delete id="deleteWillReceive">
+        delete
+        from willreceive
+        where USERUNIQUE = #{userUnique}
+          and WILLRECEIVEID = #{willReceiveId};
+
+    </delete>
+    <select id="listWillReceive" resultMap="willReceive">
+        select *
+        from willreceive
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="getMoney" resultType="java.lang.Double">
+        select MONEY
+        from willreceive
+        where USERUNIQUE = #{userUnique}
+          and WILLRECEIVEID = #{willReceiveId};
+
+    </select>
+</mapper>

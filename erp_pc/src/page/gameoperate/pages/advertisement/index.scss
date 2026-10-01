@@ -1,0 +1,188 @@
+.userprepare-wrapper {
+    padding: 0px 15px 0px 10px;
+    width: 100%;
+    min-width: 1120px;
+
+    .ad-left {
+        width: 100%;
+
+        .select-span {
+            color: #ADADAD;
+            font-size: 15px;
+            margin-left: 10px;
+        }
+
+        .select {
+            margin-left: 10px;
+            width: 120px;
+        }
+
+        .search {
+            margin-left: 10px;
+            height: 30px;
+
+        }
+
+        .next {
+            float: right;
+        }
+
+        .first-step,
+        .second-step {
+            table {
+
+                width: 100%;
+                margin-top: 10px;
+                font-size: 16px;
+
+                thead {
+                    color: #ADADAD;
+                }
+
+                .first-tr {
+                    height: 40px;
+                    line-height: 40px;
+                }
+
+                td {
+                    width: 25%;
+                    text-align: center;
+                    border: 1px solid #ADADAD;
+                }
+
+                .first-tr:nth-child(odd) {
+                    background-color: whitesmoke;
+                }
+
+                .first-tr:nth-child(even) {
+                    background-color: white;
+                }
+            }
+        }
+
+        .wait-item {
+            width: 180px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 5px;
+            float: left;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            img {
+                width: 180px;
+            }
+
+            span {
+                margin-top: 5px;
+                font-size: 16px;
+            }
+
+        }
+
+        .forth-step {
+            .searchBtn {
+                margin-left: 20px;
+            }
+
+            .forthBtn {
+                float: right;
+                margin-right: 30px;
+            }
+
+            table {
+                width: 100%;
+                position: absolute;
+                height: 100%;
+                text-align: center;
+                left: 0px;
+                top: 0px;
+                font-size: 16px;
+
+                td {
+                    border: 1px solid #ADADAD;
+                    line-height: 30px;
+                }
+
+                .forth-tr:nth-child(odd) {
+                    height: 30px;
+                    background-color: whitesmoke;
+                }
+
+                .forth-tr:nth-child(even) {
+                    height: 30px;
+                    background-color: white;
+                }
+            }
+
+            .adCard {
+                color: black;
+                float: left;
+                font-size: 16px;
+                background-color: #FFFF99;
+                width: 370px;
+                height: 226px;
+                margin-top: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
+
+                .specialRem {
+                    margin-left: 32px;
+                }
+
+                .pBtn {
+                    float: right;
+                    height: 30px;
+                }
+
+                .adCardDiv {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-around;
+                }
+
+                .pBottom {
+                    margin-top: 10px;
+                    text-align: center;
+                    background-color: #FFCC66;
+                }
+            }
+
+            .noAdCard {
+                color: #ADADAD !important;
+                background-color: #FFFFCC !important;
+            }
+
+        }
+
+        .fifth-step {
+            margin-top: 100px;
+
+            div {
+                width: 40%;
+                margin: auto;
+
+                img {
+                    width: 30%;
+                    margin-left: 35%;
+                }
+
+                p {
+                    text-align: center;
+                }
+
+                p:nth-child(even) {
+                    font-size: 21px;
+                    font-weight: 400;
+                }
+
+                p:nth-child(odd) {
+                    color: lightgray;
+                }
+            }
+        }
+    }
+
+
+}

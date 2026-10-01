@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.product.ProductBasicDao">
+    <update id="updateProductOfUserPNumber">
+        update productofuser set PNUMBER=#{pNumber} where userUnique=#{userUnique} and productName=#{productName};
+    </update>
+    <update id="updateDecreasePNumber">
+      update productofuser
+      set PNUMBER=PNUMBER-#{orderPNumber}
+      where USERUNIQUE=#{userUnique}
+        and PRODUCTNAME=#{productName}
+        and PNUMBER >= #{orderPNumber};
+    </update>
+    <select id="findAllProductName" resultType="java.lang.String">
+        select PRODUCTNAME from productbasic;
+    </select>
+    <select id="findAllProductInventoriesByUserUnique" resultType="com.cqupt.mislab.erpn.model.entity.product.ProductOfUser">
+       select PRODUCTNAME,PNUMBER from productofuser where USERUNIQUE=#{userUnique};
+    </select>
+    <select id="findProductDetail" resultType="com.cqupt.mislab.erpn.model.entity.product.ProductDetailBasic">
+		select PRODUCTNAME,MATERIALNAME,MNUMBER from productdetailbasic;
+    </select>
+    <select id="findMaterialNameByProductName" resultType="java.lang.String">
+        select MATERIALNAME from productdetailbasic where PRODUCTNAME=#{productName};
+    </select>
+    <select id="findMaterialNumber" resultType="java.lang.Integer">
+        select MNUMBER from productdetailbasic where PRODUCTNAME=#{productName} and MATERIALNAME=#{materialName};
+    </select>
+    <select id="findPNumberByUserUniqueAndProductName" resultType="java.lang.Integer">
+        select PNUMBER from productofuser where USERUNIQUE=#{userUnique} and PRODUCTNAME=#{productName};
+
+    </select>
+
+
+</mapper>

@@ -1,0 +1,27 @@
+@import 'common/styles/variable.scss';
+
+.desc-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 230px;
+  .desc-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 268px;
+    .title {
+      font-family: $themeFontFamliy;
+      font-weight: 600;
+      font-size: 22px;
+      color: #666;
+    }
+    .desc {
+      font-family: $themeFontFamliy;
+      word-break: break-all;
+      text-align: center;
+      color: #666;
+    }
+  }
+}

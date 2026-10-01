@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.finance.account.AccountDetailDao">
+    <insert id="addAccountDetail" parameterType="com.cqupt.mislab.erpn.model.entity.finance.account.AccountDetail">
+        insert into accountdetail
+        values (#{userUnique},#{accountId},#{item},#{money},#{itemType},#{calValue})
+    </insert>
+    <select id="findAccountDetailsById"
+            resultType="com.cqupt.mislab.erpn.model.entity.finance.account.AccountDetail">
+        select *
+        from accountdetail
+        where USERUNIQUE = #{userUnique}
+          and ACCOUNTID = #{accountId}
+
+    </select>
+</mapper>

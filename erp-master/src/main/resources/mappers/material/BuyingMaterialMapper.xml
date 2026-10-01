@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.material.BuyingMaterialDao" >
+    <resultMap id="buyingMaterial" type="com.cqupt.mislab.erpn.model.entity.material.BuyingMaterial">
+        <id property="userUnique" column="USERUNIQUE"/>
+        <id property="orderId" column="ORDERID"/>
+        <result property="materialName" column="MATERIALNAME"/>
+        <result property="mNumber" column="MNUMBER"/>
+        <result property="wareHouseName" column="WAREHOUSENAME"/>
+        <result property="happenTime" column="HAPPENTIME"/>
+        <result property="endTime" column="ENDTIME"/>
+    </resultMap>
+    <insert id="insertBuyingMaterial">
+        insert into buyingmaterial (USERUNIQUE,MATERIALNAME,MNUMBER,WAREHOUSENAME,HAPPENTIME,ENDTIME)
+        values (#{userUnique}, #{materialName}, #{mNumber}, #{wareHouseName}, #{happenTime}, #{endTime});
+
+    </insert>
+    <select id="listBuyingMaterial" resultMap="buyingMaterial">
+        select b.USERUNIQUE, b.ORDERID, b.MATERIALNAME, b.MNUMBER, b.WAREHOUSENAME, b.HAPPENTIME, b.ENDTIME
+        from buyingmaterial as b
+        where USERUNIQUE = #{userUnique}
+          and ENDTIME > #{curPeriod}
+
+    </select>
+
+
+</mapper>

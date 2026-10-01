@@ -1,0 +1,9 @@
+.game-operate-wrapper {
+  min-width: 1174PX;
+  .content-wrapper {
+    margin: 0 20pX;
+    .content-wrapper .ant-table-title{
+      padding-left: 0 !important;
+    }
+  }
+}

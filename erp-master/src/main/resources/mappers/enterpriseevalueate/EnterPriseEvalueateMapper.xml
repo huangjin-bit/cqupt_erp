@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.enterpriseevaluate.EnterPriseEvaluateDao">
+    <resultMap type="com.cqupt.mislab.erpn.model.entity.enterpriseevalueate.AdminIncomeBean" id="AdminIncomeBeanResult">
+        <id column="USERUNIQUE" property="userUnique"/>
+        <result column="GROUPNAME" property="groupName"/>
+        <result column="USERID" property="userId"/>
+        <result column="CURRENTPERIOD" property="currentPeriod"/>
+        <result column="INTERESTRATE" property="interestRate"/>
+        <result column="BUSINESSPROFITRATE" property="businessProfitRate"/>
+        <result column="TOTALASSESTSINCOMERATE" property="totalAssestsIncomeRate"/>
+        <result column="ASSESTSINCOMERATE" property="assestsIncomeRate"/>
+        <result column="OWNERBENIFIT" property="ownerBenifit"/>
+    </resultMap>
+
+
+ <!--   <select id="CalOwnerBenifit" resultType="java.lang.Double">
+        select ifnull(sum(endvalue),0) as ev
+        from balancesheet,
+             accountonebasic
+        where balancesheet.oneitem = accountonebasic.oneitem
+          and type1 = '所有者权益'
+          and period = #{period}
+          and userunique = #{userUnique};
+
+    </select>
+-->
+    <select id="CalOwnerBenifit" resultType="java.lang.Double">
+        SELECT FORMAT(IFNULL((
+        SELECT SUM(bs.endvalue * bscr.signal)
+        FROM balancesheet bs
+        JOIN balancesheetcalrelationbasic bscr ON bs.oneitem = bscr.oneitem
+        JOIN balancesheetcalbasic bscb ON bscr.calcellid = bscb.calcellid
+        WHERE bs.USERUNIQUE = #{userUnique}
+        AND bs.PERIOD = #{period}
+        AND bscb.calcellid = (
+        SELECT calcellid
+        FROM balancesheetcalbasic
+        WHERE calrow_last = 13
+        AND calcol_last = 6
+        )
+        ), 0), 2) AS result;
+    </select>
+
+    <select id="getGroupMember" resultType="com.cqupt.mislab.erpn.model.dto.gamegroup.GameGroupMemberDTO">
+        select USERUNIQUE, gamegroupmember.userid, USERNAME,CURRENTPERIOD,STATUS,USERNAME
+        from gamegroupmember,approveduser
+        where groupname=#{groupName}
+          AND gamegroupmember.userid=approveduser.USERID
+    </select>
+
+    <select id="getMemberCapacity" resultType="com.cqupt.mislab.erpn.model.entity.enterpriseevalueate.ProduceCapacity" parameterType="string">
+        select t2.produceperiod producePeriod from productline t1 join productlinebasic t2 on (t1.productlinetype=t2.productlinetype) where userunique=#{userUnique}
+    </select>
+
+    <select id="getMemberSaleByMarket" parameterType="com.cqupt.mislab.erpn.model.dto.enterpriseevalueate.ProductShareDTO" resultType="java.lang.Double">
+        select sum(pnumber * price) input from ordersofuser where userunique = #{userUnique} and endtime between #{firstPeriod} and #{lastPeriod} and marketname = #{marketName}
+    </select>
+
+    <select id="getMemberSaleByProduct" resultType="java.lang.Double" parameterType="com.cqupt.mislab.erpn.model.dto.enterpriseevalueate.MarketShareDTO">
+        select sum(pnumber * price) input from ordersofuser where userunique = #{userUnique} and endtime between #{firstPeriod} and #{lastPeriod} and productname = #{productName}
+    </select>
+    <select id="getGroupMembersOnIOAd"
+            resultType="com.cqupt.mislab.erpn.model.entity.enterpriseevalueate.UserInputAndOutputOfAd">
+        select userunique, userid from gamegroupmember where groupname=#{groupName}
+    </select>
+    <select id="getUserOutput" resultType="java.lang.Double">
+        select sum(pnumber * price) output from ordersofuser where userunique = #{userUnique} and endtime between #{firstPeriod} and #{lastPeriod}
+    </select>
+    <select id="getUserInput" resultType="java.lang.Double">
+        select sum(money) output from adofuser where userunique = #{userUnique} and period = #{period}
+    </select>
+    <select id="getProducts" resultType="com.cqupt.mislab.erpn.model.entity.enterpriseevalueate.Products">
+        select productname, pnumber from ordersofuser where userunique=#{userunique} and endtime between #{firstPeriod} and #{lastPeriod}
+    </select>
+    <select id="getAdCost" resultType="java.lang.Double">
+        select sum(money) adCost from adofuser where userunique=#{userunique} and period=#{period}
+    </select>
+    <select id="getItemCost" resultType="java.lang.Double">
+        select sum(money) itemCost from accounthead a1 join accountdetail a2 on (a1.accountid=a2.accountid) where a1.userunique=#{userunique} and a1.happentime between #{firstPeriod} and #{lastPeriod} and a1.accountiddescription like #{item} and a2.itemtype='借'
+    </select>
+    <select id="getGroupMemberByUserUnique" resultType="com.cqupt.mislab.erpn.model.dto.gamegroup.GameGroupMemberDTO">
+        select t2.produceperiod producePeriod from productline t1 join productlinebasic t2 on (t1.productlinetype=t2.productlinetype) where userunique=#{userunique}
+    </select>
+    <select id="getProductsByGroupName" resultType="com.cqupt.mislab.erpn.model.entity.enterpriseevalueate.Products">
+        select productname, pnumber, price from ordersofuser where userunique=#{userunique} and productName=#{productName} and endtime between #{firstPeriod} and #{lastPeriod}
+    </select>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.iso.ISOBasicDao">
+
+    <select id="findAllBasicISO" resultType="com.cqupt.mislab.erpn.model.entity.iso.ISOBasic" >
+		select ISONAME,STATUS,RESEARCHPERIOD,RESEARCHCOST,MAINTAINCOST from isobasic ORDER BY RESEARCHPERIOD
+	</select>
+
+    <select id="findOneISOBasic" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.iso.ISOBasic" >
+		select ISONAME,STATUS,RESEARCHPERIOD,RESEARCHCOST,MAINTAINCOST from isobasic where ISONAME=#{isoName}
+	</select>
+
+    <select id="findISOBasicNum" resultType="int" >
+		select count(*) from isobasic
+	</select>
+
+
+</mapper>

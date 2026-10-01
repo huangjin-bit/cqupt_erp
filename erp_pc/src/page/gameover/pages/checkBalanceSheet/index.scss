@@ -1,0 +1,37 @@
+.userprepare-wrapper{
+    padding:0px 15px 0px 10px ;
+    width: 100%;
+    min-width: 1120px;
+    .sheet-top{
+        margin-left: 30px;
+    .select-span{
+        color: #ADADAD;
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    .select-btn{
+        margin-left: 20px;
+    }
+    .select{
+        width: 100px;
+        margin-left: 15px;
+    }
+
+    }
+    
+    table{
+        font-size: 16px;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        td{
+            width: 16%;
+            line-height: 40px;
+            border: 1px solid rgb(167, 163, 163);
+        }
+    }
+    .sheet-tr:nth-child(1){
+        background-color: whitesmoke !important;
+        color: rgb(136, 133, 133);
+    }
+}

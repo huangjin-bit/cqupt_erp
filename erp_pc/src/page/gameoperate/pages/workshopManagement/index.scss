@@ -1,0 +1,187 @@
+.userprepare-wrapper {
+  .head_operate {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .head_operate_left {
+      display: flex;
+      justify-content: space-around;
+
+      .choosePlace {
+        margin: 0 30px;
+      }
+
+      .search {
+        background-color: #dddcd9;
+        border: #dddcd9;
+        color: black;
+      }
+    }
+
+    .head_operate_right {
+      display: flex;
+      justify-content: space-between;
+
+      .rent {
+        margin: 0 20px;
+      }
+
+      .head_operate_btn {
+        background-color: #355a86;
+        border: none;
+      }
+    }
+  }
+
+  .ant-collapse-ghost>.ant-collapse-item {
+    margin: 10px;
+  }
+
+  .ant-collapse>.ant-collapse-item>.ant-collapse-header {
+    padding: 0 0 0 40px;
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+  }
+
+  .ant-collapse-content>.ant-collapse-content-box {
+    padding: 8px 0 8px 80px;
+  }
+}
+
+.rent_factoy_collapse {
+  margin: 10px;
+
+  .rent_item {
+    padding: 0 0 0 40px;
+    background-color: #fafafa;
+    margin-top: 10px;
+  }
+}
+
+.managementItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  justify-content: space-between;
+
+  .status_icon {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+  }
+
+  .management_msg {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      color: #999;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .text {
+      display: flex;
+      font-size: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .addLine {
+      margin-left: 5px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .management_btn {
+    display: flex;
+    width: 83px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbdad6;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #d1ba74;
+    }
+  }
+}
+
+.management_detail {
+  display: flex;
+  padding: 8px 0;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  border-bottom: 1px solid #d9d9d9;
+
+  .type {
+    width: 30px;
+    height: 30px;
+  }
+
+  .management_detail_msg {
+    color: #999;
+  }
+
+  .detail_btn {
+    margin: 10px;
+    border: none;
+    color: black;
+    padding: 5px 12px;
+    background-color: #dbdad6;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #d1ba74;
+    }
+  }
+
+  .unactive {
+    color: #999;
+  }
+}
+
+.addLineModal {
+  .ant-form-item {
+    margin-bottom: 10px;
+  }
+}
+
+.config_btn {
+  margin: 10px;
+  border: none;
+  color: black;
+  padding: 5px 20px;
+  background-color: #d1ba74;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.change_product_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .change_btn {
+    background-color: #d1ba74;
+    padding: 5px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e6cc81;
+    }
+  }
+}
+
+.no_productline_tips {
+  text-align: center;
+}

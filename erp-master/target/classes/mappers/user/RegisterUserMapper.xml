@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.user.RegisterUserDao">
+    <resultMap type="com.cqupt.mislab.erpn.model.entity.user.RegisterUser" id="RegisterUser">
+        <id column="USERID" property="userId"/>
+        <result column="USERNAME" property="userName"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="MAJOR" property="major"/>
+        <result column="CLASS" property="sClass"/>
+        <result column="SID" property="sId"/>
+        <result column="EMAIL" property="email"/>
+        <result column="TEL" property="tel"/>
+        <result column="STATUS" property="status"/>
+        <result column="GENDER" property="gender"/>
+    </resultMap>
+    <select id="findRegister" parameterType="string" resultMap="RegisterUser">
+        select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,STATUS,GENDER from registeruser where USERID=#{userId}
+    </select>
+
+    <insert id="addRegisterUser" parameterType="com.cqupt.mislab.erpn.model.entity.user.RegisterUser">
+        insert into registeruser(USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,GENDER)
+        values(#{userId},#{userName},#{password},#{major},#{sClass},#{sId},#{email},#{tel},#{gender})
+    </insert>
+
+    <update id="modifyRegisterUser" parameterType="com.cqupt.mislab.erpn.model.entity.user.RegisterUser">
+        update registeruser set USERNAME=#{userName},PASSWORD=#{password},MAJOR=#{major},CLASS=#{sClass},SID=#{sId},EMAIL=#{email},TEL=#{tel},GENDER=#{gender} where USERID=#{userId}
+    </update>
+
+    <!--<select id="find_all_register"  resultMap="RegisterResult">-->
+        <!--select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,STATUS from REGISTERUSER-->
+    <!--</select>-->
+
+    <delete id="deleteRegisterByUserId" parameterType="map">
+        delete from registeruser where USERID=#{userId}
+    </delete>
+</mapper>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.group.GameGroupMemberDetailDao">
+    <resultMap id="memberDetail" type="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberDetail">
+        <id property="userUnique" column="USERUNIQUE"/>
+        <id property="studentNo" column="STUDENTNO"/>
+        <result property="userId" column="USERID"/>
+        <result property="studentName" column="STUDENTNAME"/>
+        <result property="title" column="TITLE"/>
+        <result property="contribution" column="CONTRIBUTION"/>
+        <result property="confirm" column="CONFIRM"/>
+        <result property="grade" column="GRADE"/>
+        <result property="groupName" column="GROUPNAME"/>
+        <result property="score" column="SCORE"/>
+    </resultMap>
+
+    <insert id="insertMemberDetail">
+        insert into gamegroupmemberdetail(USERUNIQUE, USERID, STUDENTNO, STUDENTNAME, TITLE, CONTRIBUTION, GROUPNAME)
+        values (#{userUnique}, #{userId}, #{studentNo}, #{studentName}, #{title}, #{contribution}, #{groupName});
+
+    </insert>
+
+    <update id="confirmContribution" parameterType="java.lang.String">
+        update gamegroupmemberdetail SET CONFIRM = 1 where gamegroupmemberdetail.GROUPNAME =#{groupName}
+    </update>
+    <update id="update">
+        update gamegroupmemberdetail
+        <set>
+            <if test='memberDetail.userUnique!=null and memberDetail.userUnique!="" '>USERUNIQUE =
+                #{memberDetail.userUnique,jdbcType=VARCHAR},
+            </if>
+            <if test='memberDetail.userId!=null and memberDetail.userId!="" '>
+                USERID=#{memberDetail.userId,jdbcType=VARCHAR},
+            </if>
+            <if test='memberDetail.studentNo!=null and memberDetail.studentNo!="" '>
+                STUDENTNO=#{memberDetail.studentNo,jdbcType=VARCHAR},
+            </if>
+            <if test='memberDetail.studentName!=null and memberDetail.studentName!="" '>STUDENTNAME=
+                #{memberDetail.studentName,jdbcType=VARCHAR},
+            </if>
+            <if test="memberDetail.title!=null and memberDetail.title!='' ">
+                TITLE=#{memberDetail.title,jdbcType=VARCHAR},
+            </if>
+            <if test='memberDetail.contribution!=null and memberDetail.contribution!=""'>CONTRIBUTION =
+                #{memberDetail.contribution,jdbcType=FLOAT},
+            </if>
+            <if test='memberDetail.confirm!=null and memberDetail.confirm!=""'>CONFIRM =
+                #{memberDetail.confirm,jdbcType=INTEGER},
+            </if>
+            <if test='memberDetail.grade!=null and memberDetail.grade!=""'>GRADE =
+                #{memberDetail.grade,jdbcType=VARCHAR},
+            </if>
+            <if test='memberDetail.groupName!=null and memberDetail.groupName!=""'>GROUPNAME=
+                #{memberDetail.groupName,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where USERUNIQUE = #{memberDetail.userUnique} AND STUDENTNO= #{studentNo}
+    </update>
+    <update id="updateMemberDetail">
+        update gamegroupmemberdetail
+        set CONTRIBUTION=#{sort},
+            STUDENTNAME=#{studentName},
+            TITLE=#{title}
+        where USERUNIQUE = #{userUnique}
+          and STUDENTNO = #{studentNo};
+
+
+    </update>
+    <update id="updateMemberDetailByOldStudentNo">
+        update gamegroupmemberdetail
+        set CONTRIBUTION=#{sort},
+            STUDENTNAME=#{studentName},
+            TITLE=#{title},
+            STUDENTNO=#{studentNo}
+        where USERUNIQUE = #{userUnique}
+          and STUDENTNO = #{oldStudentNo};
+    </update>
+    <update id="updateMemberDetailByGroupMemberDetail">
+        update gamegroupmemberdetail
+        set SCORE=#{score},
+            GRADE=#{grade}
+        where USERUNIQUE = #{userUnique}
+          and STUDENTNO = #{studentNo};
+
+    </update>
+    <delete id="deleteMember">
+        delete
+        from gamegroupmemberdetail
+        where USERUNIQUE = #{userUnique}
+          and STUDENTNO = #{removeStudentNo};
+
+    </delete>
+    <!--根据比赛名称去获取所有参与比赛的小组名称-->
+    <select id="selectAllRolesByGameName"
+            resultMap="memberDetail">
+        SELECT
+            GRADE , TITLE , STUDENTNAME , CONTRIBUTION , CONFIRM , GROUPNAME , STUDENTNO , USERID
+        FROM gamegroupmemberdetail WHERE GROUPNAME = #{gameName};
+    </select>
+    <select id="isConfirm" resultType="java.lang.Integer">
+        select CONFIRM
+        from gamegroupmemberdetail
+        where USERUNIQUE = #{userUnique};
+
+    </select>
+    <select id="findAllInOneTeam"
+            resultMap="memberDetail">
+        SELECT USERUNIQUE,
+               USERID,
+               STUDENTNO,
+               STUDENTNAME,
+               TITLE,
+               CONTRIBUTION,
+               CONFIRM,
+               GRADE,
+               GROUPNAME,
+               SCORE
+        from gamegroupmemberdetail
+        where USERUNIQUE = #{userUnique};
+    </select>
+    <select id="findMemberDetailByStudentNo_userUnique"
+            resultMap="memberDetail">
+        select USERUNIQUE,USERID,STUDENTNO,STUDENTNAME,TITLE,CONTRIBUTION,CONFIRM,GRADE,GROUPNAME FROM
+            gamegroupmemberdetail where USERUNIQUE = #{userUnique} and STUDENTNO = #{studentNo};
+    </select>
+    <select id="findConfirmAll"
+            resultMap="memberDetail">
+        select *
+        from gamegroupmemberdetail
+        where USERUNIQUE = #{userUnique}
+          and CONFIRM = 1;
+
+    </select>
+
+
+</mapper>

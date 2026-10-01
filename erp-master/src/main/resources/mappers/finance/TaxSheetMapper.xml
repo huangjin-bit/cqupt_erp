@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.finance.tax.TaxSheetDao">
+    <update id="updateTaxSheet">
+        update TAXSHEET set TAX=TAX+#{tax} where USERUNIQUE=#{userUnique}
+    </update>
+
+    <select id="findTaxSheetByUserUnique" resultType="com.cqupt.mislab.erpn.model.entity.finance.tax.TaxSheet">
+        select USERUNIQUE,TAX from taxsheet where USERUNIQUE=#{userUnique}
+    </select>
+    <select id="findTaxRate" resultType="java.lang.Double">
+        select TAXRATE from TAXRATEBASIC where REM='营业税率'
+    </select>
+</mapper>

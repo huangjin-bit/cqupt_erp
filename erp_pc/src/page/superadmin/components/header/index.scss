@@ -1,0 +1,53 @@
+.superadmin-header-wrapper {
+    min-width: 1120px;
+    padding-right: 20px;
+    background-color: #12385f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .content-wrapper {
+        display: flex;
+
+        .button-wrapper {
+            margin-right: 10px;
+
+            button {
+                background-color: #12385f;
+                border: #12385f;
+                color: #ced7e3;
+                height: 55px;
+                width: 55px;
+            }
+
+            button:hover {
+                background-color: #1a5086;
+            }
+        }
+
+        .user-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 45px;
+                height: 45px;
+            }
+
+            img:hover {
+                cursor: pointer;
+            }
+
+            .message-wrapper {
+                margin-left: 10px;
+
+                .message {
+                    font-size: 10px;
+                    line-height: 20px;
+                    color: white;
+                }
+            }
+        }
+    }
+}

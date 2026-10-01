@@ -1,0 +1,57 @@
+.userprepare-wrapper {
+    padding: 0px 15px 0px 10px;
+    width: 100%;
+    min-width: 1120px;
+
+    .entry-top {
+        margin-left: 30px;
+
+        .select-span {
+            color: #ADADAD;
+            font-size: 15px;
+            margin-left: 10px;
+        }
+
+        .select-btn {
+            margin-left: 20px;
+        }
+
+        .select {
+            width: 100px;
+            margin-left: 15px;
+        }
+    }
+
+    .entry-middle {
+        table {
+            font-size: 16px;
+
+            td {
+                height: 35px;
+                line-height: 35px;
+            }
+        }
+    }
+
+    .entry-buttom {
+        margin: auto;
+        width: 235px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .order-p {
+            margin-top: 10px;
+            margin-left: -30px;
+            font-size: 18px;
+
+            span {
+                color: lightskyblue;
+            }
+        }
+
+        .span-buttom {
+            margin-top: 10px;
+        }
+    }
+}

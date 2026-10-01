@@ -1,0 +1,99 @@
+@import 'common/styles/variable.scss';
+
+.login-page-wrapper {
+  width: 100vw;
+  height: 100vh;
+
+  .middle {
+    margin: 0 auto;
+    width: $formWidth;
+
+    .form-wrapper {
+      display: flex;
+      border: $formBorder;
+      margin-top: -224px;
+      height: 370px;
+      background: white;
+      box-shadow: $formBoxShadow;
+
+      .left {
+        padding: 40px;
+        width: 50%;
+        height: 100%;
+
+        .login-btn {
+          background-color: $themeColor;
+        }
+      }
+
+      .adminLogin {
+        margin-top: -10px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      .right {
+        width: 50%;
+        height: 100%;
+
+        .img-wrapper {
+          border-left: 2px solid #e5e5e5;
+          margin-top: 20px;
+          height: 165px;
+          text-align: center;
+
+          img {
+            width: 61.8%;
+          }
+        }
+
+        .right_p1 {
+          text-align: center;
+          color: #b3b3b3;
+          font-size: 20px;
+        }
+
+        .right_p2 {
+          font-size: 20px;
+          text-align: center;
+          color: #b3b3b3;
+
+          a {
+            font-size: 23px;
+            text-decoration: underline;
+            word-spacing: 2px;
+            font-weight: bold;
+            color: $themeColor;
+          }
+        }
+        .download {
+          text-align: center;
+          font-size: 14px;
+          color: #b3b3b3;
+          font-weight: bold;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .adminMiddle {
+    width: 420px;
+
+    .left {
+      width: 100% !important;
+    }
+
+    .adminLogin {
+      margin-top: 10px !important;
+    }
+
+    .left:nth-child(1) {
+      margin-top: 15px;
+    }
+  }
+
+  .footer {
+    min-width: 800px;
+  }
+}

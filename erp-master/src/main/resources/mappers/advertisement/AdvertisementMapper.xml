@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.advertisement.AdvertisementDao">
+    <insert id="addAdvertisementList">
+        insert ignore into adofuser(PERIOD,MARKETNAME,PRODUCTNAME,USERUNIQUE,MONEY)
+        values
+        <foreach collection="list" item="itm" index="index" separator=",">
+            (#{itm.period}, #{itm.marketName}, #{itm.productName}, #{itm.userUnique}, #{itm.money})
+        </foreach>
+    </insert>
+    <update id="updateMoneyByAdId">
+        update adofuser set MONEY=#{money} where ADID=#{adId}
+    </update>
+    <select id="findAdvertisementByMarketNameAndUserUnique"
+            resultType="com.cqupt.mislab.erpn.model.entity.advertisement.Advertisement">
+         select ADID , PRODUCTNAME,MARKETNAME, MONEY from adofuser where USERUNIQUE=#{userUnique} and PERIOD= (select
+        max(PERIOD) from adofuser where USERUNIQUE=#{userUnique}) and MARKETNAME=#{marketName}
+    </select>
+    <select id="findAlreadyAdvertisement"
+            resultType="com.cqupt.mislab.erpn.model.entity.advertisement.Advertisement">
+
+       select ADID , PRODUCTNAME,MARKETNAME, MONEY from adofuser where USERUNIQUE=#{userUnique} and
+        PERIOD= (select max(PERIOD) from adofuser where USERUNIQUE=#{userUnique}) and MONEY > 0
+    </select>
+    <select id="findSummaryMoney" resultType="java.lang.Double">
+        select sum(MONEY) sumMoney from adofUser where USERUNIQUE=#{userUnique} and PERIOD=#{currentPeriod}
+    </select>
+    <select id="findAdvertisementMoneyOfUsers"
+            resultType="com.cqupt.mislab.erpn.model.entity.order.OrderSequence">
+        select USERUNIQUE, MONEY
+        from adofuser
+        where userunique in
+              (select USERUNIQUE from gamegroupmember where groupname=#{groupName})
+          and PERIOD=#{period}
+          and marketname=#{marketName}
+          and productname=#{productName}
+          and MONEY > 0
+    </select>
+    <select id="findUserAdvertisementMoney" resultType="java.lang.Double">
+        select MONEY
+        from adofuser
+        where USERUNIQUE=#{userUnique}
+          and PERIOD=#{period}
+          and MARKETNAME=#{marketName}
+          and PRODUCTNAME=#{productName}
+    </select>
+
+
+    <select id="findMarketNameAndProductName"
+            resultType="com.cqupt.mislab.erpn.model.entity.advertisement.Advertisement">
+        select MARKETNAME,PRODUCTNAME from marketbasic,productbasic
+    </select>
+</mapper>

@@ -1,0 +1,76 @@
+{
+  "baseUrl": "http://39.98.115.237/",
+  "teacher": "wangyong",
+  "runId": "TVERIFY05300240",
+  "groupName": "AUTOVERIFY05300240",
+  "students": [
+    {
+      "user_id": "测甲05300240",
+      "name": "测试甲",
+      "sid": "0530024001",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测乙05300240",
+      "name": "测试乙",
+      "sid": "0530024002",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    },
+    {
+      "user_id": "测丙05300240",
+      "name": "测试丙",
+      "sid": "0530024003",
+      "sclass": "自动化测试班",
+      "major": "信息管理",
+      "college": "自动化测试学院",
+      "password": "123456"
+    }
+  ],
+  "steps": [
+    {
+      "at": "2026-05-30T02:30:29+0800",
+      "name": "teacher-login",
+      "data": {
+        "url": "http://39.98.115.237/#/teacher/userList",
+        "text": "加载中..."
+      }
+    },
+    {
+      "at": "2026-05-30T02:30:47+0800",
+      "name": "run-error",
+      "data": {
+        "type": "TimeoutError",
+        "message": "Locator.wait_for: Timeout 15000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"测甲05300240\") to be visible\n"
+      }
+    },
+    {
+      "at": "2026-05-30T02:30:47+0800",
+      "name": "teacher-delete-students",
+      "data": {
+        "status": 1,
+        "message": "失败",
+        "data": "删除失败！"
+      }
+    }
+  ],
+  "final": [],
+  "cleanup": {
+    "userIds": "测甲05300240,测乙05300240,测丙05300240",
+    "result": {
+      "status": 1,
+      "message": "失败",
+      "data": "删除失败！"
+    }
+  },
+  "error": {
+    "type": "TimeoutError",
+    "message": "Locator.wait_for: Timeout 15000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"测甲05300240\") to be visible\n"
+  },
+  "finishedAt": "2026-05-30T02:30:48+0800"
+}

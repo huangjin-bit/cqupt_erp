@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.order.AllOrdersOfGroupDao">
+
+    <insert  id="addAllOrdersOfGroups" parameterType="list" >
+        insert into allordersofgroup(ProductName,PNumber,Price,MarketName,NeedTime,moneyTime,PenalPercent,SpecialRem,GroupName,Status,Period)
+        values
+        <foreach collection="list" item="itm" index="index" separator=",">
+            (#{itm.productName}, #{itm.pNumber}, #{itm.price}, #{itm.marketName}, #{itm.needTime}, #{itm.moneyTime}, #{itm.penalPercent}, null, #{itm.groupName}, #{itm.status}, #{itm.period})
+        </foreach>
+
+    </insert >
+
+<!--    注意mysql默认不支持批量update操作，要在数据库连接url中指定allowMultiQueries=true-->
+    <update id="updateSpecalRems" parameterType="list">
+        <foreach collection="list" item="item" index="index" separator=";" >
+            <if test="item.specialRem!=null and item.specialRem!=''">
+                <![CDATA[ UPDATE allordersofgroup SET SPECIALREM = #{item.specialRem},PRICE = #{item.price}  WHERE ORDERID = #{item.orderID}    ]]>
+            </if>
+        </foreach>
+    </update>
+
+    <select id="findAllOrdersOfGroup" resultType="com.cqupt.mislab.erpn.model.entity.order.AllOrdersOfGroup" parameterType="string">
+        select * from allordersofgroup where ALLORDERSOFGROUP.GROUPNAME =#{groupName}
+    </select>
+
+    <select id="findOrderOfGroupByUserUnique" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.order.AllOrdersOfGroup">
+        select 	ORDERID,PRODUCTNAME,PNUMBER,PRICE,MARKETNAME,NEEDTIME,MONEYTIME,PENALPERCENT,SPECIALREM,GROUPNAME,STATUS,PERIOD
+        from allordersofgroup
+        where exists (select 1 from gamegroupmember where USERUNIQUE=#{userUnique} and allordersofgroup.GROUPNAME=gamegroupmember.GROUPNAME and allordersofgroup.PERIOD=gamegroupmember.CURRENTPERIOD)
+        order by ProductName,MarketName
+    </select>
+
+    <select id="findOrderStatusByOrderId" resultType="int">
+        select STATUS from allordersofgroup where ORDERID=#{orderId}
+    </select>
+
+    <select id="loadAllOrderOfGroupByOrderId" parameterType="int" resultType="com.cqupt.mislab.erpn.model.entity.order.AllOrdersOfGroup">
+        select 	ORDERID,PRODUCTNAME,PNUMBER,PRICE,MARKETNAME,NEEDTIME,MONEYTIME,PENALPERCENT,SPECIALREM,GROUPNAME,STATUS,PERIOD from allordersofgroup where ORDERID=#{orderId}
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.superadmin.SuperAdminDao">
+    <resultMap id="superAdmin" type="com.cqupt.mislab.erpn.model.entity.superadmin.SuperAdmin">
+        <id column="superadminid" property="superAdminId"/>
+        <result column="superadminname" property="superAdminName"/>
+        <result column="superadminpassword" property="superAdminPassword"/>
+    </resultMap>
+
+    <!--根据superAdminId查询数据-->
+    <select id="findInfoById" resultMap="superAdmin">
+        select *
+        from superadmin
+        where superadminid = #{superAdminId}
+    </select>
+
+    <!--查询所有管理员-->
+    <select id="findAll" resultType="com.cqupt.mislab.erpn.model.entity.admin.AdminUser">
+        select *
+        from adminuser
+    </select>
+
+    <!--重置密码-->
+    <update id="changePassWord" parameterType="String">
+        update adminuser
+        set PASSWORD='admin'
+        where ADMINID = #{adminId}
+    </update>
+
+    <!--删除管理员-->
+    <delete id="removeAdminById" parameterType="String">
+        delete
+        from adminuser
+        where ADMINID = #{adminId}
+    </delete>
+
+    <!--根据管理员id查找记录-->
+    <select id="findAdminById" parameterType="String" resultType="com.cqupt.mislab.erpn.model.entity.admin.AdminUser">
+        select *
+        from adminuser
+        where ADMINID = #{adminId}
+    </select>
+
+    <!--新增管理员-->
+    <insert id="addAdmin" parameterType="com.cqupt.mislab.erpn.model.entity.admin.AdminUser">
+        insert into adminuser(ADMINID, ADMINNAME, PASSWORD, POSITION, EMAIL, TEL, REM1, ROLE)
+        VALUES (#{adminId}, #{adminName}, #{password}, #{position}, #{email}, #{tel}, #{rem1}, #{role})
+    </insert>
+
+    <!--修改管理员记录-->
+    <update id="updateAdmin" parameterType="com.cqupt.mislab.erpn.model.entity.admin.AdminUser">
+        update adminuser
+        set ADMINID=#{adminId},
+            ADMINNAME=#{adminName},
+            PASSWORD=#{password}
+    </update>
+
+    <!--清空数据-->
+    <delete id="deleteAllDataBySuperAdmin">
+        DELETE FROM registeruser;
+        DELETE FROM developediso;
+        DELETE FROM undevelopiso;
+        DELETE FROM developingiso;
+        DELETE FROM undevelopproduct;
+        DELETE FROM developedproduct;
+        DELETE FROM developingproduct;
+        DELETE FROM undevelopmarket;
+        DELETE FROM developingmarket;
+        DELETE FROM developedmarket;
+        DELETE FROM taxsheet;
+        DELETE FROM chooseorder;
+        DELETE FROM adofuser;
+        DELETE FROM allordersofgroup;
+        DELETE FROM adstatusofuser;
+        DELETE FROM ordersofuser;
+        DELETE FROM cashsheet;
+        DELETE FROM willpay;
+        DELETE FROM willreceive;
+        DELETE FROM profitsheet;
+        DELETE FROM profitsheet;
+        DELETE FROM profitsheet;
+        DELETE FROM balancesheet;
+        DELETE FROM loanofuser;
+        DELETE FROM buyingmaterial;
+        DELETE FROM materialofuser;
+        DELETE FROM productofuser;
+        DELETE FROM productline;
+        DELETE FROM factory_making;
+        DELETE FROM factory_renting;
+        DELETE FROM factory_using;
+        DELETE FROM gamegroupmemberdetail;
+        DELETE FROM adminuser;
+        DELETE FROM predictionofgroup;
+        DELETE FROM chatroom;
+        DELETE FROM experience;
+        DELETE FROM his_accountdetail;
+        DELETE FROM his_accounthead;
+        DELETE FROM his_adofuser;
+        DELETE FROM his_balancesheet;
+        DELETE FROM his_gamegroup;
+        DELETE FROM his_gamegroupmember;
+        DELETE FROM his_ordersofuser;
+        DELETE FROM his_productline;
+        DELETE FROM stu_teacher_reference;
+        DELETE FROM gamegroupmember;
+        DELETE FROM gamegroup;
+        DELETE FROM approveduser;
+        DELETE FROM stu_teacher_reference;
+    </delete>
+
+</mapper>

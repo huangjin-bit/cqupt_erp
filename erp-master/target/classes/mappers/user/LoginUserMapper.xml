@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cqupt.mislab.erpn.dao.user.LoginUserDao">
+    <resultMap type="com.cqupt.mislab.erpn.model.entity.user.RegisterUser" id="RegisterUser">
+        <id column="USERID" property="userId"/>
+        <result column="USERNAME" property="userName"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="MAJOR" property="major"/>
+        <result column="CLASS" property="sClass"/>
+        <result column="SID" property="sId"/>
+        <result column="EMAIL" property="email"/>
+        <result column="TEL" property="tel"/>
+        <result column="STATUS" property="status"/>
+        <result column="GENDER" property="gender"/>
+    </resultMap>
+
+
+    <select id="findRegisterByUserId" parameterType="string" resultMap="RegisterUser">
+        select USERID,PASSWORD from registeruser where USERID=#{userId}
+    </select>
+
+    <resultMap type="com.cqupt.mislab.erpn.model.entity.user.ApprovedUser" id="ApprovedUser">
+        <id column="USERID" property="userId"/>
+        <result column="USERNAME" property="userName"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="MAJOR" property="major"/>
+        <result column="CLASS" property="sClass"/>
+        <result column="SID" property="sId"/>
+        <result column="EMAIL" property="email"/>
+        <result column="TEL" property="tel"/>
+        <result column="GENDER" property="gender"/>
+        <result column="REM2" property="rem2"/>
+    </resultMap>
+
+    <select id="findApprovedUserByUserId" parameterType="string" resultMap="ApprovedUser">
+        select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,GENDER from approveduser where USERID=#{userId}
+    </select>
+
+    <!--<select id="findUserUniqueInGroupMemberByUserId" parameterType="string" resultType="string">-->
+        <!--select USERUNIQUE from GAMEGROUPMEMBER where userID=#{userId} AND STATUS>-1-->
+    <!--</select>-->
+
+    <select id="findGameGroupMemberByUserId" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo">
+        select GROUPNAME,USERID from gamegroupmember where USERID=#{userId} AND STATUS>-1
+    </select>
+
+    <select id="findGameCreatorByUserId" parameterType="string" resultType="int">
+        select count(*) from gamegroupmember,gamegroup where USERID=#{userId} and gamegroupmember.GROUPNAME=gamegroup.GROUPNAME and USERID=GROUPCREATERID AND STATUS>-1
+    </select>
+
+    <select id="findGroupNameByUserId" parameterType="string" resultType="int">
+        select gamegroup.GROUPNAME from gamegroupmember,gamegroup where USERID=#{userId} and gamegroupmember.GROUPNAME=gamegroup.GROUPNAME and USERID=GROUPCREATERID AND STATUS>-1
+    </select>
+
+    <select id="getStatusByUserUnique" parameterType="string" resultType="int">
+        select STATUS from gamegroupmember where USERUNIQUE=#{userUnique}
+    </select>
+
+    <resultMap id="gamegroups"
+               type="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupInfo">
+        <result property="groupName" column="GROUPNAME" />
+        <result property="groupCreatorId" column="GROUPCREATERID" />
+        <result property="teacherId" column="TEACHERID"/>
+        <result property="userNumbers" column="USERNUMBERS" />
+        <result property="joinNumber" column="JOINNUMBER" />
+        <result property="periodsOfOneYear" column="PERIODSOFONEYEAR"/>
+        <result property="remandNumber" column="REMANDNUMBER" />
+        <result property="currentPeriod" column="CURRENTPERIOD" />
+        <result property="periodsOfOneYear" column="PERIODSOFONEYEAR"/>
+        <!--以下属性是表示每场比赛当中各阶段所含有的人数比例-->
+        <result property="excellent" column="EXCELLENT"/>
+        <result property="good" column="GOOD"/>
+        <result property="mean" column="MEAN"/>
+        <result property="passed" column="PASSED"/>
+        <result property="failed" column="FAILED"/>
+    </resultMap>
+
+    <select id="findGameGroupByGroupName" parameterType="string" resultMap="gamegroups">
+        select GROUPNAME,GROUPCREATERID,USERNUMBERS,YEARS,PERIODSOFONEYEAR,CURRENTPERIOD FROM gamegroup where GROUPNAME = #{groupName}
+    </select>
+
+    <select id="findUserUniqueInGroupMemberByUserId" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo">
+        select userunique,gamegroup.currentperiod from gamegroupmember,gamegroup where USERID=#{userId} and gamegroupmember.groupname =  gamegroup.groupname   AND STATUS>-1
+    </select>
+
+    <select id="loginRegisterUser" parameterType="string" resultType="com.cqupt.mislab.erpn.model.po.UserPo">
+        select USERID,USERNAME,PASSWORD,GENDER from registeruser where USERID=#{userId}
+    </select>
+
+    <select id="loginApprovedUser" parameterType="string" resultType="com.cqupt.mislab.erpn.model.po.UserPo">
+        select USERID,USERNAME,PASSWORD,GENDER from approveduser where USERID=#{userId}
+    </select>
+
+    <insert id="addApprovedUser" parameterType="com.cqupt.mislab.erpn.model.entity.user.ApprovedUser">
+        insert into approveduser(USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,GENDER)
+         values(#{userId},#{userName},#{password},#{major},#{sClass},#{sId},#{email},#{tel},#{gender})
+    </insert>
+
+    <delete id="deleteApprovedUser">
+        delete from approveduser where USERID = #{userId}
+    </delete>
+
+    <update id="modifyApprovedUser" parameterType="com.cqupt.mislab.erpn.model.entity.user.ApprovedUser">
+        update approveduser set USERNAME=#{userName},PASSWORD=#{password},MAJOR=#{major},CLASS=#{sClass},SID=#{sId},EMAIL=#{email},TEL=#{tel},GENDER=#{gender} where USERID=#{userId}
+    </update>
+
+    <select id="findGroupCreatorUserByGroupName" resultMap="ApprovedUser" parameterType="string">
+        select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,GENDER from approveduser where USERID=(select GROUPCREATERID from gamegroup where GROUPNAME=#{groupName})
+    </select>
+
+<!--    查询所有在指定组内的审批用户-->
+    <select id="findGroupUserMessageByGroupName" resultMap="ApprovedUser" parameterType="string">
+        select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,GENDER from approveduser where USERID in (select USERID from gamegroupmember where GROUPNAME=#{groupName})
+    </select>
+
+    <resultMap id="gamegroupmembers"
+               type="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo">
+        <result property="groupName" column="GROUPNAME" />
+        <result property="userId" column="USERID"/>
+        <result property="userUnique" column="USERUNIQUE"/>
+        <result property="currentPeriod" column="CURRENTPERIOD" />
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+    <select id="findGroupMembersByGroupName" parameterType="string" resultType="com.cqupt.mislab.erpn.model.entity.gameGroup.GameGroupMemberInfo" >
+        select USERUNIQUE,GROUPNAME,USERID,CURRENTPERIOD,STATUS from gamegroupmember where GROUPNAME = #{groupName} order by GROUPNAME desc
+    </select>
+
+
+
+    <!--<update id="modifyApprovedUser"  parameterType="com.cqupt.mislab.erpn.model.entity.user.ApprovedUser">-->
+        <!--update approveduser-->
+        <!--<trim prefix="SET" suffixOverrides="">-->
+            <!--<if test="userName != null">-->
+                <!--USERNAME = #{userName},-->
+            <!--</if>-->
+            <!--<if test="password!= null">-->
+                <!--'PASSWORD' = #{password},-->
+            <!--</if>-->
+            <!--<if test="major != null ">-->
+                <!--MAJOR = #{major},-->
+            <!--</if>-->
+            <!--<if test="sClass != null ">-->
+                <!--'CLASS' = #{sClass},-->
+            <!--</if>-->
+            <!--<if test="sId != null ">-->
+                <!--SID = #{sId},-->
+            <!--</if>-->
+            <!--<if test="email != null ">-->
+                <!--EMAIL = #{email},-->
+            <!--</if>-->
+            <!--<if test="tel != null ">-->
+                <!--TEL = #{tel},-->
+            <!--</if>-->
+          <!--where USERID=#{userId}-->
+        <!--</trim>-->
+    <!--</update>-->
+
+    <!--<update id="update_register" parameterType="com.cqupt.mis.erp.model.registerlogin.RegisterInfo">-->
+    <!--update REGISTERUSER set USERNAME=#{name},PASSWORD=#{password},MAJOR=#{major},CLASS=#{className},SID=#{studentID},EMAIL=#{email},TEL=#{tel} where USERID=#{userID}-->
+    <!--</update>-->
+
+    <!--<select id="find_all_register"  resultMap="RegisterResult">-->
+    <!--select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,STATUS from REGISTERUSER-->
+    <!--</select>-->
+
+    <!--<delete id="delete" parameterType="map">-->
+    <!--delete from REGISTERUSER where USERID=#{id}-->
+    <!--</delete>-->
+
+</mapper>

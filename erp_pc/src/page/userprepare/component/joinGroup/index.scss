@@ -1,0 +1,69 @@
+@import 'common/styles/variable.scss';
+
+.join-group-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(4, 25%);
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
+  margin: auto;
+  margin-top: 30px;
+  width: 60%;
+  height: 555px;
+
+  .card-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 113px;
+    height: 144px;
+
+    .card {
+      background-color: $themeColor;
+      img {
+        width: 113px;
+        height: 144px;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 113px;
+        height: 144px;
+        p {
+          color: white;
+        }
+      }
+    }
+    .icon {
+      margin-left: -2px;
+      svg {
+        width: 33px;
+        height: 34px;
+        color: $themeColor;
+        font-family: $themeFontFamliy;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      svg:hover {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .disabled-icon {
+      margin-left: -2px;
+      svg {
+        width: 33px;
+        height: 34px;
+        color: grey;
+        font-family: $themeFontFamliy;
+        font-size: 14px;
+      }
+    }
+  }
+  .pagination {
+    margin: auto;
+    grid-column-end: 3;
+  }
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.prediction.PredictionOfGroupDao">
+
+    <!--早期老版Oracle语句-->
+    <!--<sql id='TABLE_SEQUENCE'>predictionofgroup_preid_seq.nextval</sql>-->
+    <!--&lt;!&ndash;以下语句中的"predictionofgroup_preid_seq" 是数据库中已经存在的值，直接取出来用就Ok了！ &ndash;&gt;-->
+    <!--<insert id="addPredictionOfGroup" parameterType="com.cqupt.mislab.erpn.model.entity.prediction.PredictionOfGroup" >-->
+        <!--insert into predictionofgroup(GROUPNAME,PERIOD,MARKETNAME,PRODUCTNAME,PRICE,MOUNT,PREDICTIONID) values(#{groupName},#{period},#{marketName},#{productName},#{price},#{mount},predictionofgroup_preid_seq.nextval)-->
+    <!--</insert>-->
+
+
+    <!--<insert id="addPredictionOfGroups"  parameterType="list" >-->
+    <!--insert into PREDICTIONOFGROUP(GROUPNAME,PERIOD,MARKETNAME,PRODUCTNAME,PRICE,MOUNT)-->
+    <!--<foreach collection="list" item="itm" index="index" separator="union all" >-->
+    <!--(SELECT-->
+    <!--#{itm.groupName},-->
+    <!--#{itm.period},-->
+    <!--#{itm.marketName},-->
+    <!--#{itm.productName},-->
+    <!--#{itm.price},-->
+    <!--#{itm.mount}-->
+    <!--FROM DUAL)-->
+    <!--</foreach>-->
+    <!--</insert>-->
+
+
+
+    <!--<insert id="addPredictionOfGroups" parameterType="java.util.List" useGeneratedKeys="true">-->
+        <!--INSERT into predictionofgroup-->
+          <!--(GROUPNAME,PERIOD,MARKETNAME,PRODUCTNAME,PRICE,MOUNT)-->
+        <!--VALUES-->
+        <!--<foreach collection="list" item="predictionOfGroup" index="index" separator=",">-->
+            <!--(-->
+            <!--#{predictionOfGroup.groupName},-->
+            <!--#{predictionOfGroup.period},-->
+            <!--#{predictionOfGroup.marketName},-->
+            <!--#{predictionOfGroup.productName},-->
+            <!--#{predictionOfGroup.price},-->
+            <!--#{predictionOfGroup.mount}-->
+            <!--)-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <insert id="addPredictionOfGroups" parameterType="list" keyProperty="predictionID" keyColumn="PREDICTIONID" useGeneratedKeys="true">
+        INSERT into predictionofgroup
+        (GROUPNAME,PERIOD,MARKETNAME,PRODUCTNAME,PRICE,MOUNT)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.groupName},
+            #{item.period},
+            #{item.marketName},
+            #{item.productName},
+            #{item.price},
+            #{item.mount}
+            )
+        </foreach>
+    </insert>
+    <resultMap id="predictionOfGroup"
+               type="com.cqupt.mislab.erpn.model.entity.prediction.PredictionOfGroup">
+        <result property="groupName" column="GROUPNAME" />
+        <result property="period" column="PERIOD" />
+        <result property="marketName" column="MARKETNAME"/>
+        <result property="productName" column="PRODUCTNAME" />
+        <result property="price" column="PRICE" />
+        <result property="mount" column="MOUNT"/>
+        <result property="predictionID" column="PREDICTIONID" />
+    </resultMap>
+
+    <select id="findAllPredictionOfGroup" resultMap="predictionOfGroup" parameterType="string">
+        select GROUPNAME,PERIOD,MARKETNAME,PRODUCTNAME,PRICE,MOUNT,PREDICTIONID from predictionofgroup where GROUPNAME=#{groupName}
+    </select>
+
+    <!--<select id="findAllPredictionOfGroup" resultType="com.cqupt.mislab.erpn.model.entity.prediction.PredictionOfGroup" parameterType="string">-->
+        <!--select* from predictionofgroup where GROUPNAME=#{groupName}-->
+    <!--</select>-->
+
+
+</mapper>

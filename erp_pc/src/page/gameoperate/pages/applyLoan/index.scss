@@ -1,0 +1,122 @@
+.applyLoan-wrapper {
+    padding: 0px 15px 0px 10px;
+    width: 100%;
+    min-width: 1120px;
+    position: relative;
+
+    .bank-img {
+        width: 100%;
+    }
+
+    .long-loan {
+        width: 13.5%;
+        height: 4.5%;
+        position: absolute;
+        top: 28.2%;
+        left: 3.2%;
+        opacity: 0.3;
+    }
+
+    .short-loan {
+        width: 13.5%;
+        height: 4.5%;
+        position: absolute;
+        top: 28.2%;
+        left: 20.5%;
+
+
+    }
+
+    .high-loan {
+        width: 13.5%;
+        height: 4.5%;
+        position: absolute;
+        top: 28.2%;
+        left: 37.8%;
+
+    }
+
+    .see-loan {
+        width: 13.5%;
+        height: 4.5%;
+        position: absolute;
+        top: 28.2%;
+        left: 55.2%;
+    }
+
+    .cash-div {
+        width: 12%;
+        height: 7.5%;
+        position: absolute;
+        top: 42%;
+        left: 79.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+
+        .cash-number {
+            font-size: 20px;
+        }
+    }
+
+}
+
+.middle-content {
+    .middle-left {
+        height: 200px;
+        width: 300px;
+        margin-left: 100px;
+
+        .select {
+            width: 100px;
+        }
+
+        .money-input {
+            width: 100px;
+
+        }
+
+        .year-profit {
+            margin-left: 16px;
+        }
+
+        p,
+        .loan-span {
+            font-size: 16px;
+            margin-bottom: 20px !important;
+        }
+
+        .loan-span {
+            margin-left: 32px;
+        }
+    }
+
+    .middle-right {
+        padding: 0 20px;
+
+        .first-message {
+            color: red;
+            font-size: 15px;
+        }
+
+        .second-message {
+            color: rgb(81, 102, 131);
+            font-size: 15px;
+        }
+    }
+}
+
+.card-bottom {
+    text-align: center;
+
+    .bottom-btn {
+        width: 80px;
+        margin: 0 10px;
+    }
+}
+
+.cash-show {
+    font-size: 16px;
+    padding-left: 10px;
+}

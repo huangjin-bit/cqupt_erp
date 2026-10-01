@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.finance.profit.ProfitDao">
+    <resultMap id="profitVo" type="com.cqupt.mislab.erpn.model.vo.finance.ProfitVO">
+        <result column="col1" property="content"/>
+        <result column="col2" property="rows"/>
+        <result column="col3" property="cols"/>
+    </resultMap>
+    <select id="findProfitSheet" resultMap="profitVo">
+        select *
+        from (
+                 (select CONTENTVALUE as col1, ROWNUMBER as col2, COLNUMBER as col3 from PROFITSHEETTEXTBASIC)
+                 union
+                 (
+                     select FORMAT(ItemValue, 2), RowNumber, ColNumber
+                     from PROFITSHEETONEITEMBASIC,
+                          PROFITSHEET
+                     where PROFITSHEETONEITEMBASIC.OneItem = PROFITSHEET.OneItem
+                       and USERUNIQUE = #{userUnique}
+                       and PERIOD = #{period}
+                 )
+                 union
+                 (select FORMAT(t3.IV, 2), CalRow, CalCol
+                  from PROFITSHEETCALBASIC,
+                       (select PROFITSHEETCALBASIC.CalCellID                                   as calid,
+                               Sum(PROFITSHEET.ItemValue * PROFITSHEETCALRELATIONBASIC.Signal) as
+                                                                                                  IV
+                        from PROFITSHEET,
+                             PROFITSHEETCALRELATIONBASIC,
+                             PROFITSHEETCALBASIC
+                        where PROFITSHEET.OneItem = PROFITSHEETCALRELATIONBASIC.OneItem
+                          and PROFITSHEETCALBASIC.CALCELLID = PROFITSHEETCALRELATIONBASIC.CALCELLID
+                          and USERUNIQUE = #{userUnique}
+                          and PERIOD = #{period}
+                        group by PROFITSHEETCALBASIC.CALCELLID
+                       ) t3
+                  where PROFITSHEETCALBASIC.CalCellID = t3.calid
+                 )
+             ) tt
+        order by col2, col3;
+
+    </select>
+</mapper>

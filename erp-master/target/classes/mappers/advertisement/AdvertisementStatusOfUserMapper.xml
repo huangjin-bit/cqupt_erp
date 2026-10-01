@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.advertisement.AdvertisementStatusOfUserDao">
+    <insert id="addAdStatusOfUser">
+        insert into adstatusofuser(USERUNIQUE, PERIOD, FINISHADFLAG, FINISHORDERFLAG, CHOOSEORDERFLAG) values
+        (#{userUnique},#{period},#{finishAdvertiseFlag},#{finishOrderFlag},#{chooseOrderFlag})
+        on duplicate key update
+        FINISHADFLAG = #{finishAdvertiseFlag},
+        FINISHORDERFLAG = #{finishOrderFlag},
+        CHOOSEORDERFLAG = #{chooseOrderFlag}
+    </insert>
+    <update id="updateFinishAdFlag">
+
+      update adstatusofuser set FINISHADFLAG=#{finishFlag} where USERUNIQUE=#{userUnique} and PERIOD=#{currentPeriod}
+
+    </update>
+    <update id="updateChooseOrderFlag">
+        update adstatusofuser
+        set CHOOSEORDERFLAG=#{status}
+        where PERIOD=#{period}
+        and USERUNIQUE in
+        <foreach collection="userUniques" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <select id="findFinishAdFlag" resultType="java.lang.Integer">
+
+        select FINISHADFLAG from adstatusofuser where USERUNIQUE=#{userUnique} and PERIOD=#{currentPeriod}
+
+    </select>
+
+    <select id="findAdvertisementStatusOfUserByUserUniques"
+            resultType="com.cqupt.mislab.erpn.model.entity.advertisement.AdvertisementStatusOfUser">
+
+        select USERUNIQUE,PERIOD,FINISHADFLAG as finishAdvertiseFlag,FINISHORDERFLAG,CHOOSEORDERFLAG from adstatusofuser
+        where USERUNIQUE in
+        <foreach collection="userUniques" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and PERIOD=#{period}
+    </select>
+    <select id="findAdvertisementStatusOfUserByUserUnique"
+            resultType="com.cqupt.mislab.erpn.model.entity.advertisement.AdvertisementStatusOfUser">
+        select USERUNIQUE,PERIOD,FINISHADFLAG as finishAdvertiseFlag,FINISHORDERFLAG,CHOOSEORDERFLAG from adstatusofuser
+        where USERUNIQUE=#{userUnique} and PERIOD=#{period}
+    </select>
+
+    <select id="findChooseOrderFlag" resultType="java.lang.Integer">
+        select CHOOSEORDERFLAG from adstatusofuser where USERUNIQUE=#{userUnique} and PERIOD=#{currentPeriod}
+    </select>
+    <select id="findFinishOrderFlag" resultType="java.lang.Integer">
+        select FINISHORDERFLAG from adstatusofuser where USERUNIQUE=#{userUnique} and PERIOD=#{currentPeriod}
+    </select>
+
+    <select id="checkFinishOrderFlag" resultType="java.lang.Integer">
+        select FINISHORDERFLAG from adstatusofuser where USERUNIQUE=#{userUnique} and PERIOD=(select max(PERIOD) from
+            adofuser where USERUNIQUE=#{userUnique})
+    </select>
+
+
+    <update id="updateFinishOrderFlag" parameterType="map">
+        update adstatusofuser set FINISHORDERFLAG=#{finishFlag} where USERUNIQUE=#{userUnique} and PERIOD=#{period}
+    </update>
+
+
+
+</mapper>

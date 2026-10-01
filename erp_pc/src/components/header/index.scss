@@ -1,0 +1,7 @@
+@import 'common/styles/variable.scss';
+
+.header-wrapper {
+  height: 50px;
+  overflow: hidden;
+  background: $themeColor url('../../assets/images/logo1.jpg') no-repeat left center;
+}

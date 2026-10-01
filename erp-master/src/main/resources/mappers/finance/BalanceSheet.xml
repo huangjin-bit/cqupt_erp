@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqupt.mislab.erpn.dao.finance.balance.BalanceSheetDao">
+
+    <resultMap id="balanceVo" type="com.cqupt.mislab.erpn.model.vo.finance.BalanceVO">
+        <result column="col1" property="content"/>
+        <result column="col2" property="rows"/>
+        <result column="col3" property="cols"/>
+    </resultMap>
+    <select id="findBalanceSheet" resultMap="balanceVo">
+        SELECT *
+        FROM (
+                 (
+                     SELECT IFNULL(Contentvalue, '') AS col1, rownumber AS col2, colnumber AS col3
+                     FROM balancesheettextbasic
+                 )
+                 UNION ALL
+                 (
+                     SELECT IFNULL(FORMAT(balancesheet.BeginValue, 2), '') AS col1,
+                            rownumber_first                                AS col2,
+                            colnumber_first                                AS col3
+                     FROM Balancesheet,
+                          Balancesheetoneitembasic
+                     WHERE balancesheet.oneitem = balancesheetoneitembasic.oneitem
+                       AND USERUNIQUE = #{userUnique}
+                       AND PERIOD = #{period}
+                 )
+                 UNION ALL
+                 (
+                     SELECT IFNULL(FORMAT(EndValue, 2), '') AS col1, rownumber_last AS col2, colnumber_last AS col3
+                     FROM Balancesheet,
+                          Balancesheetoneitembasic
+                     WHERE balancesheet.oneitem = balancesheetoneitembasic.oneitem
+                       AND USERUNIQUE = #{userUnique}
+                       AND PERIOD = #{period}
+                 )
+                 UNION ALL
+                 (
+                     SELECT IFNULL(FORMAT(table1.bv, 2), '')  AS col1,
+                            balancesheetcalbasic.calrow_first AS
+                                                                 col2,
+                            balancesheetcalbasic.calcol_first AS col3
+                     FROM balancesheetcalbasic,
+                          (SELECT balancesheetcalbasic.calcellid                                                 AS
+                                                                                                                    calid,
+                                  IFNULL(SUM(balancesheet.beginvalue * balancesheetcalrelationbasic.signal), '') AS bv
+                           FROM balancesheetcalrelationbasic,
+                                balancesheet,
+                                balancesheetcalbasic
+                           WHERE balancesheetcalrelationbasic.oneitem = balancesheet.oneitem
+                             AND balancesheetcalbasic.calcellid = balancesheetcalrelationbasic.calcellid
+                             AND USERUNIQUE = #{userUnique}
+                             AND PERIOD = #{period}
+                           GROUP BY balancesheetcalbasic.calcellid) table1
+                     WHERE table1.calid
+                               = balancesheetcalbasic.calcellid
+                 )
+                 UNION ALL
+                 (
+                     SELECT IFNULL(FORMAT(table2.ev, 2), '') AS
+                                                                col1,
+                            balancesheetcalbasic.calrow_last AS
+                                                                col2,
+                            balancesheetcalbasic.calcol_last AS col3
+                     FROM balancesheetcalbasic,
+                          (SELECT balancesheetcalbasic.calcellid                                               AS
+                                                                                                                  calid,
+                                  IFNULL(SUM(balancesheet.endvalue * balancesheetcalrelationbasic.signal), '') AS ev
+                           FROM balancesheetcalrelationbasic,
+                                balancesheet,
+                                balancesheetcalbasic
+                           WHERE balancesheetcalrelationbasic.oneitem = balancesheet.oneitem
+                             AND balancesheetcalbasic.calcellid = balancesheetcalrelationbasic.calcellid
+                             AND USERUNIQUE = #{userUnique}
+                             AND PERIOD = #{period}
+                           GROUP BY balancesheetcalbasic.calcellid
+                          ) table2
+                     WHERE table2.calid = balancesheetcalbasic.calcellid
+                 )
+             ) tt
+        ORDER BY col2, col3;
+    </select>
+    <select id="findBeginValue" resultType="java.lang.Float">
+        select BEGINVALUE
+        from BALANCESHEET
+        where USERUNIQUE = #{userUnique}
+          and PERIOD = #{currentPeriod}
+          and ONEITEM
+            in ('股东资本', '利润留存', '净利润');
+    </select>
+    <select id="findBalanceSheetVo" resultType="com.cqupt.mislab.erpn.model.vo.finance.BalanceSheetVo">
+        select type1,sum(endvalue) as cvalue
+        from accountonebasic, balancesheet
+        where accountonebasic.oneitem =balancesheet.oneitem and balancesheet.userunique=#{userUnique}
+        group by Type1
+    </select>
+
+</mapper>
