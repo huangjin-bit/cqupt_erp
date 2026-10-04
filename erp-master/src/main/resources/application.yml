@@ -33,7 +33,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: hj19936318748
-#    password: xia123
   profiles: dev
 
 ---

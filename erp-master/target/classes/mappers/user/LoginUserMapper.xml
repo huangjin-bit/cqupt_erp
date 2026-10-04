@@ -107,6 +107,7 @@
         update approveduser set USERNAME=#{userName},PASSWORD=#{password},MAJOR=#{major},CLASS=#{sClass},SID=#{sId},EMAIL=#{email},TEL=#{tel},GENDER=#{gender} where USERID=#{userId}
     </update>
 
+
     <select id="findGroupCreatorUserByGroupName" resultMap="ApprovedUser" parameterType="string">
         select USERID,USERNAME,PASSWORD,MAJOR,CLASS,SID,EMAIL,TEL,GENDER from approveduser where USERID=(select GROUPCREATERID from gamegroup where GROUPNAME=#{groupName})
     </select>

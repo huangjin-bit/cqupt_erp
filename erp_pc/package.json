@@ -1,7 +1,7 @@
 {
   "name": "new-erp",
   "version": "0.1.0",
-  "proxy": "http://106.14.13.47/",
+  "proxy": "http://localhost:81/",
   "private": true,
   "homepage": "./",
   "dependencies": {
